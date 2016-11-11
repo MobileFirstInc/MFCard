@@ -46,7 +46,7 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KwN-sw-3st">
                             <rect key="frame" x="242" y="12" width="50" height="30"/>
-                            <color key="backgroundColor" red="0.015686274510000001" green="0.52156862749999999" blue="0.63921568630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="Rc3-wx-GH5"/>
                                 <constraint firstAttribute="width" constant="50" id="nis-UT-Yfd"/>
@@ -66,7 +66,7 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9q8-BU-bfu">
                             <rect key="frame" x="8" y="12" width="50" height="30"/>
-                            <color key="backgroundColor" red="0.015686274510000001" green="0.52156862749999999" blue="0.63921568630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="50" id="Uj0-oK-F5a"/>
                                 <constraint firstAttribute="height" constant="30" id="j9y-lp-gcj"/>
@@ -98,14 +98,14 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Yq-cx-Ci0" userLabel="ChromeView">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="194"/>
-                            <color key="backgroundColor" red="0.015686274510000001" green="0.52156862749999999" blue="0.63921568630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QGO-cH-1CO" userLabel="ContainerView">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="194"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RE2-rY-oCk" userLabel="MagneticTapeView">
                                     <rect key="frame" x="0.0" y="20" width="300" height="35"/>
-                                    <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="35" id="Ps1-It-Hy6"/>
                                     </constraints>
@@ -162,9 +162,9 @@
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blank-world-map" translatesAutoresizingMaskIntoConstraints="NO" id="njz-AB-oMy">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="194"/>
                         </imageView>
-                        <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="clc-DC-xoP" userLabel="ChromeView">
+                        <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="clc-DC-xoP" userLabel="ChromeView">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="194"/>
-                            <color key="backgroundColor" red="0.015686274510000001" green="0.52156862749999999" blue="0.63921568630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hvo-QO-2CS" userLabel="ContainerView">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="1807"/>
@@ -389,6 +389,6 @@
         </view>
     </objects>
     <resources>
-        <image name="blank-world-map" width="2400" height="1800"/>
+        <image name="blank-world-map" width="630" height="400"/>
     </resources>
 </document>

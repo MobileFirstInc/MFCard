@@ -15,11 +15,8 @@ protocol MFCardDelegate {
 
 @IBDesignable class MFCardView: UIView {
     
-        
+    
     var delegate :MFCardDelegate?
-    fileprivate var  chromeColor : UIColor? {
-        return UIColor.chromeColor()
-    }
     fileprivate var addedCardType: CardType?
     fileprivate var error :String? = String()
     
@@ -50,14 +47,14 @@ protocol MFCardDelegate {
     @IBOutlet weak var viewExpiryYear: LBZSpinner!
     
     @IBOutlet weak var controlView: UIView!
-
+    
     @IBOutlet weak var btnCvc: UIButton!
     
     @IBOutlet weak var btnDone: UIButton!
     
     @IBOutlet var cardLabels: [UILabel]!
     var cardTextFields:[UITextField]!
-//    var addedCard = Card()
+    //    var addedCard = Card()
     fileprivate var nibName: String = "MFCardView"
     
     //MARK:
@@ -73,7 +70,7 @@ protocol MFCardDelegate {
         super.init(frame: frame)
         setup()
         setupUI()
-
+        
     }
     
     
@@ -91,7 +88,7 @@ protocol MFCardDelegate {
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[view]|", options: [], metrics: nil, views: ["view": self.view]))
         
         //Other SetUps...
-       cardTextFields = [txtCardNoP4,txtCardNoP3,txtCardNoP2,txtCardNoP1,txtCardName,txtCvc];
+        cardTextFields = [txtCardNoP4,txtCardNoP3,txtCardNoP2,txtCardNoP1,txtCardName,txtCvc];
         btnDone.isHidden = true
         let components = (Calendar.current as NSCalendar).components([.day, .month, .year], from: Date())
         let year = components.year
@@ -139,7 +136,7 @@ protocol MFCardDelegate {
         self.btnDone.layer.cornerRadius = self.controlButtonsRadius
         self.cardBackView.layer.cornerRadius = self.cardRadius
         self.cardFrontView.layer.cornerRadius = self.cardRadius
-        self.frontChromeColor = chromeColor
+        self.frontChromeColor = UIColor.black
         changeFont(color: UIColor.white)
         changeTextFieldTextColor(color: UIColor.black)
         changeTextFieldColor(color: UIColor.white)
@@ -158,13 +155,13 @@ protocol MFCardDelegate {
         return view
     }
     
-//    func getBundle() -> Bundle {
-//        let podBundle = Bundle(for: ViewController.self)
-//        
-//        let bundleURL = podBundle.url(forResource: "MFCardView", withExtension: "bundle")
-//        return Bundle(url: bundleURL!)!
-//    }
-
+    //    func getBundle() -> Bundle {
+    //        let podBundle = Bundle(for: ViewController.self)
+    //
+    //        let bundleURL = podBundle.url(forResource: "MFCardView", withExtension: "bundle")
+    //        return Bundle(url: bundleURL!)!
+    //    }
+    
     
     private func changeFont(color :UIColor){
         btnDone.setTitleColor(color, for: .normal)
@@ -216,22 +213,18 @@ protocol MFCardDelegate {
         let cardNumber :String = getCardNumber()
         if (txtCvc.text?.characters.count)! <= 3 && cardNumber.characters.count <= 13 {
             error = "Please enter valid card details"
-            //UIViewController().showAlertWithTitle("Failed" ,message:"Please enter valid card details", popVC: false)
         }else if viewExpiryMonth.labelValue.text! == "MM" {
-             error = "Please Select Expiry Month"
-           // UIViewController().showAlertWithTitle("Failed", message:"Please Select Expiry Month", popVC: false)
+            error = "Please Select Expiry Month"
         }else if viewExpiryYear.labelValue.text! == "YYYY" {
             error = "Please Select Expiry Year"
-           // UIViewController().showAlertWithTitle("Failed", message:"Please Select Expiry Year", popVC: false)
         }
-        else{
-        }
+        else{}
         card = Card(name: txtCardName.text, number: cardNumber, month: viewExpiryMonth!.labelValue.text!, year: viewExpiryYear!.labelValue.text!, cvc: txtCvc.text, paymentType: Card.PaymentType.card, cardType:addedCardType, userId: 1)
         
         if self.delegate != nil{
             self.delegate?.cardDoneButtonClicked(card: card, error: error)
         }
-
+        
     }
     
     //MARK:
@@ -326,7 +319,7 @@ protocol MFCardDelegate {
         default:
             cardTypeImage.image = nil
             addedCardType = CardType.Visa
-
+            
             break
         }
     }
@@ -350,7 +343,7 @@ protocol MFCardDelegate {
             }
         }
     }
-
+    
     @IBInspectable var cardRadius: CGFloat = 15 {
         didSet {
             if oldValue != cardRadius {
@@ -404,8 +397,8 @@ protocol MFCardDelegate {
             
         }
     }
-
-    @IBInspectable var frontChromeColor :UIColor? = UIColor.black {
+    
+    @IBInspectable var frontChromeColor :UIColor? = UIColor.clear {
         didSet{
             
             if oldValue != frontChromeColor {
@@ -430,7 +423,7 @@ protocol MFCardDelegate {
         
     }
     
-    @IBInspectable var backChromeColor :UIColor? = UIColor.black {
+    @IBInspectable var backChromeColor :UIColor? = UIColor.clear {
         didSet{
             if oldValue != backChromeColor {
                 backChromeView.backgroundColor = backChromeColor
@@ -450,9 +443,7 @@ protocol MFCardDelegate {
     
     @IBInspectable var cardImage :UIImage? = UIImage(named: "blank-world-map")  {
         didSet{
-            if oldValue != cardImage {
-                frontCardImage.image = cardImage
-            }
+            frontCardImage.image = cardImage
         }
         
     }
@@ -469,7 +460,7 @@ protocol MFCardDelegate {
 
 
 extension MFCardView: UITextFieldDelegate{
-   
+    
     func textFieldDidChange(_ textField: UITextField){
         if textField != txtCvc{
             changeTextFieldLessThan0(textField)
@@ -595,18 +586,11 @@ extension MFCardView :LBZSpinnerDelegate{
         print("Spinner : \(spinnerName) : { Index : \(index) - \(value) }")
     }
     
-
-}
-extension UIColor{
     
-    class func chromeColor() -> UIColor {
-        return UIColor(colorLiteralRed: 0.02, green: 0.52, blue: 0.64, alpha: 1)
-        //0485A3
-    }
 }
 
 extension UIViewController{
-
+    
     func showAlertWithTitle(_ title:String, message:String, popVC:Bool){
         
         let alert = UIAlertController(title: title,

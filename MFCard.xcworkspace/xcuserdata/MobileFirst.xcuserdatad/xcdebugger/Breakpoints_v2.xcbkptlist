@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MFCard/Card /MFCardView.swift"
-            timestampString = "500474453.730203"
+            timestampString = "500559427.295161"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "262"
-            endingLineNumber = "262"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
             landmarkName = "flip(sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MFCard/Card /MFCardView.swift"
-            timestampString = "500474453.730203"
+            timestampString = "500559427.295161"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
+            startingLineNumber = "255"
+            endingLineNumber = "255"
             landmarkName = "flip(sender:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -28,6 +28,9 @@
                                     <constraint firstAttribute="width" constant="300" id="4bq-4Y-CuF"/>
                                     <constraint firstAttribute="height" constant="240" id="lZf-Wu-KMc"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="cardImage" value="blank-world-map"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -45,4 +48,7 @@
             <point key="canvasLocation" x="-52" y="43"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="blank-world-map" width="630" height="400"/>
+    </resources>
 </document>
