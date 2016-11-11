@@ -1,0 +1,22 @@
+PODS:
+  - CreditCardValidator (0.2)
+
+DEPENDENCIES:
+  - CreditCardValidator (from `https://github.com/RC7770/CreditCardValidator.git`, branch `Swift3`)
+
+EXTERNAL SOURCES:
+  CreditCardValidator:
+    :branch: Swift3
+    :git: https://github.com/RC7770/CreditCardValidator.git
+
+CHECKOUT OPTIONS:
+  CreditCardValidator:
+    :commit: b19210c49de96144e36eb972ab8c1d270a8866c1
+    :git: https://github.com/RC7770/CreditCardValidator.git
+
+SPEC CHECKSUMS:
+  CreditCardValidator: 23532b5c4f721dbb1c2faf16b529df9569715a5a
+
+PODFILE CHECKSUM: 9eaaf20c0aed6800392b3f1f7fa0ec1ea0889b78
+
+COCOAPODS: 1.1.0.rc.3
