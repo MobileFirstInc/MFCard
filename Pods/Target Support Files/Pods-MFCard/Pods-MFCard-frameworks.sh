@@ -84,8 +84,8 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/CreditCardValidator/CreditCardValidator.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RCCreditCardValidator/RCCreditCardValidator.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "$BUILT_PRODUCTS_DIR/CreditCardValidator/CreditCardValidator.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/RCCreditCardValidator/RCCreditCardValidator.framework"
 fi

@@ -7,65 +7,65 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1CDCD44546981B79C4EE187BA32C4602 /* Pods-MFCard-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E8A76CA9C3945FCBF3EE6EE93758084D /* Pods-MFCard-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2872E63221A17C392EB79596BAD3B80D /* CreditCardValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAE5BB3DAF978EB8224692B7F4DB62A /* CreditCardValidator.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		416CAA25B67220CE27B2FD216E58AE7F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
-		852A51A29AC8AB6D5E998036A914302C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
-		8697123B1EE19619044D8BC02284E20B /* CreditCardValidator-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D1220CB1B80EB156B70EBF62139C1E66 /* CreditCardValidator-dummy.m */; };
-		A145C49267E688C613A43D40A3324E69 /* CreditCardValidationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB0060529C7581EC9FE74A093F8B23 /* CreditCardValidationType.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		E2C4D97BD3A144E8C9050EC3291D18A1 /* CreditCardValidator-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F7BE8213F9DE22C6E122D7E0A09B018 /* CreditCardValidator-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E58E4C37A9AD7A9DD6F31B6FC84DF1A5 /* Pods-MFCard-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AF94FB7BC89B4C82599224F03B5D34 /* Pods-MFCard-dummy.m */; };
+		027ADC496AC13F4C31B370D620952368 /* RCCreditCardValidator-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F48D33A5B7E1D3CA22F6684491699C64 /* RCCreditCardValidator-dummy.m */; };
+		48A304797FED994B7729E92B5E06A9EC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		5F4B36D6AEDBB665F26AA007D0E9FD64 /* RCCreditCardValidator-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 172687FC915EEE76C5905C64EDDBC443 /* RCCreditCardValidator-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6102F5CF884095B91639F3E384B2BB1B /* CreditCardValidationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E697FEFA7D6B8A27DE70932073297FE /* CreditCardValidationType.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		8F5406464BA8B5B0F205C7F82CAF3955 /* Pods-MFCard-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E8A76CA9C3945FCBF3EE6EE93758084D /* Pods-MFCard-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A426B9F813449FB5F1F60A4E8AE9B9AB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		D1C2F2E8E42E04E789D371B5D3453596 /* Pods-MFCard-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 49AF94FB7BC89B4C82599224F03B5D34 /* Pods-MFCard-dummy.m */; };
+		E6758F6CE05617E8DCBF980F56B2ECAA /* CreditCardValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A692064AB2A4620E3425DA529ABB425 /* CreditCardValidator.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		98225A760800A9B0B388F695A44F98EF /* PBXContainerItemProxy */ = {
+		CE1CC31E9893A9E51603E592B0F469FA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 38EE0F5CEE87A0FFC89719F391A4338B;
-			remoteInfo = CreditCardValidator;
+			remoteGlobalIDString = 488E39C7D6B118A91FD6A1F7B816D3ED;
+			remoteInfo = RCCreditCardValidator;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		025F1A286745FB21B20491A740321308 /* CreditCardValidator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CreditCardValidator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		172687FC915EEE76C5905C64EDDBC443 /* RCCreditCardValidator-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RCCreditCardValidator-umbrella.h"; sourceTree = "<group>"; };
 		1F6E42AB01E6545F0020ED412D3849BC /* Pods-MFCard-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MFCard-acknowledgements.plist"; sourceTree = "<group>"; };
-		2F7BE8213F9DE22C6E122D7E0A09B018 /* CreditCardValidator-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CreditCardValidator-umbrella.h"; sourceTree = "<group>"; };
-		2FB9B4E626CC265711BA0A9B0DAEA9AF /* CreditCardValidator-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CreditCardValidator-prefix.pch"; sourceTree = "<group>"; };
+		299A478BDC7E70022218AF7998430E73 /* RCCreditCardValidator.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RCCreditCardValidator.xcconfig; sourceTree = "<group>"; };
+		2B58A0B40CE9A218E601156D7E90B707 /* RCCreditCardValidator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RCCreditCardValidator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		41580C7ACC42E747CB3C16AF25317E62 /* Pods-MFCard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MFCard.release.xcconfig"; sourceTree = "<group>"; };
 		49AF94FB7BC89B4C82599224F03B5D34 /* Pods-MFCard-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MFCard-dummy.m"; sourceTree = "<group>"; };
+		4A692064AB2A4620E3425DA529ABB425 /* CreditCardValidator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CreditCardValidator.swift; path = CreditCardValidator/CreditCardValidator.swift; sourceTree = "<group>"; };
+		503DF8CF6C8022A0E89BF90875D90503 /* RCCreditCardValidator-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RCCreditCardValidator-prefix.pch"; sourceTree = "<group>"; };
 		759A58F3D38CDF5B1B595EB94BDEAAF1 /* Pods-MFCard-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MFCard-frameworks.sh"; sourceTree = "<group>"; };
-		80F824FB78AECC3E41A5CCB0161EFBC3 /* CreditCardValidator.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = CreditCardValidator.modulemap; sourceTree = "<group>"; };
+		82DD05EBD005042C6B885DAE11E73167 /* RCCreditCardValidator.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = RCCreditCardValidator.modulemap; sourceTree = "<group>"; };
 		8A212D566816478B3EE9414A37F9ED2F /* Pods-MFCard.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MFCard.modulemap"; sourceTree = "<group>"; };
+		8E697FEFA7D6B8A27DE70932073297FE /* CreditCardValidationType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CreditCardValidationType.swift; path = CreditCardValidator/CreditCardValidationType.swift; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9BC38C4086100F844D09D8C4740526AE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DA3793D57F31065EDA7D9B60586418F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DAFCBC6CDAD255A65E78C82FD49B33D /* Pods-MFCard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MFCard.debug.xcconfig"; sourceTree = "<group>"; };
-		A1F37982029EB1C2C0E4AB826E7E0E4C /* Pods_MFCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MFCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BBAE5BB3DAF978EB8224692B7F4DB62A /* CreditCardValidator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CreditCardValidator.swift; path = CreditCardValidator/CreditCardValidator.swift; sourceTree = "<group>"; };
 		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		D1220CB1B80EB156B70EBF62139C1E66 /* CreditCardValidator-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CreditCardValidator-dummy.m"; sourceTree = "<group>"; };
+		D0FB5D5259B343DBAABF9C8606637391 /* Pods_MFCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MFCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2D08203602036DE9C543FCD81579FE2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4316F590674FFE45A01AD0258FA7C70 /* Pods-MFCard-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MFCard-acknowledgements.markdown"; sourceTree = "<group>"; };
 		E8A76CA9C3945FCBF3EE6EE93758084D /* Pods-MFCard-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MFCard-umbrella.h"; sourceTree = "<group>"; };
-		EBEB0060529C7581EC9FE74A093F8B23 /* CreditCardValidationType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CreditCardValidationType.swift; path = CreditCardValidator/CreditCardValidationType.swift; sourceTree = "<group>"; };
-		EF9DABE403313BE45AC5045A9CB4606B /* CreditCardValidator.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CreditCardValidator.xcconfig; sourceTree = "<group>"; };
+		F48D33A5B7E1D3CA22F6684491699C64 /* RCCreditCardValidator-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RCCreditCardValidator-dummy.m"; sourceTree = "<group>"; };
 		FE2AC68E130AE8C6D93C98F25CC58C53 /* Pods-MFCard-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MFCard-resources.sh"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		BA2240C1715393E8BCFC8617F827768E /* Frameworks */ = {
+		992F8640000E5A8F236C0B0110C08454 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				852A51A29AC8AB6D5E998036A914302C /* Foundation.framework in Frameworks */,
+				48A304797FED994B7729E92B5E06A9EC /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FDAC892C31FE858C900870D5F9FE924A /* Frameworks */ = {
+		C19D983366D5B23F60FE04FA402FB88B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				416CAA25B67220CE27B2FD216E58AE7F /* Foundation.framework in Frameworks */,
+				A426B9F813449FB5F1F60A4E8AE9B9AB /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,12 +88,21 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		5630020746C002CBD6A0C685C5494665 /* Pods */ = {
+		6CB6E7A0B51E94EAD325AE4FC1B54871 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				AAE7D4F464643474F36D57EBE2F62218 /* CreditCardValidator */,
+				C03D83327A509726AC57B0A1D4EA1004 /* RCCreditCardValidator */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		7C9A66D7C8CD3FA0FA157A04220BE7E8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D0FB5D5259B343DBAABF9C8606637391 /* Pods_MFCard.framework */,
+				2B58A0B40CE9A218E601156D7E90B707 /* RCCreditCardValidator.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -101,20 +110,10 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				5630020746C002CBD6A0C685C5494665 /* Pods */,
-				DA20C53364B5805AEAAD0B60CD49752E /* Products */,
+				6CB6E7A0B51E94EAD325AE4FC1B54871 /* Pods */,
+				7C9A66D7C8CD3FA0FA157A04220BE7E8 /* Products */,
 				10F4CE84EB3FD18ACCCC5DAE63792604 /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		AAE7D4F464643474F36D57EBE2F62218 /* CreditCardValidator */ = {
-			isa = PBXGroup;
-			children = (
-				EBEB0060529C7581EC9FE74A093F8B23 /* CreditCardValidationType.swift */,
-				BBAE5BB3DAF978EB8224692B7F4DB62A /* CreditCardValidator.swift */,
-				B85981B294AB19B0F24170BD273715A4 /* Support Files */,
-			);
-			path = CreditCardValidator;
 			sourceTree = "<group>";
 		};
 		AEE2EC5A9AA7578205B40EFBAF4C3117 /* Pods-MFCard */ = {
@@ -135,20 +134,6 @@
 			path = "Target Support Files/Pods-MFCard";
 			sourceTree = "<group>";
 		};
-		B85981B294AB19B0F24170BD273715A4 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				80F824FB78AECC3E41A5CCB0161EFBC3 /* CreditCardValidator.modulemap */,
-				EF9DABE403313BE45AC5045A9CB4606B /* CreditCardValidator.xcconfig */,
-				D1220CB1B80EB156B70EBF62139C1E66 /* CreditCardValidator-dummy.m */,
-				2FB9B4E626CC265711BA0A9B0DAEA9AF /* CreditCardValidator-prefix.pch */,
-				2F7BE8213F9DE22C6E122D7E0A09B018 /* CreditCardValidator-umbrella.h */,
-				9BC38C4086100F844D09D8C4740526AE /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/CreditCardValidator";
-			sourceTree = "<group>";
-		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,70 +142,85 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DA20C53364B5805AEAAD0B60CD49752E /* Products */ = {
+		C03D83327A509726AC57B0A1D4EA1004 /* RCCreditCardValidator */ = {
 			isa = PBXGroup;
 			children = (
-				025F1A286745FB21B20491A740321308 /* CreditCardValidator.framework */,
-				A1F37982029EB1C2C0E4AB826E7E0E4C /* Pods_MFCard.framework */,
+				8E697FEFA7D6B8A27DE70932073297FE /* CreditCardValidationType.swift */,
+				4A692064AB2A4620E3425DA529ABB425 /* CreditCardValidator.swift */,
+				F1834074F1F63452E77E126B955E2413 /* Support Files */,
 			);
-			name = Products;
+			path = RCCreditCardValidator;
+			sourceTree = "<group>";
+		};
+		F1834074F1F63452E77E126B955E2413 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9DA3793D57F31065EDA7D9B60586418F /* Info.plist */,
+				82DD05EBD005042C6B885DAE11E73167 /* RCCreditCardValidator.modulemap */,
+				299A478BDC7E70022218AF7998430E73 /* RCCreditCardValidator.xcconfig */,
+				F48D33A5B7E1D3CA22F6684491699C64 /* RCCreditCardValidator-dummy.m */,
+				503DF8CF6C8022A0E89BF90875D90503 /* RCCreditCardValidator-prefix.pch */,
+				172687FC915EEE76C5905C64EDDBC443 /* RCCreditCardValidator-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/RCCreditCardValidator";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		100508EF2B2051DA22C79B9322435B3D /* Headers */ = {
+		705F5C341786905B41234AEEFA4867E8 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CDCD44546981B79C4EE187BA32C4602 /* Pods-MFCard-umbrella.h in Headers */,
+				5F4B36D6AEDBB665F26AA007D0E9FD64 /* RCCreditCardValidator-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FEC2B5ACA44E8FD17C810CFE2A88F4C6 /* Headers */ = {
+		82497ECF20B48953953E92968F855707 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2C4D97BD3A144E8C9050EC3291D18A1 /* CreditCardValidator-umbrella.h in Headers */,
+				8F5406464BA8B5B0F205C7F82CAF3955 /* Pods-MFCard-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		38EE0F5CEE87A0FFC89719F391A4338B /* CreditCardValidator */ = {
+		488E39C7D6B118A91FD6A1F7B816D3ED /* RCCreditCardValidator */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2A010681FE76E1E83B28E8F4763EA3D8 /* Build configuration list for PBXNativeTarget "CreditCardValidator" */;
+			buildConfigurationList = D6046494E8D9B2A823A14790B3F8ACB3 /* Build configuration list for PBXNativeTarget "RCCreditCardValidator" */;
 			buildPhases = (
-				7ECA1DBD35206A8F55AB2F2CF6E644D0 /* Sources */,
-				FDAC892C31FE858C900870D5F9FE924A /* Frameworks */,
-				FEC2B5ACA44E8FD17C810CFE2A88F4C6 /* Headers */,
+				1A53290CDA9D72E38129A80719B18F0D /* Sources */,
+				C19D983366D5B23F60FE04FA402FB88B /* Frameworks */,
+				705F5C341786905B41234AEEFA4867E8 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = CreditCardValidator;
-			productName = CreditCardValidator;
-			productReference = 025F1A286745FB21B20491A740321308 /* CreditCardValidator.framework */;
+			name = RCCreditCardValidator;
+			productName = RCCreditCardValidator;
+			productReference = 2B58A0B40CE9A218E601156D7E90B707 /* RCCreditCardValidator.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		9D16FDD2CE1E1E87E939C7A888887C19 /* Pods-MFCard */ = {
+		F2BD311CAAC16EFFB1B20A63405AD74A /* Pods-MFCard */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0C267DAA095C85289C272BDFC1A6EADF /* Build configuration list for PBXNativeTarget "Pods-MFCard" */;
+			buildConfigurationList = BA2A9990BFE225E3F20B0AFAEF4DEDDA /* Build configuration list for PBXNativeTarget "Pods-MFCard" */;
 			buildPhases = (
-				79B77775A147A45C2387229C255CB0A0 /* Sources */,
-				BA2240C1715393E8BCFC8617F827768E /* Frameworks */,
-				100508EF2B2051DA22C79B9322435B3D /* Headers */,
+				89A04BDB2AA363BD6BA395F2CDE886D5 /* Sources */,
+				992F8640000E5A8F236C0B0110C08454 /* Frameworks */,
+				82497ECF20B48953953E92968F855707 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5A07DE84AC3C4224E6B5A7190255C741 /* PBXTargetDependency */,
+				E2200F3A26FC70064CD822C9D3B42A6E /* PBXTargetDependency */,
 			);
 			name = "Pods-MFCard";
 			productName = "Pods-MFCard";
-			productReference = A1F37982029EB1C2C0E4AB826E7E0E4C /* Pods_MFCard.framework */;
+			productReference = D0FB5D5259B343DBAABF9C8606637391 /* Pods_MFCard.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -240,86 +240,50 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = DA20C53364B5805AEAAD0B60CD49752E /* Products */;
+			productRefGroup = 7C9A66D7C8CD3FA0FA157A04220BE7E8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				38EE0F5CEE87A0FFC89719F391A4338B /* CreditCardValidator */,
-				9D16FDD2CE1E1E87E939C7A888887C19 /* Pods-MFCard */,
+				F2BD311CAAC16EFFB1B20A63405AD74A /* Pods-MFCard */,
+				488E39C7D6B118A91FD6A1F7B816D3ED /* RCCreditCardValidator */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		79B77775A147A45C2387229C255CB0A0 /* Sources */ = {
+		1A53290CDA9D72E38129A80719B18F0D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E58E4C37A9AD7A9DD6F31B6FC84DF1A5 /* Pods-MFCard-dummy.m in Sources */,
+				6102F5CF884095B91639F3E384B2BB1B /* CreditCardValidationType.swift in Sources */,
+				E6758F6CE05617E8DCBF980F56B2ECAA /* CreditCardValidator.swift in Sources */,
+				027ADC496AC13F4C31B370D620952368 /* RCCreditCardValidator-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7ECA1DBD35206A8F55AB2F2CF6E644D0 /* Sources */ = {
+		89A04BDB2AA363BD6BA395F2CDE886D5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A145C49267E688C613A43D40A3324E69 /* CreditCardValidationType.swift in Sources */,
-				8697123B1EE19619044D8BC02284E20B /* CreditCardValidator-dummy.m in Sources */,
-				2872E63221A17C392EB79596BAD3B80D /* CreditCardValidator.swift in Sources */,
+				D1C2F2E8E42E04E789D371B5D3453596 /* Pods-MFCard-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5A07DE84AC3C4224E6B5A7190255C741 /* PBXTargetDependency */ = {
+		E2200F3A26FC70064CD822C9D3B42A6E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = CreditCardValidator;
-			target = 38EE0F5CEE87A0FFC89719F391A4338B /* CreditCardValidator */;
-			targetProxy = 98225A760800A9B0B388F695A44F98EF /* PBXContainerItemProxy */;
+			name = RCCreditCardValidator;
+			target = 488E39C7D6B118A91FD6A1F7B816D3ED /* RCCreditCardValidator */;
+			targetProxy = CE1CC31E9893A9E51603E592B0F469FA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		1B5007FB7DC325D8EA4E8EFCB05365FD /* Debug */ = {
+		24B1671E05CA9BE29806D23A3DB52B3C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9DAFCBC6CDAD255A65E78C82FD49B33D /* Pods-MFCard.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-MFCard/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-MFCard/Pods-MFCard.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_MFCard;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		409A9DDFE1FBAF34C64E85C57BE922FE /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = EF9DABE403313BE45AC5045A9CB4606B /* CreditCardValidator.xcconfig */;
+			baseConfigurationReference = 41580C7ACC42E747CB3C16AF25317E62 /* Pods-MFCard.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -332,14 +296,49 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/CreditCardValidator/CreditCardValidator-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CreditCardValidator/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-MFCard/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MFCard/Pods-MFCard.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MFCard;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		53E5CD8C95D4128ACB1441D6AF5533B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 299A478BDC7E70022218AF7998430E73 /* RCCreditCardValidator.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/RCCreditCardValidator/RCCreditCardValidator-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RCCreditCardValidator/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/CreditCardValidator/CreditCardValidator.modulemap";
+				MODULEMAP_FILE = "Target Support Files/RCCreditCardValidator/RCCreditCardValidator.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = CreditCardValidator;
+				PRODUCT_NAME = RCCreditCardValidator;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -348,6 +347,39 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		5810AB4AF4C8F1EBEC243BFEBCA6D9A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 299A478BDC7E70022218AF7998430E73 /* RCCreditCardValidator.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/RCCreditCardValidator/RCCreditCardValidator-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RCCreditCardValidator/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/RCCreditCardValidator/RCCreditCardValidator.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = RCCreditCardValidator;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		59B042A655B7C20CBAB90E385BF4E4C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -385,48 +417,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
-		};
-		7A61F4D75020CCFDB82990CC98C07687 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 41580C7ACC42E747CB3C16AF25317E62 /* Pods-MFCard.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-MFCard/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-MFCard/Pods-MFCard.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_MFCard;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 		B7324857C38B065FEB1EEE3105C2367A /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -460,7 +457,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
@@ -468,9 +465,9 @@
 			};
 			name = Release;
 		};
-		D3318920B3F67D17EC70D4A8E5787456 /* Debug */ = {
+		D2194079B7482513ABE71ECD0331238B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EF9DABE403313BE45AC5045A9CB4606B /* CreditCardValidator.xcconfig */;
+			baseConfigurationReference = 9DAFCBC6CDAD255A65E78C82FD49B33D /* Pods-MFCard.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -483,18 +480,21 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/CreditCardValidator/CreditCardValidator-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/CreditCardValidator/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-MFCard/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/CreditCardValidator/CreditCardValidator.modulemap";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MFCard/Pods-MFCard.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = CreditCardValidator;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MFCard;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -504,29 +504,29 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0C267DAA095C85289C272BDFC1A6EADF /* Build configuration list for PBXNativeTarget "Pods-MFCard" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1B5007FB7DC325D8EA4E8EFCB05365FD /* Debug */,
-				7A61F4D75020CCFDB82990CC98C07687 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2A010681FE76E1E83B28E8F4763EA3D8 /* Build configuration list for PBXNativeTarget "CreditCardValidator" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D3318920B3F67D17EC70D4A8E5787456 /* Debug */,
-				409A9DDFE1FBAF34C64E85C57BE922FE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				59B042A655B7C20CBAB90E385BF4E4C7 /* Debug */,
 				B7324857C38B065FEB1EEE3105C2367A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA2A9990BFE225E3F20B0AFAEF4DEDDA /* Build configuration list for PBXNativeTarget "Pods-MFCard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2194079B7482513ABE71ECD0331238B /* Debug */,
+				24B1671E05CA9BE29806D23A3DB52B3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D6046494E8D9B2A823A14790B3F8ACB3 /* Build configuration list for PBXNativeTarget "RCCreditCardValidator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5810AB4AF4C8F1EBEC243BFEBCA6D9A3 /* Debug */,
+				53E5CD8C95D4128ACB1441D6AF5533B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

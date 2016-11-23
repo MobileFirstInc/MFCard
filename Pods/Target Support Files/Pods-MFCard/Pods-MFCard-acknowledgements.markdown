@@ -1,7 +1,7 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
-## CreditCardValidator
+## RCCreditCardValidator
 
 The MIT License (MIT)
 Copyright (c) 2014 Hearst

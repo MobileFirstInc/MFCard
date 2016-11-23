@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CreditCardValidator
+import RCCreditCardValidator
 
 protocol MFCardDelegate {
     func cardDoneButtonClicked(card:Card?, error:String?)

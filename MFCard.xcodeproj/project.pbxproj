@@ -17,7 +17,7 @@
 		6BBEC5731DCDB8C50054120F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBEC5701DCDB8C50054120F /* Card.swift */; };
 		6BBEC5741DCDB8C50054120F /* MFCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBEC5711DCDB8C50054120F /* MFCardView.swift */; };
 		6BBEC5751DCDB8C50054120F /* MFCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BBEC5721DCDB8C50054120F /* MFCardView.xib */; };
-		6BBEC5781DCDB8E60054120F /* LBZSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BBEC5771DCDB8E60054120F /* LBZSpinner.swift */; };
+		6BF6D8591DD5F9F20080ADC0 /* LBZSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF6D8581DD5F9F20080ADC0 /* LBZSpinner.swift */; };
 		9F0EE920FA910D35A80A65E2 /* Pods_MFCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4155B8641ADD0AC5D017C9B6 /* Pods_MFCard.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,7 +57,7 @@
 		6BBEC5701DCDB8C50054120F /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		6BBEC5711DCDB8C50054120F /* MFCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFCardView.swift; sourceTree = "<group>"; };
 		6BBEC5721DCDB8C50054120F /* MFCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MFCardView.xib; sourceTree = "<group>"; };
-		6BBEC5771DCDB8E60054120F /* LBZSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBZSpinner.swift; sourceTree = "<group>"; };
+		6BF6D8581DD5F9F20080ADC0 /* LBZSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBZSpinner.swift; sourceTree = "<group>"; };
 		71BFFDCE5B7EE179F811B59F /* Pods-MFCard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MFCard.release.xcconfig"; path = "Pods/Target Support Files/Pods-MFCard/Pods-MFCard.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,7 +129,7 @@
 		6B6CF81D1DCB53DA00A29C16 /* MFCard */ = {
 			isa = PBXGroup;
 			children = (
-				6BBEC5761DCDB8E60054120F /* Helper Class */,
+				6BF6D8571DD5F9F20080ADC0 /* Helper Class */,
 				6BBEC56F1DCDB8C50054120F /* Card  */,
 				6B6CF81E1DCB53DA00A29C16 /* AppDelegate.swift */,
 				6B6CF8201DCB53DA00A29C16 /* ViewController.swift */,
@@ -169,10 +169,10 @@
 			path = "Card ";
 			sourceTree = "<group>";
 		};
-		6BBEC5761DCDB8E60054120F /* Helper Class */ = {
+		6BF6D8571DD5F9F20080ADC0 /* Helper Class */ = {
 			isa = PBXGroup;
 			children = (
-				6BBEC5771DCDB8E60054120F /* LBZSpinner.swift */,
+				6BF6D8581DD5F9F20080ADC0 /* LBZSpinner.swift */,
 			);
 			path = "Helper Class";
 			sourceTree = "<group>";
@@ -366,7 +366,7 @@
 			files = (
 				6BBEC5741DCDB8C50054120F /* MFCardView.swift in Sources */,
 				6B6CF8211DCB53DA00A29C16 /* ViewController.swift in Sources */,
-				6BBEC5781DCDB8E60054120F /* LBZSpinner.swift in Sources */,
+				6BF6D8591DD5F9F20080ADC0 /* LBZSpinner.swift in Sources */,
 				6BBEC5731DCDB8C50054120F /* Card.swift in Sources */,
 				6B6CF81F1DCB53DA00A29C16 /* AppDelegate.swift in Sources */,
 			);
@@ -463,7 +463,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -506,7 +506,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

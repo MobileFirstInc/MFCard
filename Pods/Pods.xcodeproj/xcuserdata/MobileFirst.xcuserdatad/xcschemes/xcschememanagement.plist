@@ -4,12 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>CreditCardValidator.xcscheme</key>
+		<key>Pods-MFCard.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-MFCard.xcscheme</key>
+		<key>RCCreditCardValidator.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>38EE0F5CEE87A0FFC89719F391A4338B</key>
+		<key>488E39C7D6B118A91FD6A1F7B816D3ED</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9D16FDD2CE1E1E87E939C7A888887C19</key>
+		<key>F2BD311CAAC16EFFB1B20A63405AD74A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

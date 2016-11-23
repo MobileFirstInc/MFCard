@@ -5,5 +5,5 @@ use_frameworks!
 target 'MFCard' do
 
   use_frameworks!
-    pod "CreditCardValidator", :git => 'https://github.com/RC7770/CreditCardValidator.git', :branch => 'Swift3'
+    pod 'RCCreditCardValidator', '~> 0.2.1'
 end
