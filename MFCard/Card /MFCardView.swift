@@ -155,12 +155,12 @@ protocol MFCardDelegate {
         return view
     }
     
-    //    func getBundle() -> Bundle {
-    //        let podBundle = Bundle(for: ViewController.self)
-    //
-    //        let bundleURL = podBundle.url(forResource: "MFCardView", withExtension: "bundle")
-    //        return Bundle(url: bundleURL!)!
-    //    }
+        func getBundle() -> Bundle {
+            let podBundle = Bundle(for: ViewController.self)
+    
+            let bundleURL = podBundle.url(forResource: "MFCardView", withExtension: "bundle")
+            return Bundle(url: bundleURL!)!
+        }
     
     
     private func changeFont(color :UIColor){
