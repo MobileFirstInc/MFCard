@@ -192,6 +192,9 @@ protocol MFCardDelegate {
             txtCardNoP2.placeholder = "####"
             txtCardNoP3.placeholder = "####"
             txtCardNoP4.placeholder = "####"
+            
+            //Add more Placeholder
+            
         }else{
             for cardTextField: UITextField in cardTextFields{
                 cardTextField.placeholder = ""
