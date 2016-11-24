@@ -156,7 +156,7 @@ protocol MFCardDelegate {
     }
     
         func getBundle() -> Bundle {
-            let podBundle = Bundle(for: ViewController.self)
+            let podBundle = Bundle(for: MFCardView.self)
     
             let bundleURL = podBundle.url(forResource: "MFCardView", withExtension: "bundle")
             return Bundle(url: bundleURL!)!
