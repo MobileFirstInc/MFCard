@@ -15,6 +15,7 @@ class ViewController: UIViewController,MFCardDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         viewCreaditCard.delegate = self
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -22,7 +23,7 @@ class ViewController: UIViewController,MFCardDelegate{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func cardDoneButtonClicked(card: Card?, error: String?) {
+    func cardDoneButtonClicked(_ card: Card?, error: String?) {
         print(card!)
         print(error!)
     }

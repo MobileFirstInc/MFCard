@@ -167,7 +167,7 @@
                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hvo-QO-2CS" userLabel="ContainerView">
-                            <rect key="frame" x="0.0" y="0.0" width="300" height="1807"/>
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="194"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Enter Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yqT-e8-4Xb">
                                     <rect key="frame" x="8" y="41" width="284" height="30"/>
@@ -357,13 +357,13 @@
                         <constraint firstAttribute="bottom" secondItem="clc-DC-xoP" secondAttribute="bottom" id="59Y-M3-BMW"/>
                         <constraint firstItem="clc-DC-xoP" firstAttribute="leading" secondItem="s7V-N8-tSQ" secondAttribute="leading" id="ASC-G4-3Vh"/>
                         <constraint firstItem="clc-DC-xoP" firstAttribute="top" secondItem="s7V-N8-tSQ" secondAttribute="top" id="AsM-tk-p5W"/>
-                        <constraint firstItem="Hvo-QO-2CS" firstAttribute="top" secondItem="njz-AB-oMy" secondAttribute="top" id="EBZ-sK-sKx"/>
                         <constraint firstItem="njz-AB-oMy" firstAttribute="top" secondItem="s7V-N8-tSQ" secondAttribute="top" id="LHJ-o3-mgm"/>
+                        <constraint firstItem="Hvo-QO-2CS" firstAttribute="top" secondItem="s7V-N8-tSQ" secondAttribute="top" id="Q7V-o8-ytc"/>
                         <constraint firstAttribute="trailing" secondItem="Hvo-QO-2CS" secondAttribute="trailing" id="TP0-Ty-7fH"/>
                         <constraint firstAttribute="trailing" secondItem="clc-DC-xoP" secondAttribute="trailing" id="cmy-8Q-YuG"/>
                         <constraint firstAttribute="trailing" secondItem="njz-AB-oMy" secondAttribute="trailing" id="dh9-cm-89p"/>
+                        <constraint firstAttribute="bottom" secondItem="Hvo-QO-2CS" secondAttribute="bottom" id="eGQ-xf-8D1"/>
                         <constraint firstItem="njz-AB-oMy" firstAttribute="leading" secondItem="s7V-N8-tSQ" secondAttribute="leading" id="lY5-Fy-PKq"/>
-                        <constraint firstAttribute="bottom" secondItem="Hvo-QO-2CS" secondAttribute="bottom" constant="-1613" id="ldd-gs-Kax"/>
                         <constraint firstItem="Hvo-QO-2CS" firstAttribute="leading" secondItem="s7V-N8-tSQ" secondAttribute="leading" id="rXR-6b-slt"/>
                         <constraint firstAttribute="bottom" secondItem="njz-AB-oMy" secondAttribute="bottom" id="rfz-Qb-TGX"/>
                     </constraints>

@@ -10,16 +10,17 @@ import UIKit
 import RCCreditCardValidator
 
 protocol MFCardDelegate {
-    func cardDoneButtonClicked(card:Card?, error:String?)
+    func cardDoneButtonClicked(_ card:Card?, error:String?)
 }
 
 @IBDesignable class MFCardView: UIView {
     
+    var imageFilePath:Any? = nil
     
     var delegate :MFCardDelegate?
     fileprivate var addedCardType: CardType?
     fileprivate var error :String? = String()
-    
+    fileprivate var mfBundel :Bundle? = Bundle()
     @IBOutlet var view: UIView!
     
     @IBOutlet weak var cardBackView: UIView!
@@ -59,33 +60,37 @@ protocol MFCardDelegate {
     
     //MARK:
     //MARK: initialization
-    
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
-        setupUI()
-        
-    }
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
         setupUI()
         
     }
-    
+
+    required public init?(coder aDecoder: NSCoder) {
+        
+        super.init(coder: aDecoder)
+        setup()
+        setupUI()
+        
+    }
     
     //MARK:
     //MARK: Setup
-    private func setup() {
+    fileprivate func setup() {
         // 1. load a nib
         view = loadViewFromNib()
+        //imageFilePath = getBundle().path(forResource: "blank-world-map", ofType: "png")!
+        //imageFilePath = UIImage(named: "blank-world-map")
         // 2. add as subview
         self.addSubview(self.view)
-        // 3. allow for autolayout
+                // 3. allow for autolayout
         self.view.translatesAutoresizingMaskIntoConstraints = false
         // 4. add constraints to span entire view
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[view]|", options: [], metrics: nil, views: ["view": self.view]))
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[view]|", options: [], metrics: nil, views: ["view": self.view]))
+        self.layoutIfNeeded()
+        self.updateConstraintsIfNeeded()
         
         //Other SetUps...
         cardTextFields = [txtCardNoP4,txtCardNoP3,txtCardNoP2,txtCardNoP1,txtCardName,txtCvc];
@@ -119,7 +124,7 @@ protocol MFCardDelegate {
         txtCardNoP2.addTarget(self, action: #selector(MFCardView.textFieldDidChange(_:)), for: UIControlEvents.editingChanged)
         txtCardNoP3.addTarget(self, action: #selector(MFCardView.textFieldDidChange(_:)), for: UIControlEvents.editingChanged)
         txtCardNoP4.addTarget(self, action: #selector(MFCardView.textFieldDidChange(_:)), for: UIControlEvents.editingChanged)
-        
+        txtCvc.addTarget(self, action: #selector(MFCardView.textFieldDidChange(_:)), for: UIControlEvents.editingChanged)
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(self.flip))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(self.flip))
         
@@ -130,17 +135,18 @@ protocol MFCardDelegate {
         self.addGestureRecognizer(rightSwipe)
     }
     
-    private func setupUI(){
+    fileprivate func setupUI(){
+        self.layoutIfNeeded()
         self.backgroundColor = self.backGroundColor
         self.btnCvc.layer.cornerRadius = self.controlButtonsRadius
         self.btnDone.layer.cornerRadius = self.controlButtonsRadius
         self.cardBackView.layer.cornerRadius = self.cardRadius
         self.cardFrontView.layer.cornerRadius = self.cardRadius
         self.frontChromeColor = UIColor.black
-        changeFont(color: UIColor.white)
-        changeTextFieldTextColor(color: UIColor.black)
-        changeTextFieldColor(color: UIColor.white)
-        cardImage = UIImage(named: "blank-world-map")
+        changeFont(UIColor.white)
+        changeTextFieldTextColor(UIColor.black)
+        changeTextFieldColor(UIColor.white)
+        cardImage = UIImage(named: "blank-world-map", in: mfBundel!,compatibleWith: nil)!
     }
     
     //MARK:
@@ -148,22 +154,26 @@ protocol MFCardDelegate {
     
     func loadViewFromNib() -> UIView {
         
-        let bundle = Bundle(for: type(of: self))
+        let bundle = getBundle()
         let nib = UINib(nibName: nibName, bundle: bundle)
         let view = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
         
         return view
     }
     
-        func getBundle() -> Bundle {
-            let podBundle = Bundle(for: MFCardView.self)
-    
-            let bundleURL = podBundle.url(forResource: "MFCardView", withExtension: "bundle")
-            return Bundle(url: bundleURL!)!
+    func getBundle() -> Bundle {
+        
+        let podBundle = Bundle(for: MFCardView.self)
+        var bundleURL = podBundle.url(forResource: "MFCard", withExtension: "bundle")
+        if bundleURL == nil{
+            bundleURL = Bundle.main.bundleURL
         }
+        mfBundel = Bundle(url: bundleURL!)!
+        return mfBundel!
+    }
     
     
-    private func changeFont(color :UIColor){
+    fileprivate func changeFont(_ color :UIColor){
         btnDone.setTitleColor(color, for: .normal)
         btnCvc.setTitleColor(color, for: .normal)
         viewExpiryMonth.lineColor   = color
@@ -172,19 +182,19 @@ protocol MFCardDelegate {
             labelItem.textColor = color
         }
     }
-    private func changeTextFieldColor(color:UIColor){
+    fileprivate func changeTextFieldColor(_ color:UIColor){
         for cardTextField: UITextField in cardTextFields{
             cardTextField.backgroundColor = color
         }
         
     }
     
-    private func changeTextFieldTextColor(color:UIColor){
+    fileprivate func changeTextFieldTextColor(_ color:UIColor){
         for cardTextField: UITextField in cardTextFields{
             cardTextField.textColor = color
         }
     }
-    private func setPlaceholder(allow:Bool){
+    fileprivate func setPlaceholder(_ allow:Bool){
         if allow{
             txtCvc.placeholder      = "###"
             txtCardName.placeholder = "Enter Name"
@@ -207,7 +217,7 @@ protocol MFCardDelegate {
     //MARK: IBAction
     @IBAction func btnCVCAction(_ sender: AnyObject) {
         
-        flip(sender: nil)
+        flip(nil)
     }
     
     @IBAction func btnDoneAction(_ sender: AnyObject) {
@@ -225,7 +235,7 @@ protocol MFCardDelegate {
         card = Card(name: txtCardName.text, number: cardNumber, month: viewExpiryMonth!.labelValue.text!, year: viewExpiryYear!.labelValue.text!, cvc: txtCvc.text, paymentType: Card.PaymentType.card, cardType:addedCardType, userId: 1)
         
         if self.delegate != nil{
-            self.delegate?.cardDoneButtonClicked(card: card, error: error)
+            self.delegate?.cardDoneButtonClicked(card, error: error)
         }
         
     }
@@ -248,7 +258,7 @@ protocol MFCardDelegate {
     fileprivate func getCardNumber ()->String{
         return txtCardNoP1.text! + txtCardNoP2.text! + txtCardNoP3.text! + txtCardNoP4.text!
     }
-    @objc fileprivate func flip(sender:UISwipeGestureRecognizer?) {
+    @objc fileprivate func flip(_ sender:UISwipeGestureRecognizer?) {
         
         if sender?.direction == .left && cardFrontView.isHidden == true{
             print("left")
@@ -287,44 +297,44 @@ protocol MFCardDelegate {
     }
     fileprivate func setImage(_ card : String) {
         
-        func setImageWithAnnimation(_ image:UIImage,cardType:CardType){
-            addedCardType = cardType
-            UIView.animate(withDuration: 1, animations: {
-                self.cardTypeImage.image = image
-            })
-        }
+                func setImageWithAnnimation(_ image:UIImage,cardType:CardType){
+                    addedCardType = cardType
+                    UIView.animate(withDuration: 1, animations: {
+                        self.cardTypeImage.image = image
+                    })
+                }
         
-        switch card {
-            
-        case CardType.Visa.rawValue:
-            setImageWithAnnimation(UIImage(named: "Visa")!,cardType: CardType.Visa)
-            break
-            
-        case CardType.MasterCard.rawValue:
-            setImageWithAnnimation(UIImage(named: "MasterCard")!,cardType: CardType.MasterCard)
-            break
-            
-        case CardType.JCB.rawValue:
-            setImageWithAnnimation(UIImage(named: "JCB")!,cardType: CardType.JCB)
-            break
-            
-        case CardType.Discover.rawValue:
-            setImageWithAnnimation(UIImage(named: "Discover")!,cardType: CardType.Discover)
-            break
-            
-        case CardType.Diners.rawValue:
-            setImageWithAnnimation(UIImage(named: "DinersClub")!,cardType: CardType.Diners)
-            
-            
-        case CardType.Unknown.rawValue:
-            cardTypeImage.image = nil
-            addedCardType = CardType.Unknown
-        default:
-            cardTypeImage.image = nil
-            addedCardType = CardType.Visa
-            
-            break
-        }
+                switch card {
+        
+                case CardType.Visa.rawValue:
+                    setImageWithAnnimation(UIImage(named: "Visa", in: mfBundel!,compatibleWith: nil)!,cardType: CardType.Visa)
+                    break
+        
+                case CardType.MasterCard.rawValue:
+                    setImageWithAnnimation(UIImage(named: "MasterCard", in: mfBundel!,compatibleWith: nil)!,cardType: CardType.MasterCard)
+                    break
+        
+                case CardType.JCB.rawValue:
+                    setImageWithAnnimation(UIImage(named: "JCB", in: mfBundel!,compatibleWith: nil)!,cardType: CardType.JCB)
+                    break
+        
+                case CardType.Discover.rawValue:
+                    setImageWithAnnimation(UIImage(named: "Discover", in: mfBundel!,compatibleWith: nil)!,cardType: CardType.Discover)
+                    break
+        
+                case CardType.Diners.rawValue:
+                    setImageWithAnnimation(UIImage(named: "DinersClub", in: mfBundel!,compatibleWith: nil)!,cardType: CardType.Diners)
+        
+        
+                case CardType.Unknown.rawValue:
+                    cardTypeImage.image = nil
+                    addedCardType = CardType.Unknown
+                default:
+                    cardTypeImage.image = nil
+                    addedCardType = CardType.Visa
+        
+                    break
+                }
     }
     
     //MARK:
@@ -341,6 +351,7 @@ protocol MFCardDelegate {
     @IBInspectable var controlButtonsRadius: CGFloat = 5 {
         didSet {
             if oldValue != controlButtonsRadius {
+                self.layoutIfNeeded()
                 self.btnCvc.layer.cornerRadius  = self.controlButtonsRadius
                 self.btnDone.layer.cornerRadius = self.controlButtonsRadius
             }
@@ -350,6 +361,7 @@ protocol MFCardDelegate {
     @IBInspectable var cardRadius: CGFloat = 15 {
         didSet {
             if oldValue != cardRadius {
+                self.layoutIfNeeded()
                 self.cardBackView.layer.cornerRadius    = self.cardRadius
                 self.cardFrontView.layer.cornerRadius   = self.cardRadius
             }
@@ -359,7 +371,7 @@ protocol MFCardDelegate {
     @IBInspectable var labelColor: UIColor? = UIColor.white{
         didSet {
             if oldValue != labelColor {
-                changeFont(color: labelColor!)
+                changeFont(labelColor!)
             }
         }
     }
@@ -378,7 +390,7 @@ protocol MFCardDelegate {
     @IBInspectable var TF_Color: UIColor? = UIColor.white{
         didSet {
             if oldValue != TF_Color {
-                changeTextFieldColor(color: TF_Color!)
+                changeTextFieldColor(TF_Color!)
                 
             }
         }
@@ -387,7 +399,7 @@ protocol MFCardDelegate {
     @IBInspectable var TF_TextColor: UIColor? = UIColor.black{
         didSet {
             if oldValue != TF_TextColor {
-                changeTextFieldTextColor(color: TF_TextColor!)
+                changeTextFieldTextColor(TF_TextColor!)
             }
         }
     }
@@ -395,7 +407,7 @@ protocol MFCardDelegate {
     @IBInspectable var placeholder: Bool = true {
         didSet{
             if oldValue != placeholder {
-                setPlaceholder(allow: placeholder)
+                setPlaceholder(placeholder)
             }
             
         }
@@ -444,12 +456,12 @@ protocol MFCardDelegate {
         
     }
     
-    @IBInspectable var cardImage :UIImage? = UIImage(named: "blank-world-map")  {
-        didSet{
-            frontCardImage.image = cardImage
+        @IBInspectable var cardImage :UIImage? {
+            didSet{
+                frontCardImage.image = cardImage
+            }
+    
         }
-        
-    }
     @IBInspectable var backTape :UIColor = UIColor.black  {
         didSet{
             if oldValue != backTape {
@@ -472,6 +484,7 @@ extension MFCardView: UITextFieldDelegate{
         if textField == txtCvc {
             if (textField.text?.characters.count)! >= 3 {
                 self.unHideDoneButton()
+                textField.resignFirstResponder()
             }else{
                 self.hideDoneButton()
             }
@@ -495,9 +508,7 @@ extension MFCardView: UITextFieldDelegate{
                 
                 setImage(type.name)
                 
-                
             }
-                
             else {
                 error = "Can not detect card."
                 print("Can not detect card.")
@@ -532,6 +543,7 @@ extension MFCardView: UITextFieldDelegate{
             let currentLength = (textField.text?.characters.count)! + string.characters.count - range.length
             let newLength = charLimit - currentLength
             if newLength < 0 {
+                textField.resignFirstResponder()
                 return false
             }else{
                 return true
