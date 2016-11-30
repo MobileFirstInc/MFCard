@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'MFCard'
-    s.version          = '1.0.1'
+    s.version          = '1.0.3'
     s.summary          = 'Fantastic Credit Card View'
     s.license          = 'MIT'
     s.author           = { 'Arpan Desai' => 'arpan@mobilefirst.in' }
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
 
     s.source_files = 'MFCard/Card /**/*.{swift}'
     s.resource_bundles = {
-    'MFCard' => ['MFCard/**/*.{lproj,storyboard,xib,xcassets,json,imageset,png,jpg}']
+    'MFCard' => ['MFCard/**/*.{xib,xcassets,json,imageset,png,jpg}']
     }
     s.dependency "RCCreditCardValidator", "~> 0.2.1"
 end
