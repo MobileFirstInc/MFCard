@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'MFCard'
-    s.version          = '1.0.3'
+    s.version          = '1.0.4'
     s.summary          = 'Fantastic Credit Card View'
     s.license          = 'MIT'
     s.author           = { 'Arpan Desai' => 'arpan@mobilefirst.in' }
