@@ -1,6 +1,0 @@
-framework module Pods_MFCard {
-  umbrella header "Pods-MFCard-umbrella.h"
-
-  export *
-  module * { export * }
-}

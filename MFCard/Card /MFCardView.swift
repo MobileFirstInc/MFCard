@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RCCreditCardValidator
 
 protocol MFCardDelegate {
     func cardDoneButtonClicked(_ card:Card?, error:String?)
@@ -53,6 +52,8 @@ protocol MFCardDelegate {
     
     @IBOutlet weak var btnDone: UIButton!
     
+    @IBOutlet weak var viewFrontContainer: UIView!
+    @IBOutlet weak var viewBackContainer: UIView!
     @IBOutlet var cardLabels: [UILabel]!
     var cardTextFields:[UITextField]!
     //    var addedCard = Card()
@@ -140,8 +141,7 @@ protocol MFCardDelegate {
         self.backgroundColor = self.backGroundColor
         self.btnCvc.layer.cornerRadius = self.controlButtonsRadius
         self.btnDone.layer.cornerRadius = self.controlButtonsRadius
-        self.cardBackView.layer.cornerRadius = self.cardRadius
-        self.cardFrontView.layer.cornerRadius = self.cardRadius
+        setCardRadius()
         self.frontChromeColor = UIColor.black
         changeFont(UIColor.white)
         changeTextFieldTextColor(UIColor.black)
@@ -164,12 +164,14 @@ protocol MFCardDelegate {
     func getBundle() -> Bundle {
         
         let podBundle = Bundle(for: MFCardView.self)
-        var bundleURL = podBundle.url(forResource: "MFCard", withExtension: "bundle")
+        let bundleURL = podBundle.url(forResource: "MFCard", withExtension: "bundle")
         if bundleURL == nil{
-            bundleURL = Bundle.main.bundleURL
+            mfBundel = podBundle
+        }else{
+            mfBundel = Bundle(url: bundleURL!)!
         }
-        mfBundel = Bundle(url: bundleURL!)!
         return mfBundel!
+
     }
     
     
@@ -194,6 +196,16 @@ protocol MFCardDelegate {
             cardTextField.textColor = color
         }
     }
+    fileprivate func setCardRadius(){
+        
+        self.cardBackView.layer.cornerRadius    = self.cardRadius
+        self.backChromeView.layer.cornerRadius = self.cardRadius
+        self.viewBackContainer.layer.cornerRadius = self.cardRadius
+        self.viewFrontContainer.layer.cornerRadius = self.cardRadius
+        self.frontChromeView.layer.cornerRadius = self.cardRadius
+        self.frontCardImage.layer.cornerRadius = self.cardRadius
+        self.cardFrontView.layer.cornerRadius   = self.cardRadius
+    }
     fileprivate func setPlaceholder(_ allow:Bool){
         if allow{
             txtCvc.placeholder      = "###"
@@ -209,6 +221,13 @@ protocol MFCardDelegate {
             for cardTextField: UITextField in cardTextFields{
                 cardTextField.placeholder = ""
             }
+        }
+    }
+    fileprivate func changeCvvTFStyle(_ secure:Bool){
+        if secure{
+            txtCvc.isSecureTextEntry = true
+        }else{
+            txtCvc.isSecureTextEntry = false
         }
     }
     
@@ -314,6 +333,10 @@ protocol MFCardDelegate {
                     setImageWithAnnimation(UIImage(named: "MasterCard", in: mfBundel!,compatibleWith: nil)!,cardType: CardType.MasterCard)
                     break
         
+                case CardType.Amex.rawValue:
+                    setImageWithAnnimation(UIImage(named: "Amex", in: mfBundel!,compatibleWith: nil)!,cardType: CardType.MasterCard)
+                    break
+                
                 case CardType.JCB.rawValue:
                     setImageWithAnnimation(UIImage(named: "JCB", in: mfBundel!,compatibleWith: nil)!,cardType: CardType.JCB)
                     break
@@ -362,8 +385,7 @@ protocol MFCardDelegate {
         didSet {
             if oldValue != cardRadius {
                 self.layoutIfNeeded()
-                self.cardBackView.layer.cornerRadius    = self.cardRadius
-                self.cardFrontView.layer.cornerRadius   = self.cardRadius
+                setCardRadius()
             }
         }
     }
@@ -413,6 +435,15 @@ protocol MFCardDelegate {
         }
     }
     
+    @IBInspectable var cvvPasswordType: Bool = true {
+        didSet{
+            if oldValue != cvvPasswordType {
+                changeCvvTFStyle(cvvPasswordType)
+            }
+            
+        }
+    }
+
     @IBInspectable var frontChromeColor :UIColor? = UIColor.clear {
         didSet{
             
@@ -604,22 +635,3 @@ extension MFCardView :LBZSpinnerDelegate{
     
 }
 
-extension UIViewController{
-    
-    func showAlertWithTitle(_ title:String, message:String, popVC:Bool){
-        
-        let alert = UIAlertController(title: title,
-                                      message: message, preferredStyle: .alert)
-        
-        let okButton = UIAlertAction(title: "OK",
-                                     style: .cancel) { (alert) -> Void in
-                                        if popVC == true {
-                                            self.navigationController?.popViewController(animated: true)
-                                        }else{}
-                                        
-        }
-        alert.addAction(okButton)
-        self.present(alert, animated: true,
-                     completion: nil)
-    }
-}

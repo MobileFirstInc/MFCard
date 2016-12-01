@@ -1,6 +1,0 @@
-framework module RCCreditCardValidator {
-  umbrella header "RCCreditCardValidator-umbrella.h"
-
-  export *
-  module * { export * }
-}

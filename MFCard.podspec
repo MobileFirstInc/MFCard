@@ -14,5 +14,4 @@ Pod::Spec.new do |s|
     s.resource_bundles = {
     'MFCard' => ['MFCard/**/*.{xib,xcassets,json,imageset,png,jpg}']
     }
-    s.dependency "RCCreditCardValidator", "~> 0.2.1"
 end

@@ -14,6 +14,7 @@ public enum CardType : String {
     case JCB            = "JCB"
     case Diners         = "Dinners Club"
     case Discover       = "Discover"
+    case Amex           = "Amex"
     case Unknown        = "Can not detect card."
 }
 

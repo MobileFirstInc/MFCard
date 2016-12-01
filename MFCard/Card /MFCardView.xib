@@ -28,8 +28,10 @@
                 <outlet property="txtCardNoP4" destination="icr-dz-oHr" id="Z4g-nD-WxX"/>
                 <outlet property="txtCvc" destination="0IM-DV-kpe" id="xRM-Tp-0Ur"/>
                 <outlet property="view" destination="iN0-l3-epB" id="8M8-yT-bSm"/>
+                <outlet property="viewBackContainer" destination="QGO-cH-1CO" id="lGh-EY-Y2s"/>
                 <outlet property="viewExpiryMonth" destination="5oD-js-DmC" id="5CZ-8g-1sb"/>
                 <outlet property="viewExpiryYear" destination="UTE-we-UGA" id="IPQ-8Y-eAg"/>
+                <outlet property="viewFrontContainer" destination="Hvo-QO-2CS" id="BNe-jh-d7h"/>
                 <outletCollection property="cardLabels" destination="Vft-vY-bBs" collectionClass="NSMutableArray" id="KMf-Ci-w7L"/>
                 <outletCollection property="cardLabels" destination="cTd-4Y-MpO" collectionClass="NSMutableArray" id="hsg-Qw-sBY"/>
                 <outletCollection property="cardLabels" destination="2BA-Cd-AUt" collectionClass="NSMutableArray" id="DuN-SS-7Yp"/>
@@ -96,11 +98,11 @@
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0yW-cg-51x" userLabel="CardBackView">
                     <rect key="frame" x="0.0" y="50" width="300" height="194"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Yq-cx-Ci0" userLabel="ChromeView">
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Yq-cx-Ci0" userLabel="ChromeView">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="194"/>
                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QGO-cH-1CO" userLabel="ContainerView">
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QGO-cH-1CO" userLabel="ContainerView">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="194"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RE2-rY-oCk" userLabel="MagneticTapeView">
@@ -162,11 +164,11 @@
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blank-world-map" translatesAutoresizingMaskIntoConstraints="NO" id="njz-AB-oMy">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="194"/>
                         </imageView>
-                        <view alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="clc-DC-xoP" userLabel="ChromeView">
+                        <view clipsSubviews="YES" alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="clc-DC-xoP" userLabel="ChromeView">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="194"/>
                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hvo-QO-2CS" userLabel="ContainerView">
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hvo-QO-2CS" userLabel="ContainerView">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="194"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Enter Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yqT-e8-4Xb">
