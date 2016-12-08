@@ -161,7 +161,7 @@
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s7V-N8-tSQ" userLabel="CardFrontView">
                     <rect key="frame" x="0.0" y="50" width="300" height="194"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blank-world-map" translatesAutoresizingMaskIntoConstraints="NO" id="njz-AB-oMy">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="njz-AB-oMy">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="194"/>
                         </imageView>
                         <view clipsSubviews="YES" alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="clc-DC-xoP" userLabel="ChromeView">
@@ -391,6 +391,6 @@
         </view>
     </objects>
     <resources>
-        <image name="blank-world-map" width="630" height="400"/>
+        <image name="bg" width="630" height="400"/>
     </resources>
 </document>

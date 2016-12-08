@@ -69,6 +69,7 @@ extension MFCardDelegate{
     fileprivate var nibName: String = "MFCardView"
     public var autoDismiss = false
     public var flipOnDone = false
+    public var toast = true
     
     //MARK:
     //MARK: initialization
@@ -156,7 +157,7 @@ extension MFCardDelegate{
     
     fileprivate func setupUI(){
         self.layoutIfNeeded()
-        self.backgroundColor = self.backGroundColor
+        self.backgroundColor = self.backColor
         self.btnCvc.layer.cornerRadius = self.controlButtonsRadius
         self.btnDone.layer.cornerRadius = self.controlButtonsRadius
         setCardRadius()
@@ -164,7 +165,10 @@ extension MFCardDelegate{
         changeFont(UIColor.white)
         changeTextFieldTextColor(UIColor.black)
         changeTextFieldColor(UIColor.white)
-        cardImage = UIImage(named: "blank-world-map", in: mfBundel!,compatibleWith: nil)
+        if cardImageRequire == true{
+            cardImage = UIImage(named: "bg", in: mfBundel!,compatibleWith: nil)
+        }
+        
     }
     
     public func showCard(){
@@ -299,6 +303,16 @@ extension MFCardDelegate{
         }
     }
     
+    fileprivate func imageRequire(_ require:Bool){
+        if require{
+            cardImage = self.frontCardImage.image
+            self.frontChromeAlpha = 0.81
+        }else{
+            self.frontChromeAlpha = 1
+            cardImage = UIImage()
+        }
+    }
+    
     fileprivate func animateCard() {
         self.view.center.x = 0
         self.view.center.y = -500
@@ -322,18 +336,23 @@ extension MFCardDelegate{
         if (btnDone.title(for: .normal) == "Close"){
             dismissCard()
         }else{
+            error = nil
             var card :Card?
             let cardNumber :String = getCardNumber()
-            if (txtCvc.text?.characters.count)! <= 3 && cardNumber.characters.count <= 13 {
-                error = "Please enter valid card details"
+            if cardNumber.characters.count <= 13 {
+                error = "Please enter valid card number"
             }else if viewExpiryMonth.labelValue.text! == "MM" {
                 error = "Please Select Expiry Month"
             }else if viewExpiryYear.labelValue.text! == "YYYY" {
                 error = "Please Select Expiry Year"
+            }else if (txtCvc.text?.characters.count)! < 3 {
+                error = "Please enter valid Cvv"
             }
-            else{}
+            else{ }
             card = Card(name: txtCardName.text, number: cardNumber, month: viewExpiryMonth!.labelValue.text!, year: viewExpiryYear!.labelValue.text!, cvc: txtCvc.text, paymentType: Card.PaymentType.card, cardType:addedCardType, userId: 1)
-            
+            if error != nil && toast == true{
+                UIApplication.topViewController()?.view.makeToast(error!)
+            }
             if self.delegate != nil{
                 self.delegate?.cardDoneButtonClicked(card, error: error)
             }
@@ -462,29 +481,77 @@ extension MFCardDelegate{
     
     //MARK:
     //MARK: @IBInspectable
-    @IBInspectable public var cardImage :UIImage? = UIImage(named: "blank-world-map") {
+    @IBInspectable public var cardImage :UIImage?  {
         didSet{
-            frontCardImage.image = cardImage
+                frontCardImage.image = cardImage
+        }
+        
+    }
+    
+    @IBInspectable public var cardImageRequire: Bool = true {
+        didSet{
+            self.imageRequire(cardImageRequire)
+        }
+    }
+    
+    @IBInspectable public var backColor: UIColor? = UIColor.clear{
+        didSet {
+            if oldValue != backgroundColor {
+                self.backgroundColor = self.backColor
+            }
+        }
+    }
+    
+    @IBInspectable public var frontChromeColor :UIColor? = UIColor.clear {
+        didSet{
+            
+            if oldValue != frontChromeColor {
+                viewExpiryYear.dDLColor  = frontChromeColor!
+                viewExpiryMonth.dDLColor = frontChromeColor!
+                viewExpiryYear.dDLStrokeColor = frontChromeColor!
+                viewExpiryMonth.dDLStrokeColor = frontChromeColor!
+                btnCvc.backgroundColor          = frontChromeColor
+                btnDone.backgroundColor         = frontChromeColor
+                frontChromeView.backgroundColor = frontChromeColor
+            }
+        }
+        
+    }
+    
+    @IBInspectable public var frontChromeAlpha :CGFloat = 0.8 {
+        didSet{
+            if oldValue != frontChromeAlpha {
+                frontChromeView.alpha = frontChromeAlpha
+            }
+        }
+        
+    }
+    
+    @IBInspectable public var backChromeColor :UIColor? = UIColor.clear {
+        didSet{
+            if oldValue != backChromeColor {
+                backChromeView.backgroundColor = backChromeColor
+            }
+        }
+        
+    }
+    
+    @IBInspectable public var backChromeAlpha :CGFloat = 0.8 {
+        didSet{
+            if oldValue != backChromeAlpha {
+                backChromeView.alpha = backChromeAlpha
+            }
         }
         
     }
     
     @IBInspectable public var backTape :UIColor = UIColor.black  {
         didSet{
-            if oldValue != backTape {
-                magneticTapeView.backgroundColor = backTape
-            }
+            magneticTapeView.backgroundColor = backTape
         }
         
     }
     
-    @IBInspectable public var backGroundColor: UIColor? = UIColor.clear{
-        didSet {
-            if oldValue != backgroundColor {
-                self.backgroundColor = self.backGroundColor
-            }
-        }
-    }
     
     @IBInspectable public var labelColor: UIColor? = UIColor.white{
         didSet {
@@ -559,48 +626,6 @@ extension MFCardDelegate{
         }
     }
     
-    @IBInspectable public var frontChromeColor :UIColor? = UIColor.clear {
-        didSet{
-            
-            if oldValue != frontChromeColor {
-                viewExpiryYear.dDLColor  = frontChromeColor!
-                viewExpiryMonth.dDLColor = frontChromeColor!
-                viewExpiryYear.dDLStrokeColor = frontChromeColor!
-                viewExpiryMonth.dDLStrokeColor = frontChromeColor!
-                btnCvc.backgroundColor          = frontChromeColor
-                btnDone.backgroundColor         = frontChromeColor
-                frontChromeView.backgroundColor = frontChromeColor
-            }
-        }
-        
-    }
-    
-    @IBInspectable public var frontChromeAlpha :CGFloat = 0.8 {
-        didSet{
-            if oldValue != frontChromeAlpha {
-                frontChromeView.alpha = frontChromeAlpha
-            }
-        }
-        
-    }
-    
-    @IBInspectable public var backChromeColor :UIColor? = UIColor.clear {
-        didSet{
-            if oldValue != backChromeColor {
-                backChromeView.backgroundColor = backChromeColor
-            }
-        }
-        
-    }
-    
-    @IBInspectable public var backChromeAlpha :CGFloat = 0.8 {
-        didSet{
-            if oldValue != backChromeAlpha {
-                backChromeView.alpha = backChromeAlpha
-            }
-        }
-        
-    }
     
 }
 
@@ -681,7 +706,7 @@ extension MFCardView: UITextFieldDelegate{
                 
             }
             else {
-                error = "Can not detect card."
+               // error = "Can not detect card."
                 print("Can not detect card.")
                 setImage("Unknown")
             }
@@ -735,4 +760,19 @@ extension MFCardView :LBZSpinnerDelegate{
     
     
 }
-
+extension UIApplication {
+    class func topViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let navigationController = controller as? UINavigationController {
+            return topViewController(controller: navigationController.visibleViewController)
+        }
+        if let tabController = controller as? UITabBarController {
+            if let selected = tabController.selectedViewController {
+                return topViewController(controller: selected)
+            }
+        }
+        if let presented = controller?.presentedViewController {
+            return topViewController(controller: presented)
+        }
+        return controller
+    }
+}

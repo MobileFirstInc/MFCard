@@ -23,40 +23,53 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUD-Lu-31Z">
-                                <rect key="frame" x="135" y="180" width="105" height="47"/>
-                                <color key="backgroundColor" red="1" green="0.50069099039999998" blue="0.47001467810000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="63" y="136" width="250" height="47"/>
+                                <color key="backgroundColor" red="1" green="0.48181261145722043" blue="0.060025118368411734" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="105" id="bpO-aE-O3c"/>
                                     <constraint firstAttribute="height" constant="47" id="pYG-MJ-9kh"/>
                                 </constraints>
-                                <state key="normal" title="Add Card">
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Add MFCard with Code">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="btnAddCardAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kZz-hM-Qhe"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Built with ❤️ in India" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oM3-F7-zPd">
+                                <rect key="frame" x="165.5" y="626" width="169.5" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="J3K-HY-bc7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgg-Ke-QB2">
-                                <rect key="frame" x="87.5" y="254" width="200" height="47"/>
+                                <rect key="frame" x="63" y="215" width="250" height="47"/>
                                 <color key="backgroundColor" red="0.14569347545769218" green="0.4415888699095496" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="KTE-Kv-TRt"/>
-                                    <constraint firstAttribute="width" constant="200" id="oj8-n6-6Kb"/>
+                                    <constraint firstAttribute="width" constant="250" id="oj8-n6-6Kb"/>
                                 </constraints>
-                                <state key="normal" title="Card from Storyboard">
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Add MFCard with Storyboard">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="cTW-z4-c5h" kind="show" id="awB-qO-qgM"/>
+                                    <segue destination="cTW-z4-c5h" kind="showDetail" id="vad-1F-lwq"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.31407005630496254" green="0.70131089355388609" blue="0.66536571167178848" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="UUD-Lu-31Z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="E4P-Fb-d1a"/>
                             <constraint firstItem="UUD-Lu-31Z" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="116" id="RGC-Wr-6vn"/>
-                            <constraint firstItem="fgg-Ke-QB2" firstAttribute="top" secondItem="UUD-Lu-31Z" secondAttribute="bottom" constant="27" id="kyD-FG-bTC"/>
+                            <constraint firstAttribute="trailing" secondItem="oM3-F7-zPd" secondAttribute="trailing" constant="40" id="d7T-2x-OXk"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oM3-F7-zPd" secondAttribute="bottom" constant="20" id="eVm-ia-L6v"/>
+                            <constraint firstItem="fgg-Ke-QB2" firstAttribute="top" secondItem="UUD-Lu-31Z" secondAttribute="bottom" constant="32" id="kyD-FG-bTC"/>
                             <constraint firstItem="fgg-Ke-QB2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mca-yd-kTx"/>
+                            <constraint firstItem="UUD-Lu-31Z" firstAttribute="width" secondItem="fgg-Ke-QB2" secondAttribute="width" id="nDw-0z-lxw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OxQ-no-fid"/>
@@ -65,10 +78,10 @@
             </objects>
             <point key="canvasLocation" x="1080.8" y="90.404797601199405"/>
         </scene>
-        <!--View Controller-->
+        <!--Card Demo Vc-->
         <scene sceneID="85f-3T-hVM">
             <objects>
-                <viewController id="cTW-z4-c5h" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CardDemoVc" id="cTW-z4-c5h" customClass="CardDemoVc" customModule="MFCardDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lwR-B3-XkU"/>
                         <viewControllerLayoutGuide type="bottom" id="je7-4r-MdJ"/>
@@ -77,6 +90,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back2" translatesAutoresizingMaskIntoConstraints="NO" id="nvB-sW-MnG">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I1n-DL-6dV" customClass="MFCardView" customModule="MFCard">
                                 <rect key="frame" x="37.5" y="110" width="300" height="240"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -85,8 +101,27 @@
                                     <constraint firstAttribute="height" constant="240" id="lPO-Ur-Lds"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="backGroundColor">
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backColor">
                                         <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="MMYYTextColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="cardImage" value="world-map"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="frontChromeColor">
+                                        <color key="value" red="0.1456934755" green="0.44158886990000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="frontChromeAlpha">
+                                        <real key="value" value="0.81000000000000005"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backChromeColor">
+                                        <color key="value" red="0.1456934755" green="0.44158886990000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="backChromeAlpha">
+                                        <real key="value" value="0.81999999999999995"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backTape">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -98,22 +133,43 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="&lt; Back">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnBackAction:" destination="cTW-z4-c5h" eventType="touchUpInside" id="DgJ-eg-Atj"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Built with ❤️ in India" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRd-bZ-N5H">
+                                <rect key="frame" x="165.5" y="626" width="169.5" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="F3H-9F-uPT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.91549668473178958" blue="0.82550771487383723" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="lRd-bZ-N5H" secondAttribute="trailing" constant="40" id="62W-Ba-lFY"/>
+                            <constraint firstItem="nvB-sW-MnG" firstAttribute="top" secondItem="e3l-CW-9Ml" secondAttribute="top" id="DyB-QW-E6K"/>
                             <constraint firstItem="bzc-HG-47w" firstAttribute="leading" secondItem="e3l-CW-9Ml" secondAttribute="leadingMargin" id="Hfw-gi-qgx"/>
+                            <constraint firstAttribute="bottom" secondItem="nvB-sW-MnG" secondAttribute="bottom" id="enj-rd-Kvj"/>
                             <constraint firstItem="I1n-DL-6dV" firstAttribute="centerX" secondItem="e3l-CW-9Ml" secondAttribute="centerX" id="gza-qg-IBp"/>
+                            <constraint firstItem="je7-4r-MdJ" firstAttribute="top" secondItem="lRd-bZ-N5H" secondAttribute="bottom" constant="20" id="hww-Zd-baY"/>
+                            <constraint firstItem="nvB-sW-MnG" firstAttribute="leading" secondItem="e3l-CW-9Ml" secondAttribute="leading" id="jc4-Je-3qs"/>
+                            <constraint firstAttribute="trailing" secondItem="nvB-sW-MnG" secondAttribute="trailing" id="qEE-4d-9Ta"/>
                             <constraint firstItem="bzc-HG-47w" firstAttribute="top" secondItem="lwR-B3-XkU" secondAttribute="bottom" constant="10" id="uu7-0Q-JSF"/>
                             <constraint firstItem="I1n-DL-6dV" firstAttribute="top" secondItem="lwR-B3-XkU" secondAttribute="bottom" constant="90" id="z81-WW-fOm"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="creditCard" destination="I1n-DL-6dV" id="qHZ-ZV-7WB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JzV-MG-7t7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1868" y="89.505247376311857"/>
+            <point key="canvasLocation" x="1882" y="90"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GSn-RZ-9eX">
@@ -134,4 +190,8 @@
             <point key="canvasLocation" x="141.59999999999999" y="90.404797601199405"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="back2" width="2560" height="1600"/>
+        <image name="world-map" width="2400" height="1800"/>
+    </resources>
 </document>

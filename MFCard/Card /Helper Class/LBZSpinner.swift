@@ -285,6 +285,7 @@ import UIKit
                 completion: { finished in
 
                     // delete dropdown list
+                    if self.tableviewChoose == nil{return}
                     self.tableviewChoose.removeFromSuperview()
                     self.viewChooseDisable.removeFromSuperview()
                     self.tableviewChooseShadow.removeFromSuperview()
@@ -330,7 +331,10 @@ import UIKit
         if(UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation))
         {}
         */
-        closeSpinner()
+        if tableviewChoose != nil {
+            closeSpinner()
+        }
+        
     }
     
     /** 

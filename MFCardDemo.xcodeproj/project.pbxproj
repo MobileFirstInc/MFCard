@@ -22,6 +22,8 @@
 		6B24477B1DF84FBE003A8285 /* MFCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B2447741DF84FBE003A8285 /* MFCardView.xib */; };
 		6B2447821DF855D6003A8285 /* MFCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2447301DF84E62003A8285 /* MFCard.framework */; };
 		6B2447831DF855D6003A8285 /* MFCard.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2447301DF84E62003A8285 /* MFCard.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6B3020841DF975AB00FB9C0D /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3020831DF975AB00FB9C0D /* Toast.swift */; };
+		6B6476081DF95B83004679E4 /* CardDemoVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6476071DF95B83004679E4 /* CardDemoVc.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		6B2447721DF84FBE003A8285 /* LBZSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBZSpinner.swift; sourceTree = "<group>"; };
 		6B2447731DF84FBE003A8285 /* MFCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFCardView.swift; sourceTree = "<group>"; };
 		6B2447741DF84FBE003A8285 /* MFCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MFCardView.xib; sourceTree = "<group>"; };
+		6B3020831DF975AB00FB9C0D /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		6B6476071DF95B83004679E4 /* CardDemoVc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDemoVc.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,7 @@
 			children = (
 				6B24473E1DF84E82003A8285 /* AppDelegate.swift */,
 				6B2447401DF84E82003A8285 /* ViewController.swift */,
+				6B6476071DF95B83004679E4 /* CardDemoVc.swift */,
 				6B2447421DF84E82003A8285 /* Main.storyboard */,
 				6B2447451DF84E82003A8285 /* Assets.xcassets */,
 				6B2447471DF84E82003A8285 /* LaunchScreen.storyboard */,
@@ -123,6 +128,7 @@
 			children = (
 				6B24476C1DF84FBE003A8285 /* Assets.xcassets */,
 				6B24476E1DF84FBE003A8285 /* CreditCardValidator */,
+				6B3020821DF975AB00FB9C0D /* Toast */,
 				6B2447711DF84FBE003A8285 /* Helper Class */,
 				6B24476D1DF84FBE003A8285 /* Card.swift */,
 				6B2447731DF84FBE003A8285 /* MFCardView.swift */,
@@ -155,6 +161,14 @@
 				6B2447331DF84E62003A8285 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6B3020821DF975AB00FB9C0D /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				6B3020831DF975AB00FB9C0D /* Toast.swift */,
+			);
+			path = Toast;
 			sourceTree = "<group>";
 		};
 		6B6CF8121DCB53DA00A29C16 = {
@@ -284,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B2447761DF84FBE003A8285 /* Card.swift in Sources */,
+				6B3020841DF975AB00FB9C0D /* Toast.swift in Sources */,
 				6B24477A1DF84FBE003A8285 /* MFCardView.swift in Sources */,
 				6B2447771DF84FBE003A8285 /* CreditCardValidationType.swift in Sources */,
 				6B2447791DF84FBE003A8285 /* LBZSpinner.swift in Sources */,
@@ -297,6 +312,7 @@
 			files = (
 				6B2447411DF84E82003A8285 /* ViewController.swift in Sources */,
 				6B24473F1DF84E82003A8285 /* AppDelegate.swift in Sources */,
+				6B6476081DF95B83004679E4 /* CardDemoVc.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
