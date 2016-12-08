@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'MFCard'
-    s.version          = '1.0.5'
+    s.version          = '1.0.6'
     s.summary          = 'Fantastic Credit Card View'
     s.license          = 'MIT'
     s.author           = { 'Arpan Desai' => 'arpan@mobilefirst.in' }
@@ -11,7 +11,6 @@ Pod::Spec.new do |s|
     s.requires_arc = true
 
     s.source_files = 'MFCard/*.{swift,h}'
-    s.resource  = "MFCard/**/*"
     s.resource_bundles = {
     'MFCard' => ['MFCard/**/*.{xib,xcassets,json,imageset,png,jpg}']
     }
