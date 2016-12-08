@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  MFCard
+//  MFCardDemo
 //
-//  Created by MobileFirst Applications on 03/11/16.
+//  Created by MobileFirst Applications on 07/12/16.
 //  Copyright © 2016 MobileFirst Applications. All rights reserved.
 //
 

@@ -8,72 +8,87 @@
 
 import UIKit
 
-protocol MFCardDelegate {
+public protocol MFCardDelegate {
     func cardDoneButtonClicked(_ card:Card?, error:String?)
+    func cardTypeDidIdentify(_ cardType :String)
 }
 
-@IBDesignable class MFCardView: UIView {
+extension MFCardDelegate{
+    func cardTypeDidIdentify(_ cardType :String){
+    }
+}
+
+@IBDesignable public class MFCardView: UIView {
     
-    var imageFilePath:Any? = nil
-    
-    var delegate :MFCardDelegate?
+    public var delegate :MFCardDelegate?
     fileprivate var addedCardType: CardType?
     fileprivate var error :String? = String()
     fileprivate var mfBundel :Bundle? = Bundle()
-    @IBOutlet var view: UIView!
+    fileprivate var containerView = UIView()
+    @IBOutlet fileprivate var view: UIView!
     
-    @IBOutlet weak var cardBackView: UIView!
+    @IBOutlet weak fileprivate var cardBackView: UIView!
     
-    @IBOutlet weak var cardFrontView: UIView!
-    @IBOutlet weak var backChromeView: UIView!
+    @IBOutlet weak fileprivate var cardFrontView: UIView!
+    @IBOutlet weak fileprivate var backChromeView: UIView!
     
-    @IBOutlet weak var magneticTapeView: UIView!
+    @IBOutlet weak fileprivate var magneticTapeView: UIView!
     
-    @IBOutlet weak var txtCvc: UITextField!
+    @IBOutlet weak fileprivate var txtCvc: UITextField!
     
-    @IBOutlet weak var frontCardImage: UIImageView!
+    @IBOutlet weak fileprivate var frontCardImage: UIImageView!
     
-    @IBOutlet weak var frontChromeView: UIView!
+    @IBOutlet weak fileprivate var frontChromeView: UIView!
     
-    @IBOutlet weak var txtCardName: UITextField!
+    @IBOutlet weak fileprivate var txtCardName: UITextField!
     
-    @IBOutlet weak var txtCardNoP1: UITextField!
-    @IBOutlet weak var txtCardNoP2: UITextField!
-    @IBOutlet weak var txtCardNoP3: UITextField!
-    @IBOutlet weak var txtCardNoP4: UITextField!
+    @IBOutlet weak fileprivate var txtCardNoP1: UITextField!
+    @IBOutlet weak fileprivate var txtCardNoP2: UITextField!
+    @IBOutlet weak fileprivate var txtCardNoP3: UITextField!
+    @IBOutlet weak fileprivate var txtCardNoP4: UITextField!
     
-    @IBOutlet weak var cardTypeImage: UIImageView!
-    @IBOutlet weak var viewExpiryMonth: LBZSpinner!
-    @IBOutlet weak var viewExpiryYear: LBZSpinner!
+    @IBOutlet weak fileprivate var cardTypeImage: UIImageView!
+    @IBOutlet weak fileprivate var viewExpiryMonth: LBZSpinner!
+    @IBOutlet weak fileprivate var viewExpiryYear: LBZSpinner!
     
-    @IBOutlet weak var controlView: UIView!
+    @IBOutlet weak fileprivate var controlView: UIView!
     
-    @IBOutlet weak var btnCvc: UIButton!
+    @IBOutlet weak fileprivate var btnCvc: UIButton!
     
-    @IBOutlet weak var btnDone: UIButton!
+    @IBOutlet weak fileprivate var btnDone: UIButton!
     
-    @IBOutlet weak var viewFrontContainer: UIView!
-    @IBOutlet weak var viewBackContainer: UIView!
-    @IBOutlet var cardLabels: [UILabel]!
-    var cardTextFields:[UITextField]!
-    //    var addedCard = Card()
+    @IBOutlet weak fileprivate var viewFrontContainer: UIView!
+    @IBOutlet weak fileprivate var viewBackContainer: UIView!
+    
+    @IBOutlet fileprivate var cardLabels: [UILabel]!
+    
+    fileprivate var cardTextFields:[UITextField]!
+    weak fileprivate var rootViewController: UIViewController!
+    fileprivate var blurEffectView:UIVisualEffectView!
+
     fileprivate var nibName: String = "MFCardView"
+    public var autoDismiss = false
+    public var flipOnDone = false
     
     //MARK:
     //MARK: initialization
+    public init(withViewController:UIViewController) {
+        super.init(frame: CGRect(x: 0, y: 0, width: 300, height: 240))
+        rootViewController = withViewController
+        setup()
+        setupUI()
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
         setupUI()
-        
     }
 
     required public init?(coder aDecoder: NSCoder) {
-        
         super.init(coder: aDecoder)
         setup()
         setupUI()
-        
     }
     
     //MARK:
@@ -81,9 +96,8 @@ protocol MFCardDelegate {
     fileprivate func setup() {
         // 1. load a nib
         view = loadViewFromNib()
-        //imageFilePath = getBundle().path(forResource: "blank-world-map", ofType: "png")!
-        //imageFilePath = UIImage(named: "blank-world-map")
         // 2. add as subview
+
         self.addSubview(self.view)
                 // 3. allow for autolayout
         self.view.translatesAutoresizingMaskIntoConstraints = false
@@ -92,10 +106,14 @@ protocol MFCardDelegate {
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[view]|", options: [], metrics: nil, views: ["view": self.view]))
         self.layoutIfNeeded()
         self.updateConstraintsIfNeeded()
+        generalSetup()
         
+    }
+    
+    fileprivate func generalSetup(){
         //Other SetUps...
         cardTextFields = [txtCardNoP4,txtCardNoP3,txtCardNoP2,txtCardNoP1,txtCardName,txtCvc];
-        btnDone.isHidden = true
+       btnDone.setTitle("Close", for: .normal)
         let components = (Calendar.current as NSCalendar).components([.day, .month, .year], from: Date())
         let year = components.year
         let expiryMonth = ["01","02","03","04","05","06","07","08","09", "10", "11", "12"]
@@ -132,8 +150,8 @@ protocol MFCardDelegate {
         leftSwipe.direction = .left
         rightSwipe.direction = .right
         
-        self.addGestureRecognizer(leftSwipe)
-        self.addGestureRecognizer(rightSwipe)
+        view.addGestureRecognizer(leftSwipe)
+        view.addGestureRecognizer(rightSwipe)
     }
     
     fileprivate func setupUI(){
@@ -146,13 +164,55 @@ protocol MFCardDelegate {
         changeFont(UIColor.white)
         changeTextFieldTextColor(UIColor.black)
         changeTextFieldColor(UIColor.white)
-        cardImage = UIImage(named: "blank-world-map", in: mfBundel!,compatibleWith: nil)!
+        cardImage = UIImage(named: "blank-world-map", in: mfBundel!,compatibleWith: nil)
     }
     
-    //MARK:
-    //MARK: Helper Methods
+    public func showCard(){
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.alpha = 0.5 // blur effect alpha
+        blurEffectView.frame = rootViewController.view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        rootViewController.view.addSubview(blurEffectView)
+        rootViewController.view.addSubview(view)
+        
+        // center view horizontally in rootViewController.view
+        rootViewController.view.addConstraint(NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: rootViewController.view, attribute: NSLayoutAttribute.centerX, multiplier: 1.0, constant: 0.0));
+        
+        // align view from the top
+        rootViewController.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-50-[view]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]));
+        
+        // width constraint
+        rootViewController.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[view(==300)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]));
+        
+        // height constraint
+        rootViewController.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[view(==240)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]));
+        animateCard()
+        // Animate it in
+        
+    }
     
-    func loadViewFromNib() -> UIView {
+    public func dismissCard() {
+        let sz = screenSize()
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.5, options: [], animations: {
+            self.view.center.y = self.view.center.y + sz.height
+        }, completion: { finished in
+            UIView.animate(withDuration: 0.1, animations: {
+                self.view.alpha = 0
+            }, completion: { finished in
+                self.view.removeFromSuperview()
+                if self.blurEffectView != nil{
+                    self.blurEffectView.removeFromSuperview()
+
+                }
+            })
+        })
+    }
+
+    //MARK:
+    //MARK: Helping Methods
+    
+    fileprivate func loadViewFromNib() -> UIView {
         
         let bundle = getBundle()
         let nib = UINib(nibName: nibName, bundle: bundle)
@@ -161,7 +221,7 @@ protocol MFCardDelegate {
         return view
     }
     
-    func getBundle() -> Bundle {
+    fileprivate func getBundle() -> Bundle {
         
         let podBundle = Bundle(for: MFCardView.self)
         let bundleURL = podBundle.url(forResource: "MFCard", withExtension: "bundle")
@@ -174,6 +234,10 @@ protocol MFCardDelegate {
 
     }
     
+    fileprivate func screenSize() -> CGSize {
+        let screenSize = UIScreen.main.bounds.size
+        return screenSize
+    }
     
     fileprivate func changeFont(_ color :UIColor){
         btnDone.setTitleColor(color, for: .normal)
@@ -184,6 +248,7 @@ protocol MFCardDelegate {
             labelItem.textColor = color
         }
     }
+    
     fileprivate func changeTextFieldColor(_ color:UIColor){
         for cardTextField: UITextField in cardTextFields{
             cardTextField.backgroundColor = color
@@ -196,6 +261,7 @@ protocol MFCardDelegate {
             cardTextField.textColor = color
         }
     }
+    
     fileprivate func setCardRadius(){
         
         self.cardBackView.layer.cornerRadius    = self.cardRadius
@@ -206,6 +272,7 @@ protocol MFCardDelegate {
         self.frontCardImage.layer.cornerRadius = self.cardRadius
         self.cardFrontView.layer.cornerRadius   = self.cardRadius
     }
+    
     fileprivate func setPlaceholder(_ allow:Bool){
         if allow{
             txtCvc.placeholder      = "###"
@@ -223,6 +290,7 @@ protocol MFCardDelegate {
             }
         }
     }
+    
     fileprivate func changeCvvTFStyle(_ secure:Bool){
         if secure{
             txtCvc.isSecureTextEntry = true
@@ -231,6 +299,17 @@ protocol MFCardDelegate {
         }
     }
     
+    fileprivate func animateCard() {
+        self.view.center.x = 0
+        self.view.center.y = -500
+        
+        UIView.animate(withDuration: 0.5, delay: 0.05, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: [], animations: {
+            self.view.center = CGPoint(x: 0, y: 25)
+        }, completion: { finished in
+            
+        })
+    }
+
     
     //MARK:
     //MARK: IBAction
@@ -240,23 +319,31 @@ protocol MFCardDelegate {
     }
     
     @IBAction func btnDoneAction(_ sender: AnyObject) {
-        
-        var card :Card?
-        let cardNumber :String = getCardNumber()
-        if (txtCvc.text?.characters.count)! <= 3 && cardNumber.characters.count <= 13 {
-            error = "Please enter valid card details"
-        }else if viewExpiryMonth.labelValue.text! == "MM" {
-            error = "Please Select Expiry Month"
-        }else if viewExpiryYear.labelValue.text! == "YYYY" {
-            error = "Please Select Expiry Year"
+        if (btnDone.title(for: .normal) == "Close"){
+            dismissCard()
+        }else{
+            var card :Card?
+            let cardNumber :String = getCardNumber()
+            if (txtCvc.text?.characters.count)! <= 3 && cardNumber.characters.count <= 13 {
+                error = "Please enter valid card details"
+            }else if viewExpiryMonth.labelValue.text! == "MM" {
+                error = "Please Select Expiry Month"
+            }else if viewExpiryYear.labelValue.text! == "YYYY" {
+                error = "Please Select Expiry Year"
+            }
+            else{}
+            card = Card(name: txtCardName.text, number: cardNumber, month: viewExpiryMonth!.labelValue.text!, year: viewExpiryYear!.labelValue.text!, cvc: txtCvc.text, paymentType: Card.PaymentType.card, cardType:addedCardType, userId: 1)
+            
+            if self.delegate != nil{
+                self.delegate?.cardDoneButtonClicked(card, error: error)
+            }
         }
-        else{}
-        card = Card(name: txtCardName.text, number: cardNumber, month: viewExpiryMonth!.labelValue.text!, year: viewExpiryYear!.labelValue.text!, cvc: txtCvc.text, paymentType: Card.PaymentType.card, cardType:addedCardType, userId: 1)
-        
-        if self.delegate != nil{
-            self.delegate?.cardDoneButtonClicked(card, error: error)
+        if autoDismiss == true{
+            dismissCard()
         }
-        
+        if flipOnDone == true{
+            flip(nil)
+        }
     }
     
     //MARK:
@@ -264,19 +351,20 @@ protocol MFCardDelegate {
     
     fileprivate func hideDoneButton(){
         UIView.animate(withDuration: 1, animations: {
-            self.btnDone.alpha = 0
-            self.btnDone.isHidden = true
+            self.btnDone.setTitle("Close", for: .normal)
         })
     }
+    
     fileprivate func unHideDoneButton(){
         UIView.animate(withDuration: 1, animations: {
-            self.btnDone.alpha = 1
-            self.btnDone.isHidden = false
+            self.btnDone.setTitle("Done", for: .normal)
         })
     }
+    
     fileprivate func getCardNumber ()->String{
         return txtCardNoP1.text! + txtCardNoP2.text! + txtCardNoP3.text! + txtCardNoP4.text!
     }
+    
     @objc fileprivate func flip(_ sender:UISwipeGestureRecognizer?) {
         
         if sender?.direction == .left && cardFrontView.isHidden == true{
@@ -314,6 +402,7 @@ protocol MFCardDelegate {
             
         }
     }
+    
     fileprivate func setImage(_ card : String) {
         
                 func setImageWithAnnimation(_ image:UIImage,cardType:CardType){
@@ -348,7 +437,18 @@ protocol MFCardDelegate {
                 case CardType.Diners.rawValue:
                     setImageWithAnnimation(UIImage(named: "DinersClub", in: mfBundel!,compatibleWith: nil)!,cardType: CardType.Diners)
         
-        
+                case CardType.Maestro.rawValue:
+                    setImageWithAnnimation(UIImage(named: "Maestro", in: mfBundel!,compatibleWith: nil)!,cardType: CardType.Maestro)
+                    
+                case CardType.Electron.rawValue:
+                    setImageWithAnnimation(UIImage(named: "Electron", in: mfBundel!,compatibleWith: nil)!,cardType: CardType.Electron)
+                
+                case CardType.Dankort.rawValue:
+                    setImageWithAnnimation(UIImage(named: "Dankort", in: mfBundel!,compatibleWith: nil)!,cardType: CardType.Dankort)
+                    
+                case CardType.UnionPay.rawValue:
+                    setImageWithAnnimation(UIImage(named: "UnionPay", in: mfBundel!,compatibleWith: nil)!,cardType: CardType.UnionPay)
+                    
                 case CardType.Unknown.rawValue:
                     cardTypeImage.image = nil
                     addedCardType = CardType.Unknown
@@ -362,8 +462,23 @@ protocol MFCardDelegate {
     
     //MARK:
     //MARK: @IBInspectable
+    @IBInspectable public var cardImage :UIImage? = UIImage(named: "blank-world-map") {
+        didSet{
+            frontCardImage.image = cardImage
+        }
+        
+    }
     
-    @IBInspectable var backGroundColor: UIColor? = UIColor.clear{
+    @IBInspectable public var backTape :UIColor = UIColor.black  {
+        didSet{
+            if oldValue != backTape {
+                magneticTapeView.backgroundColor = backTape
+            }
+        }
+        
+    }
+    
+    @IBInspectable public var backGroundColor: UIColor? = UIColor.clear{
         didSet {
             if oldValue != backgroundColor {
                 self.backgroundColor = self.backGroundColor
@@ -371,26 +486,7 @@ protocol MFCardDelegate {
         }
     }
     
-    @IBInspectable var controlButtonsRadius: CGFloat = 5 {
-        didSet {
-            if oldValue != controlButtonsRadius {
-                self.layoutIfNeeded()
-                self.btnCvc.layer.cornerRadius  = self.controlButtonsRadius
-                self.btnDone.layer.cornerRadius = self.controlButtonsRadius
-            }
-        }
-    }
-    
-    @IBInspectable var cardRadius: CGFloat = 15 {
-        didSet {
-            if oldValue != cardRadius {
-                self.layoutIfNeeded()
-                setCardRadius()
-            }
-        }
-    }
-    
-    @IBInspectable var labelColor: UIColor? = UIColor.white{
+    @IBInspectable public var labelColor: UIColor? = UIColor.white{
         didSet {
             if oldValue != labelColor {
                 changeFont(labelColor!)
@@ -398,7 +494,7 @@ protocol MFCardDelegate {
         }
     }
     
-    @IBInspectable var MMYYTextColor: UIColor? = UIColor.white{
+    @IBInspectable public var MMYYTextColor: UIColor? = UIColor.white{
         didSet {
             if oldValue != MMYYTextColor {
                 viewExpiryMonth.textColor = MMYYTextColor!
@@ -409,7 +505,7 @@ protocol MFCardDelegate {
         }
     }
     
-    @IBInspectable var TF_Color: UIColor? = UIColor.white{
+    @IBInspectable public var TF_Color: UIColor? = UIColor.white{
         didSet {
             if oldValue != TF_Color {
                 changeTextFieldColor(TF_Color!)
@@ -418,7 +514,7 @@ protocol MFCardDelegate {
         }
     }
     
-    @IBInspectable var TF_TextColor: UIColor? = UIColor.black{
+    @IBInspectable public var TF_TextColor: UIColor? = UIColor.black{
         didSet {
             if oldValue != TF_TextColor {
                 changeTextFieldTextColor(TF_TextColor!)
@@ -426,7 +522,26 @@ protocol MFCardDelegate {
         }
     }
     
-    @IBInspectable var placeholder: Bool = true {
+    @IBInspectable public var controlButtonsRadius: CGFloat = 5 {
+        didSet {
+            if oldValue != controlButtonsRadius {
+                self.layoutIfNeeded()
+                self.btnCvc.layer.cornerRadius  = self.controlButtonsRadius
+                self.btnDone.layer.cornerRadius = self.controlButtonsRadius
+            }
+        }
+    }
+    
+    @IBInspectable public var cardRadius: CGFloat = 15 {
+        didSet {
+            if oldValue != cardRadius {
+                self.layoutIfNeeded()
+                setCardRadius()
+            }
+        }
+    }
+    
+    @IBInspectable public var placeholder: Bool = true {
         didSet{
             if oldValue != placeholder {
                 setPlaceholder(placeholder)
@@ -435,7 +550,7 @@ protocol MFCardDelegate {
         }
     }
     
-    @IBInspectable var cvvPasswordType: Bool = true {
+    @IBInspectable public var cvvPasswordType: Bool = true {
         didSet{
             if oldValue != cvvPasswordType {
                 changeCvvTFStyle(cvvPasswordType)
@@ -443,8 +558,8 @@ protocol MFCardDelegate {
             
         }
     }
-
-    @IBInspectable var frontChromeColor :UIColor? = UIColor.clear {
+    
+    @IBInspectable public var frontChromeColor :UIColor? = UIColor.clear {
         didSet{
             
             if oldValue != frontChromeColor {
@@ -460,7 +575,7 @@ protocol MFCardDelegate {
         
     }
     
-    @IBInspectable var frontChromeAlpha :CGFloat = 0.8 {
+    @IBInspectable public var frontChromeAlpha :CGFloat = 0.8 {
         didSet{
             if oldValue != frontChromeAlpha {
                 frontChromeView.alpha = frontChromeAlpha
@@ -469,7 +584,7 @@ protocol MFCardDelegate {
         
     }
     
-    @IBInspectable var backChromeColor :UIColor? = UIColor.clear {
+    @IBInspectable public var backChromeColor :UIColor? = UIColor.clear {
         didSet{
             if oldValue != backChromeColor {
                 backChromeView.backgroundColor = backChromeColor
@@ -478,25 +593,10 @@ protocol MFCardDelegate {
         
     }
     
-    @IBInspectable var backChromeAlpha :CGFloat = 0.8 {
+    @IBInspectable public var backChromeAlpha :CGFloat = 0.8 {
         didSet{
             if oldValue != backChromeAlpha {
                 backChromeView.alpha = backChromeAlpha
-            }
-        }
-        
-    }
-    
-        @IBInspectable var cardImage :UIImage? {
-            didSet{
-                frontCardImage.image = cardImage
-            }
-    
-        }
-    @IBInspectable var backTape :UIColor = UIColor.black  {
-        didSet{
-            if oldValue != backTape {
-                magneticTapeView.backgroundColor = backTape
             }
         }
         
@@ -507,10 +607,12 @@ protocol MFCardDelegate {
 
 extension MFCardView: UITextFieldDelegate{
     
+    
     func textFieldDidChange(_ textField: UITextField){
         if textField != txtCvc{
             changeTextFieldLessThan0(textField)
             changeTextFieldMoreThan4(textField)
+            changeCardType()
         }
         if textField == txtCvc {
             if (textField.text?.characters.count)! >= 3 {
@@ -525,27 +627,8 @@ extension MFCardView: UITextFieldDelegate{
     
     // GET THE NAME OF THE CARD AND SET THE IMAGE IN THE IMAGEVIEW
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    public func textFieldDidEndEditing(_ textField: UITextField) {
         
-        if textField == txtCardNoP2 {
-            
-            let number = txtCardNoP1.text! + txtCardNoP2.text!
-            
-            let validator = CreditCardValidator()
-            
-            if let type = validator.typeFromString(number) {
-                
-                print(type.name)
-                
-                setImage(type.name)
-                
-            }
-            else {
-                error = "Can not detect card."
-                print("Can not detect card.")
-            }
-            
-        }
         if textField == txtCvc {
             if (textField.text?.characters.count)! >= 3 {
                 self.unHideDoneButton()
@@ -555,19 +638,18 @@ extension MFCardView: UITextFieldDelegate{
         }
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
         if textField != txtCvc{
             let charLimit = 4
             let currentLength = (textField.text?.characters.count)! + string.characters.count - range.length
             let newLength = charLimit - currentLength
             if newLength < 0 {
                 changeTextFieldMoreThan4(textField)
-                
                 return false
             }else{
                 
                 return true
-                
             }
         }else{
             let charLimit = 3
@@ -585,6 +667,26 @@ extension MFCardView: UITextFieldDelegate{
     }
     
     //MARK: Helper Methods
+    func changeCardType(){
+        let number = getCardNumber()
+        if number.characters.count <= 4 || number.characters.count >= 7{
+            
+            let validator = CreditCardValidator()
+            if let type = validator.typeFromString(number) {
+                print(type.name)
+                if addedCardType?.rawValue != type.name{
+                    delegate?.cardTypeDidIdentify(type.name)
+                }
+                setImage(type.name)
+                
+            }
+            else {
+                error = "Can not detect card."
+                print("Can not detect card.")
+                setImage("Unknown")
+            }
+        }
+    }
     func changeTextFieldMoreThan4(_ textField: UITextField){
         let text = textField.text
         if text?.characters.count == 4 {
@@ -620,7 +722,6 @@ extension MFCardView: UITextFieldDelegate{
         }
         
     }
-    
 }
 extension MFCardView :LBZSpinnerDelegate{
     // LBZSpinner Delegate Method

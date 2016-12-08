@@ -15,10 +15,14 @@ public enum CardType : String {
     case Diners         = "Dinners Club"
     case Discover       = "Discover"
     case Amex           = "Amex"
-    case Unknown        = "Can not detect card."
+    case Maestro        = "Maestro"
+    case UnionPay       = "UnionPay"
+    case Electron       = "Electron"
+    case Dankort        = "Dankort"
+    case Unknown        = "Unknown"
 }
 
-struct Card {
+public struct Card {
     
     enum PaymentType: String {
         case card, bank
