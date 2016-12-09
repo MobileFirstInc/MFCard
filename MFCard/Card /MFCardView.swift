@@ -357,12 +357,13 @@ extension MFCardDelegate{
                 self.delegate?.cardDoneButtonClicked(card, error: error)
             }
         }
-        if autoDismiss == true{
-            dismissCard()
-        }
         if flipOnDone == true{
             flip(nil)
         }
+        if autoDismiss == true{
+            dismissCard()
+        }
+        
     }
     
     //MARK:

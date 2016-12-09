@@ -24,16 +24,16 @@ public enum CardType : String {
 
 public struct Card {
     
-    enum PaymentType: String {
+    public enum PaymentType: String {
         case card, bank
     }
     
-    var name: String?
-    var number: String?
-    var month: String?
-    var year: String?
-    var cvc: String?
-    var paymentType: PaymentType?
-    var cardType:CardType?
-    var userId: Int?
+    public var name: String?
+    public var number: String?
+    public var month: String?
+    public var year: String?
+    public var cvc: String?
+    public var paymentType: PaymentType?
+    public var cardType:CardType?
+    public var userId: Int?
 }

@@ -13,8 +13,10 @@ class CardDemoVc: UIViewController,MFCardDelegate {
     @IBOutlet weak var creditCard: MFCardView!
     override func viewDidLoad() {
         super.viewDidLoad()
+       // creditCard.flipOnDone = true
         creditCard.autoDismiss = true
         creditCard.toast = false
+        creditCard.delegate = self
         creditCard.controlButtonsRadius = 5
         creditCard.cardRadius = 5
         // Do any additional setup after loading the view.
@@ -33,8 +35,11 @@ class CardDemoVc: UIViewController,MFCardDelegate {
     func cardDoneButtonClicked(_ card: Card?, error: String?) {
         if error == nil{
             print(card!)
+            let cardNumber = card?.number!
+                self.view.makeToast("\(cardNumber!) Card added...")
         }else{
             print(error!)
+            
         }
     }
     
