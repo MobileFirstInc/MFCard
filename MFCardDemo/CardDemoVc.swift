@@ -36,7 +36,7 @@ class CardDemoVc: UIViewController,MFCardDelegate {
         if error == nil{
             print(card!)
             let cardNumber = card?.number!
-                self.view.makeToast("\(cardNumber!) Card added...")
+                self.view.makeToast("\(cardNumber!) Card added")
         }else{
             print(error!)
             
