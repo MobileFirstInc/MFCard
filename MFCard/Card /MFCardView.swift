@@ -70,7 +70,7 @@ extension MFCardDelegate{
     public var autoDismiss = false
     public var flipOnDone = false
     public var toast = true
-    
+    public var topDistance = 100
     //MARK:
     //MARK: initialization
     public init(withViewController:UIViewController) {
@@ -184,7 +184,7 @@ extension MFCardDelegate{
         rootViewController.view.addConstraint(NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: rootViewController.view, attribute: NSLayoutAttribute.centerX, multiplier: 1.0, constant: 0.0));
         
         // align view from the top
-        rootViewController.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-50-[view]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]));
+        rootViewController.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(topDistance)-[view]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]));
         
         // width constraint
         rootViewController.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[view(==300)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]));

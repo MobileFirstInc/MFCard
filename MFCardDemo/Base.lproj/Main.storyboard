@@ -37,7 +37,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Built with ❤️ in India" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oM3-F7-zPd">
-                                <rect key="frame" x="165.5" y="626" width="169.5" height="21"/>
+                                <rect key="frame" x="103" y="626" width="169.5" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="J3K-HY-bc7"/>
                                 </constraints>
@@ -65,7 +65,7 @@
                         <constraints>
                             <constraint firstItem="UUD-Lu-31Z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="E4P-Fb-d1a"/>
                             <constraint firstItem="UUD-Lu-31Z" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="116" id="RGC-Wr-6vn"/>
-                            <constraint firstAttribute="trailing" secondItem="oM3-F7-zPd" secondAttribute="trailing" constant="40" id="d7T-2x-OXk"/>
+                            <constraint firstItem="oM3-F7-zPd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="a7N-Ix-ecH"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oM3-F7-zPd" secondAttribute="bottom" constant="20" id="eVm-ia-L6v"/>
                             <constraint firstItem="fgg-Ke-QB2" firstAttribute="top" secondItem="UUD-Lu-31Z" secondAttribute="bottom" constant="32" id="kyD-FG-bTC"/>
                             <constraint firstItem="fgg-Ke-QB2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mca-yd-kTx"/>
@@ -140,7 +140,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Built with ❤️ in India" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRd-bZ-N5H">
-                                <rect key="frame" x="165.5" y="626" width="169.5" height="21"/>
+                                <rect key="frame" x="103" y="626" width="169.5" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="F3H-9F-uPT"/>
                                 </constraints>
@@ -151,9 +151,9 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="lRd-bZ-N5H" secondAttribute="trailing" constant="40" id="62W-Ba-lFY"/>
                             <constraint firstItem="nvB-sW-MnG" firstAttribute="top" secondItem="e3l-CW-9Ml" secondAttribute="top" id="DyB-QW-E6K"/>
                             <constraint firstItem="bzc-HG-47w" firstAttribute="leading" secondItem="e3l-CW-9Ml" secondAttribute="leadingMargin" id="Hfw-gi-qgx"/>
+                            <constraint firstItem="lRd-bZ-N5H" firstAttribute="centerX" secondItem="e3l-CW-9Ml" secondAttribute="centerX" id="Ool-BS-95I"/>
                             <constraint firstAttribute="bottom" secondItem="nvB-sW-MnG" secondAttribute="bottom" id="enj-rd-Kvj"/>
                             <constraint firstItem="I1n-DL-6dV" firstAttribute="centerX" secondItem="e3l-CW-9Ml" secondAttribute="centerX" id="gza-qg-IBp"/>
                             <constraint firstItem="je7-4r-MdJ" firstAttribute="top" secondItem="lRd-bZ-N5H" secondAttribute="bottom" constant="20" id="hww-Zd-baY"/>
