@@ -9,7 +9,7 @@
 import UIKit
 import MFCard
 class ViewController: UIViewController,MFCardDelegate {
-    var myCard : MFCardView?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +22,12 @@ class ViewController: UIViewController,MFCardDelegate {
     }
 
     @IBAction func btnAddCardAction(_ sender: Any) {
+        var myCard : MFCardView
         myCard  = MFCardView(withViewController: self)
-        myCard?.delegate = self
-        //myCard?.autoDismiss = true
-        myCard?.toast = true
-        myCard?.showCard()
-        
+        myCard.delegate = self
+        myCard.autoDismiss = true
+        myCard.toast = true
+        myCard.showCard()
     }
     
     func cardDoneButtonClicked(_ card: Card?, error: String?) {
