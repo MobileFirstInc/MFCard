@@ -25,7 +25,7 @@ Second Step - Add a delegate `MFCardDelegate` to your class & add two delegate m
 
 Third Step - Present a Card 
 
-
+`
 var myCard : MFCardView
 myCard  = MFCardView(withViewController: self)
 myCard.delegate = self
@@ -33,6 +33,7 @@ myCard.autoDismiss = true
 myCard.toast = true
 myCard.showCard()
 
+`
 
 
 ## CocoaPods Install
