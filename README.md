@@ -107,7 +107,7 @@ Feel free to collaborate with ideas, issues and/or pull requests.
 
 - Provide More Classic card views
 - Mutiple Card Collection Viewer 
-- Stripe Integrration 
+- Stripe Integration 
 - Langugage Support (French, Spanish)
 - More Animations :-P
 
