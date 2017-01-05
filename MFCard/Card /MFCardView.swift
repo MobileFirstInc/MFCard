@@ -333,7 +333,6 @@ extension MFCardDelegate{
     
     @objc fileprivate func orientationDidChange(){
         if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
-            print("Landscape")
             if (topConstraints != nil){
                 topConstraints?[0].constant = 10
             }
@@ -341,7 +340,6 @@ extension MFCardDelegate{
         }
         
         if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
-            print("Portrait")
             if (topConstraints != nil){
                 topConstraints?[0].constant = CGFloat(topDistance)
             }
