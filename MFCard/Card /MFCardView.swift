@@ -25,6 +25,7 @@ extension MFCardDelegate{
     fileprivate var error :String? = String()
     fileprivate var mfBundel :Bundle? = Bundle()
     fileprivate var containerView = UIView()
+    fileprivate var topConstraints:[NSLayoutConstraint]?
     @IBOutlet fileprivate var view: UIView!
     
     @IBOutlet weak fileprivate var cardBackView: UIView!
@@ -105,6 +106,9 @@ extension MFCardDelegate{
         // 4. add constraints to span entire view
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[view]|", options: [], metrics: nil, views: ["view": self.view]))
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[view]|", options: [], metrics: nil, views: ["view": self.view]))
+        //Orientation Observer
+        NotificationCenter.default.addObserver(self, selector: #selector(self.orientationDidChange), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+
         self.layoutIfNeeded()
         self.updateConstraintsIfNeeded()
         generalSetup()
@@ -184,7 +188,8 @@ extension MFCardDelegate{
         rootViewController.view.addConstraint(NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: rootViewController.view, attribute: NSLayoutAttribute.centerX, multiplier: 1.0, constant: 0.0));
         
         // align view from the top
-        rootViewController.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(topDistance)-[view]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]));
+         topConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(topDistance)-[view]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view])
+        rootViewController.view.addConstraints(topConstraints!);
         
         // width constraint
         rootViewController.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[view(==300)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]));
@@ -212,7 +217,9 @@ extension MFCardDelegate{
             })
         })
     }
-
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     //MARK:
     //MARK: Helping Methods
     
@@ -322,6 +329,23 @@ extension MFCardDelegate{
         }, completion: { finished in
             
         })
+    }
+    
+    @objc fileprivate func orientationDidChange(){
+        if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
+            print("Landscape")
+            if (topConstraints != nil){
+                topConstraints?[0].constant = 10
+            }
+            
+        }
+        
+        if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
+            print("Portrait")
+            if (topConstraints != nil){
+                topConstraints?[0].constant = CGFloat(topDistance)
+            }
+        }
     }
 
     
