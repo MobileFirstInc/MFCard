@@ -491,6 +491,9 @@ extension MFCardDelegate{
                 case CardType.UnionPay.rawValue:
                     setImageWithAnnimation(UIImage(named: "UnionPay", in: mfBundel!,compatibleWith: nil)!,cardType: CardType.UnionPay)
                     
+                case CardType.RuPay.rawValue:
+                    setImageWithAnnimation(UIImage(named: "RuPay", in: mfBundel!,compatibleWith: nil)!, cardType: CardType.RuPay)
+                    
                 case CardType.Unknown.rawValue:
                     cardTypeImage.image = nil
                     addedCardType = CardType.Unknown

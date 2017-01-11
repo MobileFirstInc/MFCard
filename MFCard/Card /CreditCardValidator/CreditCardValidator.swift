@@ -139,6 +139,10 @@ open class CreditCardValidator {
         ],  [
             "name": "Dankort",
             "regex": "^(5019)\\d+$"
+        ],
+            [
+            "name":  "RuPay",
+            "regex": "^(6061|6062|6063|6064|6065|6066|6067|6068|6069|607|608)\\d+$"
         ]
     ]
     

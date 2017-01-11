@@ -19,6 +19,7 @@ public enum CardType : String {
     case UnionPay       = "UnionPay"
     case Electron       = "Electron"
     case Dankort        = "Dankort"
+    case RuPay          = "RuPay"
     case Unknown        = "Unknown"
 }
 
