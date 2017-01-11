@@ -56,6 +56,7 @@ pod 'MFCard'
 * UnionPay
 * Electron
 * Dankort
+* RuPay
 
 ## Customisation Options
 
