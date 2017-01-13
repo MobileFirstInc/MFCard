@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUD-Lu-31Z">
-                                <rect key="frame" x="63" y="136" width="250" height="47"/>
+                                <rect key="frame" x="38" y="136" width="300" height="47"/>
                                 <color key="backgroundColor" red="1" green="0.48181261145722043" blue="0.060025118368411734" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="pYG-MJ-9kh"/>
@@ -46,11 +46,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgg-Ke-QB2">
-                                <rect key="frame" x="63" y="215" width="250" height="47"/>
+                                <rect key="frame" x="38" y="215" width="300" height="47"/>
                                 <color key="backgroundColor" red="0.14569347545769218" green="0.4415888699095496" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="KTE-Kv-TRt"/>
-                                    <constraint firstAttribute="width" constant="250" id="oj8-n6-6Kb"/>
+                                    <constraint firstAttribute="width" constant="300" id="oj8-n6-6Kb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <state key="normal" title="Add MFCard with Storyboard">
