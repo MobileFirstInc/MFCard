@@ -1,0 +1,36 @@
+
+/* Class = "UITextField"; placeholder = "###"; ObjectID = "0IM-DV-kpe"; */
+"0IM-DV-kpe.placeholder" = "###";
+
+/* Class = "UILabel"; text = "Card Number:"; ObjectID = "2BA-Cd-AUt"; */
+"2BA-Cd-AUt.text" = "Número de tarjeta:";
+
+/* Class = "UIButton"; normalTitle = "DONE"; ObjectID = "9q8-BU-bfu"; */
+"9q8-BU-bfu.normalTitle" = "HECHO";
+
+/* Class = "UIButton"; normalTitle = "CVC"; ObjectID = "KwN-sw-3st"; */
+"KwN-sw-3st.normalTitle" = "CVC";
+
+/* Class = "UITextField"; placeholder = "####"; ObjectID = "Ohj-nv-7gn"; */
+"Ohj-nv-7gn.placeholder" = "####";
+
+/* Class = "UILabel"; text = "Expires On:"; ObjectID = "Uar-ws-xHc"; */
+"Uar-ws-xHc.text" = "Expira el:";
+
+/* Class = "UILabel"; text = "CVC:"; ObjectID = "Vft-vY-bBs"; */
+"Vft-vY-bBs.text" = "CVC:";
+
+/* Class = "UITextField"; placeholder = "####"; ObjectID = "cDI-5t-7eY"; */
+"cDI-5t-7eY.placeholder" = "####";
+
+/* Class = "UITextField"; placeholder = "####"; ObjectID = "cH7-cO-pXy"; */
+"cH7-cO-pXy.placeholder" = "####";
+
+/* Class = "UILabel"; text = "Holders Name:"; ObjectID = "cTd-4Y-MpO"; */
+"cTd-4Y-MpO.text" = "Nombre del titular:";
+
+/* Class = "UITextField"; placeholder = "####"; ObjectID = "icr-dz-oHr"; */
+"icr-dz-oHr.placeholder" = "####";
+
+/* Class = "UITextField"; placeholder = "Enter Name"; ObjectID = "yqT-e8-4Xb"; */
+"yqT-e8-4Xb.placeholder" = "Ingrese su nombre";

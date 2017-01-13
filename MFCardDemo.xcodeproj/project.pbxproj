@@ -19,11 +19,12 @@
 		6B2447781DF84FBE003A8285 /* CreditCardValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2447701DF84FBE003A8285 /* CreditCardValidator.swift */; };
 		6B2447791DF84FBE003A8285 /* LBZSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2447721DF84FBE003A8285 /* LBZSpinner.swift */; };
 		6B24477A1DF84FBE003A8285 /* MFCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2447731DF84FBE003A8285 /* MFCardView.swift */; };
-		6B24477B1DF84FBE003A8285 /* MFCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B2447741DF84FBE003A8285 /* MFCardView.xib */; };
 		6B2447821DF855D6003A8285 /* MFCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2447301DF84E62003A8285 /* MFCard.framework */; };
 		6B2447831DF855D6003A8285 /* MFCard.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2447301DF84E62003A8285 /* MFCard.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6B3020841DF975AB00FB9C0D /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3020831DF975AB00FB9C0D /* Toast.swift */; };
 		6B6476081DF95B83004679E4 /* CardDemoVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6476071DF95B83004679E4 /* CardDemoVc.swift */; };
+		6BBC1BB71E28C6A200FB2228 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6BBC1BB91E28C6A200FB2228 /* Localizable.strings */; };
+		6BBC1BBF1E28CAEB00FB2228 /* MFCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BBC1BC11E28CAEB00FB2228 /* MFCardView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6B1A84E81E28CD1900F2A829 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/MFCardView.strings; sourceTree = "<group>"; };
 		6B2447301DF84E62003A8285 /* MFCard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MFCard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B2447321DF84E62003A8285 /* MFCard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFCard.h; sourceTree = "<group>"; };
 		6B2447331DF84E62003A8285 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -67,9 +69,15 @@
 		6B2447701DF84FBE003A8285 /* CreditCardValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardValidator.swift; sourceTree = "<group>"; };
 		6B2447721DF84FBE003A8285 /* LBZSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LBZSpinner.swift; sourceTree = "<group>"; };
 		6B2447731DF84FBE003A8285 /* MFCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFCardView.swift; sourceTree = "<group>"; };
-		6B2447741DF84FBE003A8285 /* MFCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MFCardView.xib; sourceTree = "<group>"; };
 		6B3020831DF975AB00FB9C0D /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		6B6476071DF95B83004679E4 /* CardDemoVc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDemoVc.swift; sourceTree = "<group>"; };
+		6BBC1BB41E28C08600FB2228 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		6BBC1BBA1E28C6CF00FB2228 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6BBC1BBC1E28C70700FB2228 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6BBC1BBD1E28C71F00FB2228 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		6BBC1BBE1E28C71F00FB2228 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6BBC1BC01E28CAEB00FB2228 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MFCardView.xib; sourceTree = "<group>"; };
+		6BBC1BC31E28CAF100FB2228 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MFCardView.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,7 +140,8 @@
 				6B2447711DF84FBE003A8285 /* Helper Class */,
 				6B24476D1DF84FBE003A8285 /* Card.swift */,
 				6B2447731DF84FBE003A8285 /* MFCardView.swift */,
-				6B2447741DF84FBE003A8285 /* MFCardView.xib */,
+				6BBC1BC11E28CAEB00FB2228 /* MFCardView.xib */,
+				6BBC1BB91E28C6A200FB2228 /* Localizable.strings */,
 			);
 			path = "Card ";
 			sourceTree = "<group>";
@@ -262,6 +271,8 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
+				es,
 			);
 			mainGroup = 6B6CF8121DCB53DA00A29C16;
 			productRefGroup = 6B6CF8121DCB53DA00A29C16;
@@ -280,7 +291,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B2447751DF84FBE003A8285 /* Assets.xcassets in Resources */,
-				6B24477B1DF84FBE003A8285 /* MFCardView.xib in Resources */,
+				6BBC1BB71E28C6A200FB2228 /* Localizable.strings in Resources */,
+				6BBC1BBF1E28CAEB00FB2228 /* MFCardView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +347,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				6B2447431DF84E82003A8285 /* Base */,
+				6BBC1BB41E28C08600FB2228 /* fr */,
+				6BBC1BBD1E28C71F00FB2228 /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -345,6 +359,26 @@
 				6B2447481DF84E82003A8285 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		6BBC1BB91E28C6A200FB2228 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6BBC1BBA1E28C6CF00FB2228 /* fr */,
+				6BBC1BBC1E28C70700FB2228 /* en */,
+				6BBC1BBE1E28C71F00FB2228 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		6BBC1BC11E28CAEB00FB2228 /* MFCardView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6BBC1BC01E28CAEB00FB2228 /* en */,
+				6BBC1BC31E28CAF100FB2228 /* es */,
+				6B1A84E81E28CD1900F2A829 /* fr */,
+			);
+			name = MFCardView.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -435,6 +469,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -486,6 +521,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
