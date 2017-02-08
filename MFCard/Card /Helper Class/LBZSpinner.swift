@@ -27,7 +27,7 @@ import UIKit
   
     
     //Drop down list
-    @IBInspectable var dDLMaxSize: CGFloat = 200
+    @IBInspectable var dDLMaxSize: CGFloat = 300
     @IBInspectable var dDLColor: UIColor = UIColor.white
     @IBInspectable var dDLTextColor: UIColor = UIColor.gray
     @IBInspectable var dDLStroke: Bool = true
@@ -300,7 +300,9 @@ import UIKit
 
     // find usable superview
     fileprivate func findLastUsableSuperview() -> UIView {
-        return (window?.subviews[0])!
+        //return (window?.subviews[0])!
+        return (window?.subviews.last)!
+
     }
 
 
