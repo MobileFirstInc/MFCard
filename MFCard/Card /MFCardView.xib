@@ -100,7 +100,7 @@
                     <subviews>
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Yq-cx-Ci0" userLabel="ChromeView">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="194"/>
-                            <color key="backgroundColor" red="0.08235294118" green="0.66274509800000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QGO-cH-1CO" userLabel="ContainerView">
                             <rect key="frame" x="0.0" y="0.0" width="300" height="194"/>
