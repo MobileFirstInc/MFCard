@@ -782,7 +782,11 @@ extension MFCardView: UITextFieldDelegate{
                 if addedCardType?.rawValue != type.name{
                     delegate?.cardTypeDidIdentify(type.name)
                 }
-                setImage(type.name)
+                if type.name == "" || type.name.characters.count<0{
+                    setImage("Unknown")
+                }else{
+                    setImage(type.name)
+                }
             }
             else {
                // error = "Can not detect card."
