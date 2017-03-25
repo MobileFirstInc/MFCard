@@ -121,7 +121,7 @@ extension MFCardDelegate{
        btnDone.setTitle("Close", for: .normal)
         let components = (Calendar.current as NSCalendar).components([.day, .month, .year], from: Date())
         let year = components.year
-        let expiryMonth = ["01","02","03","04","05","06","07","08","09", "10", "11", "12"]
+        let expiryMonth = Month.allValues
         var expiryYear :[String] = [String]()
         var i = year! - 1
         while i <= year! + 20 {
@@ -199,6 +199,57 @@ extension MFCardDelegate{
         animateCard()
         // Animate it in
         
+    }
+    
+    public func showCardWithCardDetails(card:Card){
+        //1 Show Normal Card
+        showCard()
+        //2 Fill The Details
+        fillTextFieldFromCard(card: card)
+        //3 Change Button Title to DONE
+        unHideDoneButton()
+        
+    }
+    
+    internal func fillTextFieldFromCard(card:Card){
+        
+        //inner Function
+        func setTextField(textFileld:UITextField,value:String){
+            if (textFileld.text?.characters.count)! < 4{
+                textFileld.text = textFileld.text! + value
+            }
+        }
+        
+        // 1 set card number
+        if (card.number?.characters.count)!<6 && toast{
+            UIApplication.topViewController()?.view.makeToast("Wrong card number")
+        }else{
+            var currenttextFileld :UITextField
+            var index = 0;
+            let divider = 4;
+            for chara:Character in (card.number?.characters)! {
+                if index<divider {
+                    currenttextFileld = txtCardNoP1
+                }else if index<divider*2{
+                    currenttextFileld = txtCardNoP2
+                }else if index<divider*3{
+                    currenttextFileld = txtCardNoP3
+                }else{
+                    currenttextFileld = txtCardNoP4
+                }
+                setTextField(textFileld: currenttextFileld, value: "\(chara)")
+                index = index + 1
+            }
+        }
+        // 2 set image
+        addedCardType = card.cardType
+        setImage((addedCardType?.rawValue)!)
+        // 3 set name , month , year , cvc
+        txtCardName.text = card.name
+        viewExpiryMonth.text = (card.month?.rawValue)!
+        viewExpiryYear.text = card.year!
+        txtCvc.text = card.cvc
+
     }
     
     public func dismissCard() {
@@ -371,7 +422,10 @@ extension MFCardDelegate{
                 error = "Please enter valid Cvv"
             }
             else{ }
-            card = Card(name: txtCardName.text, number: cardNumber, month: viewExpiryMonth!.labelValue.text!, year: viewExpiryYear!.labelValue.text!, cvc: txtCvc.text, paymentType: Card.PaymentType.card, cardType:addedCardType, userId: 1)
+            
+            
+            //viewExpiryMonth!.labelValue.text
+            card = Card(holderName: txtCardName.text, number: cardNumber, month: Month(rawValue: viewExpiryMonth!.labelValue.text!)!, year: viewExpiryYear!.labelValue.text!, cvc: txtCvc.text!, paymentType: Card.PaymentType.card, cardType:addedCardType!, userId: 1)
             if error != nil && toast == true{
                 UIApplication.topViewController()?.view.makeToast(error!)
             }
@@ -729,7 +783,6 @@ extension MFCardView: UITextFieldDelegate{
                     delegate?.cardTypeDidIdentify(type.name)
                 }
                 setImage(type.name)
-                
             }
             else {
                // error = "Can not detect card."
