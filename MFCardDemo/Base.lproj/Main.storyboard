@@ -36,17 +36,8 @@
                                     <action selector="btnAddCardAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kZz-hM-Qhe"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Built with ❤️ in India" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oM3-F7-zPd">
-                                <rect key="frame" x="103" y="626" width="169.5" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="J3K-HY-bc7"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgg-Ke-QB2">
-                                <rect key="frame" x="63" y="215" width="250" height="47"/>
+                                <rect key="frame" x="63" y="213" width="250" height="47"/>
                                 <color key="backgroundColor" red="0.14569347545769218" green="0.4415888699095496" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="KTE-Kv-TRt"/>
@@ -60,16 +51,44 @@
                                     <segue destination="cTW-z4-c5h" kind="showDetail" id="vad-1F-lwq"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Built with ❤️ in India" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oM3-F7-zPd">
+                                <rect key="frame" x="103" y="626" width="169.5" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="J3K-HY-bc7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sH9-yy-VUw">
+                                <rect key="frame" x="63" y="290" width="250" height="47"/>
+                                <color key="backgroundColor" red="1" green="0.48041228328305274" blue="0.47565804305047743" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="2MX-6r-9vc"/>
+                                    <constraint firstAttribute="width" constant="250" id="MDf-6l-qAR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Show Card with Details">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnShowCardWithDetails:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rfa-Nh-iyJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="UUD-Lu-31Z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="E4P-Fb-d1a"/>
+                            <constraint firstItem="sH9-yy-VUw" firstAttribute="height" secondItem="fgg-Ke-QB2" secondAttribute="height" id="EK4-EU-GnU"/>
+                            <constraint firstItem="sH9-yy-VUw" firstAttribute="centerX" secondItem="fgg-Ke-QB2" secondAttribute="centerX" id="IiV-lG-iih"/>
                             <constraint firstItem="UUD-Lu-31Z" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="116" id="RGC-Wr-6vn"/>
+                            <constraint firstItem="sH9-yy-VUw" firstAttribute="width" secondItem="fgg-Ke-QB2" secondAttribute="width" id="a5f-ia-AGZ"/>
                             <constraint firstItem="oM3-F7-zPd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="a7N-Ix-ecH"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oM3-F7-zPd" secondAttribute="bottom" constant="20" id="eVm-ia-L6v"/>
-                            <constraint firstItem="fgg-Ke-QB2" firstAttribute="top" secondItem="UUD-Lu-31Z" secondAttribute="bottom" constant="32" id="kyD-FG-bTC"/>
+                            <constraint firstItem="fgg-Ke-QB2" firstAttribute="top" secondItem="UUD-Lu-31Z" secondAttribute="bottom" constant="30" id="kyD-FG-bTC"/>
                             <constraint firstItem="fgg-Ke-QB2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mca-yd-kTx"/>
                             <constraint firstItem="UUD-Lu-31Z" firstAttribute="width" secondItem="fgg-Ke-QB2" secondAttribute="width" id="nDw-0z-lxw"/>
+                            <constraint firstItem="sH9-yy-VUw" firstAttribute="top" secondItem="fgg-Ke-QB2" secondAttribute="bottom" constant="30" id="yWa-2R-jcZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OxQ-no-fid"/>
