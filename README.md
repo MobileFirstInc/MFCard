@@ -35,6 +35,19 @@ myCard.showCard()
 
 ```
 
+## Show Card with Details
+
+```
+var myCard : MFCardView
+myCard  = MFCardView(withViewController: self)
+myCard.delegate = self
+myCard.autoDismiss = true
+myCard.toast = true
+let demoCard :Card? = Card(holderName: "Rahul Chandnani", number: "6552552665526625", month: Month.Dec, year: "2019", cvc: "234", paymentType: Card.PaymentType.bank, cardType: CardType.Discover, userId: 0)
+myCard.showCardWithCardDetails(card: demoCard!)
+
+```
+
 ## CocoaPods Install
 
 Add this to your Podfile. 
