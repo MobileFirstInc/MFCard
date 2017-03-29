@@ -501,7 +501,7 @@ extension MFCardDelegate{
     
     fileprivate func setImage(_ card : String) {
         
-                func setImageWithAnnimation(_ image:UIImage,cardType:CardType){
+                func setImageWithAnnimation(_ image:UIImage?,cardType:CardType){
                     addedCardType = cardType
                     UIView.animate(withDuration: 1, animations: {
                         self.cardTypeImage.image = image
@@ -511,42 +511,42 @@ extension MFCardDelegate{
                 switch card {
         
                 case CardType.Visa.rawValue:
-                    setImageWithAnnimation(UIImage(named: "Visa", in: mfBundel!,compatibleWith: nil)!,cardType: CardType.Visa)
+                    setImageWithAnnimation(UIImage(named: "Visa", in: mfBundel!,compatibleWith: nil),cardType: CardType.Visa)
                     break
         
                 case CardType.MasterCard.rawValue:
-                    setImageWithAnnimation(UIImage(named: "MasterCard", in: mfBundel!,compatibleWith: nil)!,cardType: CardType.MasterCard)
+                    setImageWithAnnimation(UIImage(named: "MasterCard", in: mfBundel!,compatibleWith: nil),cardType: CardType.MasterCard)
                     break
         
                 case CardType.Amex.rawValue:
-                    setImageWithAnnimation(UIImage(named: "Amex", in: mfBundel!,compatibleWith: nil)!,cardType: CardType.MasterCard)
+                    setImageWithAnnimation(UIImage(named: "Amex", in: mfBundel!,compatibleWith: nil),cardType: CardType.MasterCard)
                     break
                 
                 case CardType.JCB.rawValue:
-                    setImageWithAnnimation(UIImage(named: "JCB", in: mfBundel!,compatibleWith: nil)!,cardType: CardType.JCB)
+                    setImageWithAnnimation(UIImage(named: "JCB", in: mfBundel!,compatibleWith: nil),cardType: CardType.JCB)
                     break
         
                 case CardType.Discover.rawValue:
-                    setImageWithAnnimation(UIImage(named: "Discover", in: mfBundel!,compatibleWith: nil)!,cardType: CardType.Discover)
+                    setImageWithAnnimation(UIImage(named: "Discover", in: mfBundel!,compatibleWith: nil),cardType: CardType.Discover)
                     break
         
                 case CardType.Diners.rawValue:
-                    setImageWithAnnimation(UIImage(named: "DinersClub", in: mfBundel!,compatibleWith: nil)!,cardType: CardType.Diners)
+                    setImageWithAnnimation(UIImage(named: "DinersClub", in: mfBundel!,compatibleWith: nil),cardType: CardType.Diners)
         
                 case CardType.Maestro.rawValue:
-                    setImageWithAnnimation(UIImage(named: "Maestro", in: mfBundel!,compatibleWith: nil)!,cardType: CardType.Maestro)
+                    setImageWithAnnimation(UIImage(named: "Maestro", in: mfBundel!,compatibleWith: nil),cardType: CardType.Maestro)
                     
                 case CardType.Electron.rawValue:
-                    setImageWithAnnimation(UIImage(named: "Electron", in: mfBundel!,compatibleWith: nil)!,cardType: CardType.Electron)
+                    setImageWithAnnimation(UIImage(named: "Electron", in: mfBundel!,compatibleWith: nil),cardType: CardType.Electron)
                 
                 case CardType.Dankort.rawValue:
-                    setImageWithAnnimation(UIImage(named: "Dankort", in: mfBundel!,compatibleWith: nil)!,cardType: CardType.Dankort)
+                    setImageWithAnnimation(UIImage(named: "Dankort", in: mfBundel!,compatibleWith: nil),cardType: CardType.Dankort)
                     
                 case CardType.UnionPay.rawValue:
-                    setImageWithAnnimation(UIImage(named: "UnionPay", in: mfBundel!,compatibleWith: nil)!,cardType: CardType.UnionPay)
+                    setImageWithAnnimation(UIImage(named: "UnionPay", in: mfBundel!,compatibleWith: nil),cardType: CardType.UnionPay)
                     
                 case CardType.RuPay.rawValue:
-                    setImageWithAnnimation(UIImage(named: "RuPay", in: mfBundel!,compatibleWith: nil)!, cardType: CardType.RuPay)
+                    setImageWithAnnimation(UIImage(named: "RuPay", in: mfBundel!,compatibleWith: nil), cardType: CardType.RuPay)
                     
                 case CardType.Unknown.rawValue:
                     cardTypeImage.image = nil
