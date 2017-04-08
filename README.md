@@ -34,6 +34,18 @@ myCard.toast = true
 myCard.showCard()
 
 ```
+## Handle Done button(delegate method) clicked
+
+```
+func cardDoneButtonClicked(_ card: Card?, error: String?) {
+    if error == nil{
+        print(card!)
+    }else{
+        print(error!)
+    }
+}
+
+```
 
 ## Show Card with Details
 
