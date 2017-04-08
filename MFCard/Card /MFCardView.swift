@@ -421,11 +421,12 @@ extension MFCardDelegate{
             }else if (txtCvc.text?.characters.count)! < 3 {
                 error = "Please enter valid Cvv"
             }
-            else{ }
             
             
-            //viewExpiryMonth!.labelValue.text
-            card = Card(holderName: txtCardName.text, number: cardNumber, month: Month(rawValue: viewExpiryMonth!.labelValue.text!)!, year: viewExpiryYear!.labelValue.text!, cvc: txtCvc.text!, paymentType: Card.PaymentType.card, cardType:addedCardType!, userId: 1)
+            if (error == "" || error == nil) {
+                card = Card(holderName: txtCardName.text, number: cardNumber, month: Month(rawValue: viewExpiryMonth!.labelValue.text!)!, year: viewExpiryYear!.labelValue.text!, cvc: txtCvc.text!, paymentType: Card.PaymentType.card, cardType:addedCardType!, userId: 1)
+            }
+            
             if error != nil && toast == true{
                 UIApplication.topViewController()?.view.makeToast(error!)
             }
@@ -436,7 +437,7 @@ extension MFCardDelegate{
         if flipOnDone == true{
             flip(nil)
         }
-        if autoDismiss == true{
+        if autoDismiss == true && (error == "" || error == nil){
             dismissCard()
         }
         
