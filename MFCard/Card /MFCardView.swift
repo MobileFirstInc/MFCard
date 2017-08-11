@@ -72,6 +72,8 @@ extension MFCardDelegate{
     public var flipOnDone = false
     public var toast = true
     public var topDistance = 100
+    
+    public var cardTypeAnimation :UIViewAnimationOptions = [.transitionFlipFromBottom, .curveLinear]
     //MARK:
     //MARK: initialization
     public init(withViewController:UIViewController) {
@@ -504,9 +506,11 @@ extension MFCardDelegate{
         
                 func setImageWithAnnimation(_ image:UIImage?,cardType:CardType){
                     addedCardType = cardType
-                    UIView.animate(withDuration: 1, animations: {
-                        self.cardTypeImage.image = image
-                    })
+                    if image != cardTypeImage.image {
+                        UIView.transition(with: self.cardTypeImage, duration: 0.3, options: cardTypeAnimation, animations: {
+                            self.cardTypeImage.image = image
+                        }, completion: nil)
+                    }
                 }
         
                 switch card {
