@@ -152,7 +152,8 @@ import UIKit
         if(dDLblurEnable) {  // with blur effect
             let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
             blurEffectView = UIVisualEffectView(effect: blurEffect)
-            blurEffectView.alpha = 0 // blur effect alpha
+            blurEffectView.effect = nil
+            blurEffectView.backgroundColor = UIColor.black.withAlphaComponent(0)
             blurEffectView.frame = viewChooseDisable.bounds
             blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             viewChooseDisable.addSubview(blurEffectView)
@@ -197,7 +198,7 @@ import UIKit
                     self.tableviewChooseShadow.frame.size.height = self.heightTableview
 
                     if self.blurEffectView != nil {
-                        self.blurEffectView.alpha = 0.5
+                        self.blurEffectView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
                     }
 
                 },
@@ -221,7 +222,7 @@ import UIKit
                     self.tableviewChooseShadow.frame.size.height = self.heightTableview
 
                     if self.blurEffectView != nil {
-                        self.blurEffectView.alpha = 0.5
+                        self.blurEffectView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
                     }
                 },
                 completion: { finished in

@@ -178,7 +178,7 @@ extension MFCardDelegate{
     public func showCard(){
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
         blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.alpha = 0.5 // blur effect alpha
+        blurEffectView.alpha = 1.0 // blur effect alpha
         blurEffectView.frame = rootViewController.view.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         rootViewController.view.addSubview(blurEffectView)
