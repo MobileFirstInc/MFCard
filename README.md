@@ -99,6 +99,7 @@ pod 'MFCard'
 - Placeholders
 - Auto Dismiss
 - Flip on Done
+- Animation on CardType Change
 
 
 
