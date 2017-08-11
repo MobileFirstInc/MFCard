@@ -838,10 +838,7 @@ extension MFCardView :LBZSpinnerDelegate{
         var spinnerName = ""
         if spinner == viewExpiryMonth { spinnerName = "Month" }
         if spinner == viewExpiryYear { spinnerName = "Year" }
-        
-        print("Spinner : \(spinnerName) : { Index : \(index) - \(value) }")
     }
-    
     
 }
 extension UIApplication {
