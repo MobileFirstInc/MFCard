@@ -301,6 +301,9 @@ import UIKit
 
     // find usable superview
     fileprivate func findLastUsableSuperview() -> UIView {
+        if let last = UIApplication.shared.keyWindow?.subviews.last as UIView?{
+            return last
+        }
         return (window?.subviews[0])!
     }
 
