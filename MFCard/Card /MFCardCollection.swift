@@ -20,7 +20,8 @@ public class MFCardCollection: UIView {
     fileprivate let reuseIdentifier = "MFCardCollectionCell"
     fileprivate var cardCollection :[Card] = []
     fileprivate var mfBundel :Bundle? = Bundle()
-
+    fileprivate var isEditing = false
+    
     var animator: (LayoutAttributesAnimator, Bool, Int, Int)?
     var collection:UICollectionView?
     public var closeButton:UIButton = UIButton()
@@ -118,6 +119,11 @@ public class MFCardCollection: UIView {
         if self.frame.width<330 && animationStyle == CardAnimation.ZoomInOut {
             isiPhone5WithZoomAnimation = true
         }
+        
+        // Add LongPressGesture
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongPress))
+        collection?.addGestureRecognizer(longPress)
+
     }
     
     fileprivate func getBundle() -> Bundle {
@@ -158,9 +164,18 @@ public class MFCardCollection: UIView {
                 self.blurEffectView.removeFromSuperview()
             }
         })
-        
     }
 
+    func handleLongPress(sender: UILongPressGestureRecognizer){
+        if sender.state == UIGestureRecognizerState.began {
+            let touchPoint = sender.location(in: collection)
+            if (collection?.indexPathForItem(at: touchPoint)) != nil {
+                isEditing = true
+                collection?.reloadData()
+            }
+        }
+    }
+    
 }
 
 // MARK:-
@@ -192,13 +207,25 @@ extension MFCardCollection : UICollectionViewDelegate,UICollectionViewDataSource
             cell.layoutIfNeeded()
         }
         cell.txtHolderName.text = cardCollection[indexPath.item].name
-        //RCAnimation.vibrateAnimation(cell)
+        if isEditing {
+            RCAnimation.vibrateAnimation(cell)
+            cell.btnLeft.isHidden = false
+            cell.btnRight.isHidden = false
+        }else{
+            cell.btnLeft.isHidden = true
+            cell.btnRight.isHidden = true
+        }
         return cell
     }
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let cell:MFCardCollectionCell = collectionView.cellForItem(at: indexPath) as? MFCardCollectionCell{
-            RCAnimation.pushAnimation(cell)
+        if isEditing {
+            isEditing = false
+            collection?.reloadData()
         }
+        
+//        if let cell:MFCardCollectionCell = collectionView.cellForItem(at: indexPath) as? MFCardCollectionCell{
+//            RCAnimation.pushAnimation(cell)
+//        }
     }
    public  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 300, height: 200)

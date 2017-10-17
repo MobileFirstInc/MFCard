@@ -270,6 +270,8 @@
             </constraints>
             <size key="customSize" width="389" height="283"/>
             <connections>
+                <outlet property="btnLeft" destination="7M0-Yr-VNL" id="J7M-b7-SeL"/>
+                <outlet property="btnRight" destination="cJs-5Z-7Up" id="0o6-aL-Hz3"/>
                 <outlet property="chromeView" destination="Wch-Kc-EHF" id="Bvk-4m-4kf"/>
                 <outlet property="heightConstraints" destination="ajr-Pw-Zym" id="gbX-kj-WMC"/>
                 <outlet property="imgBackground" destination="Dba-lo-ghM" id="lTQ-SK-0Vt"/>
