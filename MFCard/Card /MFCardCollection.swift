@@ -10,23 +10,30 @@ import UIKit
 
 public class MFCardCollection: UIView {
 
-    
     public enum CardAnimation{
         case ZoomInOut
         case LinearCard
     }
+    
     weak fileprivate var rootViewController: UIViewController!
     fileprivate var blurEffectView:UIVisualEffectView!
     fileprivate let reuseIdentifier = "MFCardCollectionCell"
     fileprivate var cardCollection :[Card] = []
+    fileprivate var mfBundel :Bundle? = Bundle()
+
     var animator: (LayoutAttributesAnimator, Bool, Int, Int)?
     var collection:UICollectionView?
     public var closeButton:UIButton = UIButton()
     public var topDistance = 200
     public var animationStyle:CardAnimation = CardAnimation.LinearCard
     fileprivate var isiPhone5WithZoomAnimation = false
+    
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
+    // MARK:-
+    // MARK: initialization
+    // MARK:-
+    
     open override func draw(_ rect: CGRect) {
         // Drawing code
         //UIApplication.topViewController()?.view.frame
@@ -43,6 +50,10 @@ public class MFCardCollection: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    // MARK:-
+    // MARK: SetUP Methods
+    // MARK:-
     func setUp(){
         self.backgroundColor = UIColor.clear
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
@@ -108,6 +119,35 @@ public class MFCardCollection: UIView {
             isiPhone5WithZoomAnimation = true
         }
     }
+    
+    fileprivate func getBundle() -> Bundle {
+        mfBundel = MFBundel.getBundle()
+        return mfBundel!
+    }
+    
+    // MARK:-
+    // MARK: Helping Methods
+    // MARK:-
+    
+    public func presentCollection(for cards:[Card]){
+        cardCollection = cards
+        rootViewController.view.addSubview(self)
+        collection?.reloadData()
+        animateCard()
+    }
+    
+    
+    fileprivate func animateCard() {
+        collection?.alpha = 0
+        UIView.animate(withDuration: 0.5, delay: 0.1, options: .curveEaseOut, animations: {
+            self.collection?.alpha = 1
+        }, completion: nil)
+    }
+    
+    // MARK:-
+    // MARK: IBAction
+    // MARK:-
+    
     @objc func closeCollection(sender:UIButton){
         collection?.alpha = 1
         UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut, animations: {
@@ -120,35 +160,12 @@ public class MFCardCollection: UIView {
         })
         
     }
-    
-    fileprivate func animateCard() {
-        collection?.alpha = 0
-        UIView.animate(withDuration: 0.5, delay: 0.1, options: .curveEaseOut, animations: {
-            self.collection?.alpha = 1
-        }, completion: nil)
-    }
-    
-   public func presentCollection(for cards:[Card]){
-        cardCollection = cards
-        rootViewController.view.addSubview(self)
-        collection?.reloadData()
-        animateCard()
-    }
-    
-    fileprivate func getBundle() -> Bundle {
-        let mfBundel:Bundle?
-        let podBundle = Bundle(for: MFCardView.self)
-        let bundleURL = podBundle.url(forResource: "MFCard", withExtension: "bundle")
-        if bundleURL == nil{
-            mfBundel = podBundle
-        }else{
-            mfBundel = Bundle(url: bundleURL!)!
-        }
-        return mfBundel!
-    }
 
 }
 
+// MARK:-
+// MARK: UICollectionViewDelegate Methods
+// MARK:-
 
 extension MFCardCollection : UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
 

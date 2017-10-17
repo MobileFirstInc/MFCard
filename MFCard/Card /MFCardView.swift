@@ -8,6 +8,8 @@
 
 import UIKit
 
+// MARK: - MFCard Protocol
+// MARK:-
 public protocol MFCardDelegate {
     func cardDoneButtonClicked(_ card:Card?, error:String?)
     func cardTypeDidIdentify(_ cardType :String)
@@ -18,6 +20,9 @@ extension MFCardDelegate{
     }
 }
 
+// MARK
+// MARK: - MFCardView
+// MARK:-
 @IBDesignable public class MFCardView: UIView {
     
     public var delegate :MFCardDelegate?
@@ -26,44 +31,38 @@ extension MFCardDelegate{
     fileprivate var mfBundel :Bundle? = Bundle()
     fileprivate var containerView = UIView()
     fileprivate var topConstraints:[NSLayoutConstraint]?
+    
     @IBOutlet fileprivate var view: UIView!
-    
     @IBOutlet weak fileprivate var cardBackView: UIView!
-    
     @IBOutlet weak fileprivate var cardFrontView: UIView!
     @IBOutlet weak fileprivate var backChromeView: UIView!
-    
     @IBOutlet weak fileprivate var magneticTapeView: UIView!
-    
-    @IBOutlet weak fileprivate var txtCvc: UITextField!
-    
-    @IBOutlet weak fileprivate var frontCardImage: UIImageView!
-    
     @IBOutlet weak fileprivate var frontChromeView: UIView!
     
+    @IBOutlet weak fileprivate var txtCvc: UITextField!
     @IBOutlet weak fileprivate var txtCardName: UITextField!
-    
     @IBOutlet weak fileprivate var txtCardNoP1: UITextField!
     @IBOutlet weak fileprivate var txtCardNoP2: UITextField!
     @IBOutlet weak fileprivate var txtCardNoP3: UITextField!
     @IBOutlet weak fileprivate var txtCardNoP4: UITextField!
     
+    @IBOutlet weak fileprivate var frontCardImage: UIImageView!
     @IBOutlet weak fileprivate var cardTypeImage: UIImageView!
+    
     @IBOutlet weak fileprivate var viewExpiryMonth: LBZSpinner!
     @IBOutlet weak fileprivate var viewExpiryYear: LBZSpinner!
     
-    @IBOutlet weak fileprivate var controlView: UIView!
     
     @IBOutlet weak fileprivate var btnCvc: UIButton!
-    
     @IBOutlet weak fileprivate var btnDone: UIButton!
     
+    @IBOutlet weak fileprivate var controlView: UIView!
     @IBOutlet weak fileprivate var viewFrontContainer: UIView!
     @IBOutlet weak fileprivate var viewBackContainer: UIView!
     
     @IBOutlet fileprivate var cardLabels: [UILabel]!
-    
     fileprivate var cardTextFields:[UITextField]!
+
     weak fileprivate var rootViewController: UIViewController!
     fileprivate var blurEffectView:UIVisualEffectView!
 
@@ -72,8 +71,10 @@ extension MFCardDelegate{
     public var flipOnDone = false
     public var toast = true
     public var topDistance = 100
-    //MARK:
-    //MARK: initialization
+    
+    // MARK:-
+    // MARK: initialization
+    // MARK:-
     public init(withViewController:UIViewController) {
         super.init(frame: CGRect(x: 0, y: 0, width: 300, height: 240))
         rootViewController = withViewController
@@ -93,8 +94,9 @@ extension MFCardDelegate{
         setupUI()
     }
     
-    //MARK:
-    //MARK: Setup
+    // MARK:-
+    // MARK: Setup
+    // MARK:-
     fileprivate func setup() {
         // 1. load a nib
         view = loadViewFromNib()
@@ -271,8 +273,9 @@ extension MFCardDelegate{
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    //MARK:
-    //MARK: Helping Methods
+    // MARK:-
+    // MARK: Helping Methods
+    // MARK:-
     
     fileprivate func loadViewFromNib() -> UIView {
         
@@ -284,16 +287,8 @@ extension MFCardDelegate{
     }
     
     fileprivate func getBundle() -> Bundle {
-        
-        let podBundle = Bundle(for: MFCardView.self)
-        let bundleURL = podBundle.url(forResource: "MFCard", withExtension: "bundle")
-        if bundleURL == nil{
-            mfBundel = podBundle
-        }else{
-            mfBundel = Bundle(url: bundleURL!)!
-        }
+        mfBundel = MFBundel.getBundle()
         return mfBundel!
-
     }
     
     fileprivate func screenSize() -> CGSize {
@@ -397,9 +392,10 @@ extension MFCardDelegate{
         }
     }
 
+    // MARK:-
+    // MARK: IBAction
+    // MARK:-
     
-    //MARK:
-    //MARK: IBAction
     @IBAction func btnCVCAction(_ sender: AnyObject) {
         
         flip(nil)
@@ -443,8 +439,10 @@ extension MFCardDelegate{
         
     }
     
-    //MARK:
-    //MARK: Card Management
+    // MARK:-
+    // MARK: Card Management
+    // MARK:-
+    
     
     fileprivate func hideDoneButton(){
         UIView.animate(withDuration: 1, animations: {
@@ -560,8 +558,10 @@ extension MFCardDelegate{
                 }
     }
     
-    //MARK:
-    //MARK: @IBInspectable
+    // MARK:-
+    // MARK: @IBInspectable
+    // MARK:-
+    
     @IBInspectable public var cardImage :UIImage?  {
         didSet{
                 frontCardImage.image = cardImage
@@ -710,6 +710,9 @@ extension MFCardDelegate{
     
 }
 
+// MARK:-
+// MARK: UITextFieldDelegate Methods
+// MARK:-
 
 extension MFCardView: UITextFieldDelegate{
     
@@ -832,6 +835,11 @@ extension MFCardView: UITextFieldDelegate{
         
     }
 }
+
+// MARK:-
+// MARK: LBZSpinnerDelegate Methods
+// MARK:-
+
 extension MFCardView :LBZSpinnerDelegate{
     // LBZSpinner Delegate Method
     func spinnerChoose(_ spinner:LBZSpinner, index:Int,value:String) {
@@ -844,6 +852,7 @@ extension MFCardView :LBZSpinnerDelegate{
     
     
 }
+
 extension UIApplication {
     class func topViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
         if let navigationController = controller as? UINavigationController {

@@ -28,10 +28,6 @@ class MFCardCollectionCell: UICollectionViewCell {
     @IBOutlet weak fileprivate var viewExpiryMonth: LBZSpinner!
     @IBOutlet weak fileprivate var viewExpiryYear: LBZSpinner!
  
-    
-    
-    
-    
 
     override func awakeFromNib() {
         super.awakeFromNib()
