@@ -408,14 +408,14 @@ public extension UIView {
     
     // MARK: - Events
     
-    func handleToastTapped(_ recognizer: UITapGestureRecognizer) {
+     @objc func handleToastTapped(_ recognizer: UITapGestureRecognizer) {
         if let toast = recognizer.view, let timer = objc_getAssociatedObject(toast, &ToastKeys.Timer) as? Timer {
             timer.invalidate()
             self.hideToast(toast, fromTap: true)
         }
     }
     
-    func toastTimerDidFinish(_ timer: Timer) {
+    @objc func toastTimerDidFinish(_ timer: Timer) {
         if let toast = timer.userInfo as? UIView {
             self.hideToast(toast)
         }

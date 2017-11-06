@@ -141,7 +141,7 @@ import UIKit
 
     
     //Open spinner animation
-    func openSpinner(_ sender:UITapGestureRecognizer){
+    @objc func openSpinner(_ sender:UITapGestureRecognizer){
 
         heightTableview = heightTableviewCell*CGFloat(list.count)
         let parentView = findLastUsableSuperview()
@@ -272,7 +272,7 @@ import UIKit
 
     
     // close spinner animation
-    func closeSpinner() {
+    @objc func closeSpinner() {
 
         if(tableviewChoose != nil) {
             UIView.animate(withDuration: 0.3,
@@ -327,7 +327,7 @@ import UIKit
         rectanglePath.fill()
     }
 
-    func orientationChanged()
+    @objc func orientationChanged()
     {
         /*
         if(UIDeviceOrientationIsLandscape(UIDevice.currentDevice().orientation))

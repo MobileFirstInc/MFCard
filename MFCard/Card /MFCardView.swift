@@ -718,7 +718,7 @@ extension MFCardDelegate{
 extension MFCardView: UITextFieldDelegate{
     
     
-    func textFieldDidChange(_ textField: UITextField){
+    @objc func textFieldDidChange(_ textField: UITextField){
         if textField != txtCvc{
             changeTextFieldLessThan0(textField)
             changeTextFieldMoreThan4(textField)
@@ -839,9 +839,8 @@ extension MFCardView: UITextFieldDelegate{
 extension MFCardView :LBZSpinnerDelegate{
     // LBZSpinner Delegate Method
     func spinnerChoose(_ spinner:LBZSpinner, index:Int,value:String) {
-        var spinnerName = ""
-        if spinner == viewExpiryMonth { spinnerName = "Month" }
-        if spinner == viewExpiryYear { spinnerName = "Year" }
+        if spinner == viewExpiryMonth { _ = "Month" }
+        if spinner == viewExpiryYear { _ = "Year" }
     }
     
 }
