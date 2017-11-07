@@ -58,7 +58,7 @@ open class CreditCardValidator {
      */
     open func validateString(_ string: String) -> Bool {
         let numbers = self.onlyNumbersFromString(string)
-        if numbers.characters.count < 9 {
+        if numbers.count < 9 {
             return false
         }
         
@@ -72,7 +72,7 @@ open class CreditCardValidator {
         
 
         var oddSum = 0, evenSum = 0
-        let reversedArray = reversedString.characters
+        let reversedArray = Array(reversedString)
         let i = 0
         
         for s in reversedArray {

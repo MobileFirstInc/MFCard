@@ -217,19 +217,19 @@ extension MFCardDelegate{
         
         //inner Function
         func setTextField(textFileld:UITextField,value:String){
-            if (textFileld.text?.characters.count)! < 4{
+            if (textFileld.text?.count)! < 4{
                 textFileld.text = textFileld.text! + value
             }
         }
         
         // 1 set card number
-        if (card.number?.characters.count)!<6 && toast{
+        if (card.number?.count)!<6 && toast{
             UIApplication.topViewController()?.view.makeToast("Wrong card number")
         }else{
             var currenttextFileld :UITextField
             var index = 0;
             let divider = 4;
-            for chara:Character in (card.number?.characters)! {
+            for chara:Character in (card.number)! {
                 if index<divider {
                     currenttextFileld = txtCardNoP1
                 }else if index<divider*2{
@@ -414,13 +414,13 @@ extension MFCardDelegate{
             error = nil
             var card :Card?
             let cardNumber :String = getCardNumber()
-            if cardNumber.characters.count <= 13 {
+            if cardNumber.count <= 13 {
                 error = "Please enter valid card number"
             }else if viewExpiryMonth.labelValue.text! == "MM" {
                 error = "Please Select Expiry Month"
             }else if viewExpiryYear.labelValue.text! == "YYYY" {
                 error = "Please Select Expiry Year"
-            }else if (txtCvc.text?.characters.count)! < 3 {
+            }else if (txtCvc.text?.count)! < 3 {
                 error = "Please enter valid Cvv"
             }
             
@@ -725,7 +725,7 @@ extension MFCardView: UITextFieldDelegate{
             changeCardType()
         }
         if textField == txtCvc {
-            if (textField.text?.characters.count)! >= 3 {
+            if (textField.text?.count)! >= 3 {
                 self.unHideDoneButton()
                 textField.resignFirstResponder()
             }else{
@@ -740,7 +740,7 @@ extension MFCardView: UITextFieldDelegate{
     public func textFieldDidEndEditing(_ textField: UITextField) {
         
         if textField == txtCvc {
-            if (textField.text?.characters.count)! >= 3 {
+            if (textField.text?.count)! >= 3 {
                 self.unHideDoneButton()
             }else{
                 self.hideDoneButton()
@@ -752,7 +752,7 @@ extension MFCardView: UITextFieldDelegate{
         
         if textField != txtCvc{
             let charLimit = 4
-            let currentLength = (textField.text?.characters.count)! + string.characters.count - range.length
+            let currentLength = (textField.text?.count)! + string.count - range.length
             let newLength = charLimit - currentLength
             if newLength < 0 {
                 changeTextFieldMoreThan4(textField)
@@ -763,7 +763,7 @@ extension MFCardView: UITextFieldDelegate{
             }
         }else{
             let charLimit = 3
-            let currentLength = (textField.text?.characters.count)! + string.characters.count - range.length
+            let currentLength = (textField.text?.count)! + string.count - range.length
             let newLength = charLimit - currentLength
             if newLength < 0 {
                 textField.resignFirstResponder()
@@ -779,7 +779,7 @@ extension MFCardView: UITextFieldDelegate{
     //MARK: Helper Methods
     func changeCardType(){
         let number = getCardNumber()
-        if number.characters.count <= 4 || number.characters.count >= 7{
+        if number.count <= 4 || number.count >= 7{
             
             let validator = CreditCardValidator()
             if let type = validator.typeFromString(number) {
@@ -787,7 +787,7 @@ extension MFCardView: UITextFieldDelegate{
                 if addedCardType?.rawValue != type.name{
                     delegate?.cardTypeDidIdentify(type.name)
                 }
-                if type.name == "" || type.name.characters.count<0{
+                if type.name == "" || type.name.count<0{
                     setImage("Unknown")
                 }else{
                     setImage(type.name)
@@ -802,7 +802,7 @@ extension MFCardView: UITextFieldDelegate{
     }
     func changeTextFieldMoreThan4(_ textField: UITextField){
         let text = textField.text
-        if text?.characters.count == 4 {
+        if text?.count == 4 {
             switch textField{
             case txtCardNoP1:
                 txtCardNoP2.becomeFirstResponder()
@@ -819,7 +819,7 @@ extension MFCardView: UITextFieldDelegate{
     }
     func changeTextFieldLessThan0(_ textField: UITextField){
         let text = textField.text
-        if (text?.characters.count)! <= 0 {
+        if (text?.count)! <= 0 {
             switch textField{
             case txtCardNoP1:
                 txtCardNoP1.becomeFirstResponder()
