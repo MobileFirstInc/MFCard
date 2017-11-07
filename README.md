@@ -104,16 +104,16 @@ pod 'MFCard'
 - Animation on CardType Change
 - MFCard show - BlurStyle
 
-##Screenshots
-<img src="https://raw.githubusercontent.com/MobileFirstInc/MFCard/master/MFCardDemo/Screens/Card1.png" alt=" text" width="40%" />
 
+##Screenshots
+
+
+<img src="https://raw.githubusercontent.com/MobileFirstInc/MFCard/master/MFCardDemo/Screens/Card1.png" alt=" text" width="40%" />
 
 <img src="https://raw.githubusercontent.com/MobileFirstInc/MFCard/master/MFCardDemo/Screens/Card Back.png" alt=" text" width="40%" />
 
 
 <img src="https://raw.githubusercontent.com/MobileFirstInc/MFCard/master/MFCardDemo/Screens/MF.png" alt=" text" width="60%" />
-
-
 
 
 
