@@ -9,6 +9,8 @@
 
 MFCard is an awesome looking Credit Card input & validation control. Written in Swift 3.
 
+YOoo, Now MFCard is on Swift 4.
+
 <img src="https://raw.githubusercontent.com/MobileFirstInc/MFCard/master/MFCardDemo/Screens/Card Front.png" alt=" text" width="40%" />
 
 
@@ -19,11 +21,11 @@ MFCard is an awesome looking Credit Card input & validation control. Written in 
 
 ## Usage
 
-First Step  - `@import MFCard` to your project 
+First Step  - `@import MFCard` to your project
 
-Second Step - Add a delegate `MFCardDelegate` to your class & add two delegate methods 
+Second Step - Add a delegate `MFCardDelegate` to your class & add two delegate methods
 
-Third Step - Present a Card 
+Third Step - Present a Card
 
 ```
 var myCard : MFCardView
@@ -38,11 +40,11 @@ myCard.showCard()
 
 ```
 func cardDoneButtonClicked(_ card: Card?, error: String?) {
-    if error == nil{
-        print(card!)
-    }else{
-        print(error!)
-    }
+if error == nil{
+print(card!)
+}else{
+print(error!)
+}
 }
 
 ```
@@ -62,7 +64,7 @@ myCard.showCardWithCardDetails(card: demoCard!)
 
 ## CocoaPods Install
 
-Add this to your Podfile. 
+Add this to your Podfile.
 
 ```
 pod 'MFCard'
@@ -85,7 +87,7 @@ pod 'MFCard'
 
 ## Customisation Options
 
-- Card Image 
+- Card Image
 - Background colour
 - Front Chrome colour (Front Card colour)
 - Back Chrome colour (Back Card colour)
@@ -100,9 +102,9 @@ pod 'MFCard'
 - Auto Dismiss
 - Flip on Done
 - Animation on CardType Change
+- MFCard show - BlurStyle
 
-
-
+##Screenshots
 <img src="https://raw.githubusercontent.com/MobileFirstInc/MFCard/master/MFCardDemo/Screens/Card1.png" alt=" text" width="40%" />
 
 
@@ -122,23 +124,25 @@ pod 'MFCard'
 - Present Card like alert
 - Swipe Gesture To Swipe Card front & back
 - Error Handing
-- Toast Messages for error handling 
+- Toast Messages for error handling
 - All Properties editable using IBDesignable
+- Animations
+- Easy to use
 
 
 ## Collaboration
 Feel free to collaborate with ideas, issues and/or pull requests.
 
 
-## Further Plans 
+## Further Plans
 
 - Provide More Classic card views
-- Mutiple Card Collection Viewer 
-- Stripe Integration 
+- Mutiple Card Collection Viewer
+- Stripe Integration
 - Language Support (French, Spanish)
 - More Animations :-P
 
-## Thanks 
+## Thanks
 - https://github.com/RC7770/CreditCardValidator
 - https://github.com/scalessec/Toast-Swift
 - Icon Credit : https://thenounproject.com/term/credit-card/490264/
@@ -150,7 +154,7 @@ Feel free to collaborate with ideas, issues and/or pull requests.
 
 * Arpan & Rahul (http://mobilefirst.in)
 * Twitter: [@mobilefirstinc](http://twitter.com/mobilefirstinc)
-* Email : [arpan at mobilefirst.in](mailto://arpan@mobilefirst.in)
+* Email : [MFCard at mobilefirst.in](mailto://arpan@mobilefirst.in)
 
 ## License
 
