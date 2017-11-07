@@ -168,7 +168,7 @@ Feel free to collaborate with ideas, issues and/or pull requests.
 
 * Arpan & Rahul (http://mobilefirst.in)
 * Twitter: [@mobilefirstinc](http://twitter.com/mobilefirstinc)
-* Email : [arpan at mobilefirst.in](mailto://arpan@mobilefirst.in)
+* Email : [MFCard at mobilefirst.in](mailto://arpan@mobilefirst.in)
 
 ## License
 
