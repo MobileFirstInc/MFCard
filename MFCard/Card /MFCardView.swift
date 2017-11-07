@@ -73,6 +73,8 @@ extension MFCardDelegate{
     public var toast = true
     public var topDistance = 100
     
+    public var blurStyle:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+    
     public var cardTypeAnimation :UIViewAnimationOptions = [.transitionFlipFromBottom, .curveLinear]
     //MARK:
     //MARK: initialization
@@ -178,8 +180,7 @@ extension MFCardDelegate{
     }
     
     public func showCard(){
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
-        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView = UIVisualEffectView(effect: blurStyle)
         blurEffectView.alpha = 1.0 // blur effect alpha
         blurEffectView.frame = rootViewController.view.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
