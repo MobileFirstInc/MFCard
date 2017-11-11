@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
     s.license          = 'MIT'
     s.author           = {'Rahul Chandnani' => 'rahulchandnani@my.com', 'Arpan Desai' => 'arpan@mobilefirst.in'}
 
-    s.source           = { :git => 'https://github.com/MobileFirstInc/MFCard.git' , :tag => 'v1.2.5'}
+    s.source           = { :git => 'https://github.com/MobileFirstInc/MFCard.git' , :tag => '1.2.5'}
 
     s.homepage = 'https://www.mobilefirst.in'
     s.platform     = :ios, '8.0'
@@ -16,5 +16,5 @@ Pod::Spec.new do |s|
     'MFCard' => ['MFCard/**/*.{xib,xcassets,json,imageset,png,jpg}']
     }
     s.frameworks = 'UIKit', 'Foundation'
-    s.pod_target_xcconfig = { 'SWIFT_VERSION' => '3' }
+    s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4' }
 end
