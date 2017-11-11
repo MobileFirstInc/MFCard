@@ -4,12 +4,26 @@
 
 <img src="https://img.shields.io/badge/platform-iOS-blue.svg?style=flat" alt="Platform iOS" />
 <img src="https://img.shields.io/badge/swift3-compatible-green.svg?style=flat" alt="Swift 3 compatible" />
+<img src="https://img.shields.io/badge/swift4-compatible-green.svg?style=flat" alt="Swift 4 compatible" />
 <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="License MIT" />
-<a href="https://cocoapods.org/pods/MFCard"><img src="https://img.shields.io/badge/pod-1.0.9-blue.svg" alt="CocoaPods compatible" /></a>
+<a href="https://cocoapods.org/pods/MFCard"><img src="https://img.shields.io/badge/pod-1.2.5-blue.svg" alt="CocoaPods compatible" /></a>
 
 MFCard is an awesome looking Credit Card input & validation control. Written in Swift 3.
 
 YOoo, Now MFCard is on Swift 4.
+
+*Swift 4.0 (Xcode 9.0)*
+
+```ruby
+pod 'MFCard'
+```
+
+*Or you can choose version for Swift 3*
+
+```ruby
+pod 'MFCard', '1.2.4'
+```
+
 
 <img src="https://raw.githubusercontent.com/MobileFirstInc/MFCard/master/MFCardDemo/Screens/Card Front.png" alt=" text" width="40%" />
 
@@ -104,16 +118,16 @@ pod 'MFCard'
 - Animation on CardType Change
 - MFCard show - BlurStyle
 
-##Screenshots
-<img src="https://raw.githubusercontent.com/MobileFirstInc/MFCard/master/MFCardDemo/Screens/Card1.png" alt=" text" width="40%" />
 
+## Screenshots
+
+
+<img src="https://raw.githubusercontent.com/MobileFirstInc/MFCard/master/MFCardDemo/Screens/Card1.png" alt=" text" width="40%" />
 
 <img src="https://raw.githubusercontent.com/MobileFirstInc/MFCard/master/MFCardDemo/Screens/Card Back.png" alt=" text" width="40%" />
 
 
 <img src="https://raw.githubusercontent.com/MobileFirstInc/MFCard/master/MFCardDemo/Screens/MF.png" alt=" text" width="60%" />
-
-
 
 
 
@@ -154,7 +168,7 @@ Feel free to collaborate with ideas, issues and/or pull requests.
 
 * Arpan & Rahul (http://mobilefirst.in)
 * Twitter: [@mobilefirstinc](http://twitter.com/mobilefirstinc)
-* Email : [MFCard at mobilefirst.in](mailto://arpan@mobilefirst.in)
+* Email : [arpan at mobilefirst.in](mailto:arpan@mobilefirst.in)
 
 ## License
 
