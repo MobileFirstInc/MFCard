@@ -16,5 +16,5 @@ Pod::Spec.new do |s|
     'MFCard' => ['MFCard/**/*.{xib,xcassets,json,imageset,png,jpg}']
     }
     s.frameworks = 'UIKit', 'Foundation'
-    s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4' }
+    s.pod_target_xcconfig = { 'SWIFT_VERSION' => '3' }
 end
