@@ -28,7 +28,7 @@ pod 'MFCard', '1.2.4'
 <img src="https://raw.githubusercontent.com/MobileFirstInc/MFCard/master/MFCardDemo/Screens/Card Front.png" alt=" text" width="40%" />
 
 ## MobileFirst Applications
-We are a mobile development agency working on Swift for iOS, Java for Android. We are avaialbe for new projects. 
+We are a mobile development agency working on Swift for iOS, Java for Android. We are available for new projects. 
 
 ## Demo
 
