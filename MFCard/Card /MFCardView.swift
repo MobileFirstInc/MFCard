@@ -11,10 +11,15 @@ import UIKit
 public protocol MFCardDelegate {
     func cardDoneButtonClicked(_ card:Card?, error:String?)
     func cardTypeDidIdentify(_ cardType :String)
+    func cardDidClose()
 }
 
 extension MFCardDelegate{
     func cardTypeDidIdentify(_ cardType :String){
+        //optional
+    }
+    func cardDidClose(){
+        //optional
     }
 }
 
@@ -404,13 +409,15 @@ extension MFCardDelegate{
     //MARK:
     //MARK: IBAction
     @IBAction func btnCVCAction(_ sender: AnyObject) {
-        
         flip(nil)
     }
     
     @IBAction func btnDoneAction(_ sender: AnyObject) {
         if (btnDone.title(for: .normal) == "Close"){
             dismissCard()
+            if self.delegate != nil{
+                self.delegate?.cardDidClose()
+            }
         }else{
             error = nil
             var card :Card?

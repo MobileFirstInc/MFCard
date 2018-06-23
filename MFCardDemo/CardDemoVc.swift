@@ -51,6 +51,9 @@ class CardDemoVc: UIViewController,MFCardDelegate {
         // You can change Card background and other parameters once Card Type is identified
         // e.g - myCard?.cardImage  will help set Card Image
     }
+    func cardDidClose() {
+        print("Card Close")
+    }
     
     /*
     // MARK: - Navigation

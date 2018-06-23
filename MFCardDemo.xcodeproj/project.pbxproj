@@ -20,14 +20,14 @@
 		6B2447791DF84FBE003A8285 /* LBZSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2447721DF84FBE003A8285 /* LBZSpinner.swift */; };
 		6B24477A1DF84FBE003A8285 /* MFCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2447731DF84FBE003A8285 /* MFCardView.swift */; };
 		6B24477B1DF84FBE003A8285 /* MFCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B2447741DF84FBE003A8285 /* MFCardView.xib */; };
-		6B2447821DF855D6003A8285 /* MFCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2447301DF84E62003A8285 /* MFCard.framework */; };
-		6B2447831DF855D6003A8285 /* MFCard.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2447301DF84E62003A8285 /* MFCard.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6B3020841DF975AB00FB9C0D /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3020831DF975AB00FB9C0D /* Toast.swift */; };
 		6B6476081DF95B83004679E4 /* CardDemoVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6476071DF95B83004679E4 /* CardDemoVc.swift */; };
+		B77FC72520DE1AC900FE1C55 /* MFCard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2447301DF84E62003A8285 /* MFCard.framework */; };
+		B77FC72620DE1AC900FE1C55 /* MFCard.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2447301DF84E62003A8285 /* MFCard.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		6B2447841DF855D6003A8285 /* PBXContainerItemProxy */ = {
+		B77FC72720DE1AC900FE1C55 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6B6CF8131DCB53DA00A29C16 /* Project object */;
 			proxyType = 1;
@@ -37,13 +37,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		6B2447861DF855D6003A8285 /* Embed Frameworks */ = {
+		B77FC72920DE1AC900FE1C55 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6B2447831DF855D6003A8285 /* MFCard.framework in Embed Frameworks */,
+				B77FC72620DE1AC900FE1C55 /* MFCard.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,7 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B2447821DF855D6003A8285 /* MFCard.framework in Frameworks */,
+				B77FC72520DE1AC900FE1C55 /* MFCard.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,12 +219,12 @@
 				6B2447381DF84E82003A8285 /* Sources */,
 				6B2447391DF84E82003A8285 /* Frameworks */,
 				6B24473A1DF84E82003A8285 /* Resources */,
-				6B2447861DF855D6003A8285 /* Embed Frameworks */,
+				B77FC72920DE1AC900FE1C55 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6B2447851DF855D6003A8285 /* PBXTargetDependency */,
+				B77FC72820DE1AC900FE1C55 /* PBXTargetDependency */,
 			);
 			name = MFCardDemo;
 			productName = MFCardDemo;
@@ -323,10 +323,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6B2447851DF855D6003A8285 /* PBXTargetDependency */ = {
+		B77FC72820DE1AC900FE1C55 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6B24472F1DF84E62003A8285 /* MFCard */;
-			targetProxy = 6B2447841DF855D6003A8285 /* PBXContainerItemProxy */;
+			targetProxy = B77FC72720DE1AC900FE1C55 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -353,7 +353,7 @@
 		6B2447361DF84E62003A8285 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -379,7 +379,7 @@
 		6B2447371DF84E62003A8285 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 536JDUMES6;

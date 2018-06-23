@@ -58,6 +58,10 @@ class ViewController: UIViewController,MFCardDelegate {
         // e.g - myCard?.cardImage  will help set Card Image
     }
     
+    func cardDidClose() {
+        print("Card Close")
+    }
+    
    
 
 }
