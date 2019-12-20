@@ -68,7 +68,7 @@ import UIKit
 
     fileprivate func initCustomView() {
         backgroundColor = UIColor.clear  // clear black background
-        NotificationCenter.default.addObserver(self, selector: #selector(LBZSpinner.orientationChanged), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(LBZSpinner.orientationChanged), name: UIDevice.orientationDidChangeNotification, object: nil)
 
         //Open spinner click
         let gesture = UITapGestureRecognizer(target: self, action: #selector(LBZSpinner.openSpinner(_:)))
@@ -150,7 +150,7 @@ import UIKit
         viewChooseDisable = UIView(frame: parentView.frame) // view back click
 
         if(dDLblurEnable) {  // with blur effect
-            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+            let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
             blurEffectView = UIVisualEffectView(effect: blurEffect)
             blurEffectView.effect = nil
             blurEffectView.backgroundColor = UIColor.black.withAlphaComponent(0)
@@ -192,7 +192,7 @@ import UIKit
 
             UIView.animate(withDuration: 0.3,
                 delay: 0.0,
-                options: UIViewAnimationOptions.transitionFlipFromBottom,
+                options: UIView.AnimationOptions.transitionFlipFromBottom,
                 animations: {
                     self.tableviewChoose.frame.size.height = self.heightTableview
                     self.tableviewChooseShadow.frame.size.height = self.heightTableview
@@ -214,7 +214,7 @@ import UIKit
 
             UIView.animate(withDuration: 0.3,
                 delay: 0.0,
-                options: UIViewAnimationOptions.transitionFlipFromBottom,
+                options: UIView.AnimationOptions.transitionFlipFromBottom,
                 animations: {
                     self.tableviewChoose.frame.origin.y = globalPoint.y-self.heightTableview+self.frame.height
                     self.tableviewChoose.frame.size.height = self.heightTableview
@@ -240,7 +240,7 @@ import UIKit
         tableviewChoose.isUserInteractionEnabled = true
         tableviewChoose.showsHorizontalScrollIndicator = false
         tableviewChoose.showsVerticalScrollIndicator = false
-        tableviewChoose.separatorStyle = UITableViewCellSeparatorStyle.none
+        tableviewChoose.separatorStyle = UITableViewCell.SeparatorStyle.none
         tableviewChoose.layer.cornerRadius = 5
 
         //Show stroke
@@ -277,7 +277,7 @@ import UIKit
         if(tableviewChoose != nil) {
             UIView.animate(withDuration: 0.3,
                 delay: 0.0,
-                options: UIViewAnimationOptions.transitionFlipFromBottom,
+                options: UIView.AnimationOptions.transitionFlipFromBottom,
                 animations: {
                     self.tableviewChoose.alpha = 0.0
                     self.tableviewChooseShadow.alpha = 0.0
