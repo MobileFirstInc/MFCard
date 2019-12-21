@@ -78,9 +78,9 @@ extension MFCardDelegate{
     public var toast = true
     public var topDistance = 100
     
-    public var blurStyle:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+    public var blurStyle:UIBlurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
     
-    public var cardTypeAnimation :UIViewAnimationOptions = [.transitionFlipFromBottom, .curveLinear]
+    public var cardTypeAnimation :UIView.AnimationOptions = [.transitionFlipFromBottom, .curveLinear]
     //MARK:
     //MARK: initialization
     public init(withViewController:UIViewController) {
@@ -116,7 +116,7 @@ extension MFCardDelegate{
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[view]|", options: [], metrics: nil, views: ["view": self.view]))
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[view]|", options: [], metrics: nil, views: ["view": self.view]))
         //Orientation Observer
-        NotificationCenter.default.addObserver(self, selector: #selector(self.orientationDidChange), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.orientationDidChange), name: UIDevice.orientationDidChangeNotification, object: nil)
 
         self.layoutIfNeeded()
         self.updateConstraintsIfNeeded()
@@ -153,11 +153,11 @@ extension MFCardDelegate{
         txtCardNoP4.delegate = self
         txtCvc.delegate = self
         
-        txtCardNoP1.addTarget(self, action: #selector(MFCardView.textFieldDidChange(_:)), for: UIControlEvents.editingChanged)
-        txtCardNoP2.addTarget(self, action: #selector(MFCardView.textFieldDidChange(_:)), for: UIControlEvents.editingChanged)
-        txtCardNoP3.addTarget(self, action: #selector(MFCardView.textFieldDidChange(_:)), for: UIControlEvents.editingChanged)
-        txtCardNoP4.addTarget(self, action: #selector(MFCardView.textFieldDidChange(_:)), for: UIControlEvents.editingChanged)
-        txtCvc.addTarget(self, action: #selector(MFCardView.textFieldDidChange(_:)), for: UIControlEvents.editingChanged)
+        txtCardNoP1.addTarget(self, action: #selector(MFCardView.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        txtCardNoP2.addTarget(self, action: #selector(MFCardView.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        txtCardNoP3.addTarget(self, action: #selector(MFCardView.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        txtCardNoP4.addTarget(self, action: #selector(MFCardView.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        txtCvc.addTarget(self, action: #selector(MFCardView.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(self.flip))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(self.flip))
         
@@ -193,17 +193,17 @@ extension MFCardDelegate{
         rootViewController.view.addSubview(view)
         
         // center view horizontally in rootViewController.view
-        rootViewController.view.addConstraint(NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: rootViewController.view, attribute: NSLayoutAttribute.centerX, multiplier: 1.0, constant: 0.0));
+        rootViewController.view.addConstraint(NSLayoutConstraint(item: view, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: rootViewController.view, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1.0, constant: 0.0));
         
         // align view from the top
-         topConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(topDistance)-[view]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view])
+         topConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(topDistance)-[view]", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: ["view": view])
         rootViewController.view.addConstraints(topConstraints!);
         
         // width constraint
-        rootViewController.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[view(==300)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]));
+        rootViewController.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[view(==300)]", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: ["view": view]));
         
         // height constraint
-        rootViewController.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[view(==240)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]));
+        rootViewController.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[view(==240)]", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: ["view": view]));
         animateCard()
         // Animate it in
         
@@ -391,14 +391,14 @@ extension MFCardDelegate{
     }
     
     @objc fileprivate func orientationDidChange(){
-        if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
+        if UIDevice.current.orientation.isLandscape {
             if (topConstraints != nil){
                 topConstraints?[0].constant = 10
             }
             
         }
         
-        if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
+        if UIDevice.current.orientation.isPortrait {
             if (topConstraints != nil){
                 topConstraints?[0].constant = CGFloat(topDistance)
             }
@@ -484,8 +484,8 @@ extension MFCardDelegate{
         }
         
         if (cardFrontView.isHidden == false) {
-            let transitionOptions: UIViewAnimationOptions = [.transitionFlipFromRight, .showHideTransitionViews]
-            btnCvc.setTitle("CARD", for: UIControlState())
+            let transitionOptions: UIView.AnimationOptions = [.transitionFlipFromRight, .showHideTransitionViews]
+            btnCvc.setTitle("CARD", for: UIControl.State())
             UIView.transition(with: cardFrontView, duration: 1.0, options: transitionOptions, animations: {
                 self.cardFrontView.isHidden = true
             }, completion: nil)
@@ -496,8 +496,8 @@ extension MFCardDelegate{
             }, completion: nil)
         }
         else {
-            let transitionOptions: UIViewAnimationOptions = [.transitionFlipFromLeft, .showHideTransitionViews]
-            btnCvc.setTitle("CVC", for: UIControlState())
+            let transitionOptions: UIView.AnimationOptions = [.transitionFlipFromLeft, .showHideTransitionViews]
+            btnCvc.setTitle("CVC", for: UIControl.State())
             UIView.transition(with: cardBackView, duration: 1.0, options: transitionOptions, animations: {
                 self.cardBackView.isHidden = true
             }, completion: nil)

@@ -26,7 +26,7 @@ class ViewController: UIViewController,MFCardDelegate {
         myCard.delegate = self
         myCard.autoDismiss = true
         myCard.toast = true
-        myCard.blurStyle  = UIBlurEffect(style: UIBlurEffectStyle.extraLight)
+        myCard.blurStyle  = UIBlurEffect(style: UIBlurEffect.Style.extraLight)
         let demoCard :Card? = Card(holderName: "Rahul Chandnani", number: "6552552665526625", month: Month.Dec, year: "2019", cvc: "234", paymentType: Card.PaymentType.bank, cardType: CardType.Discover, userId: 0)
         myCard.showCardWithCardDetails(card: demoCard!)
     }
@@ -37,7 +37,7 @@ class ViewController: UIViewController,MFCardDelegate {
         myCard.delegate = self
         myCard.autoDismiss = true
         myCard.toast = true
-        myCard.blurStyle  = UIBlurEffect(style: UIBlurEffectStyle.light)
+        myCard.blurStyle  = UIBlurEffect(style: UIBlurEffect.Style.light)
         myCard.showCard()
     }
     
