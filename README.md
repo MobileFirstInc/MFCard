@@ -19,7 +19,7 @@ pod 'MFCard'
 *Or you can choose version for Swift 4.0 (Xcode 9.0)*
 
 ```ruby
-pod 'MFCard, '1.2.6'
+pod 'MFCard', '1.2.6'
 ```
 
 *Or you can choose version for Swift 3*
