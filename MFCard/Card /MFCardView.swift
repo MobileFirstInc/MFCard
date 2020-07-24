@@ -130,7 +130,7 @@ extension MFCardDelegate{
        btnDone.setTitle("Close", for: .normal)
         let components = (Calendar.current as NSCalendar).components([.day, .month, .year], from: Date())
         let year = components.year
-        let expiryMonth = Month.allValues
+        let expiryMonth = (components.month!...12).compactMap { return "\($0)"}
         var expiryYear :[String] = [String]()
         var i = year! - 1
         while i <= year! + 20 {
