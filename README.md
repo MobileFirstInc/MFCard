@@ -10,12 +10,16 @@
 
 MFCard is an awesome looking Credit Card input & validation control. Written in Swift 3.
 
-YOoo, Now MFCard is on Swift 4.
-
-*Swift 4.0 (Xcode 9.0)*
+YOoo, Now MFCard is on Swift 5.
 
 ```ruby
 pod 'MFCard'
+```
+
+*Or you can choose version for Swift 4.0 (Xcode 9.0)*
+
+```ruby
+pod 'MFCard, '1.2.6'
 ```
 
 *Or you can choose version for Swift 3*
