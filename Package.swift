@@ -5,10 +5,10 @@ import PackageDescription
 
 let package = Package(
     name: "MFCard",
+    platforms: [
+        .iOS(.v10)
+    ],
     products: [
-        platforms: [
-            .iOS(.v10),
-        ],
         .library(
         name: "MFCard",
         targets: ["MFCard"]),
@@ -22,7 +22,8 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "MFCard",
-            dependencies: []),
+            dependencies: [],
+            path: "MFCard"),
         .testTarget(
             name: "MFCardTests",
             dependencies: ["MFCard"]),
