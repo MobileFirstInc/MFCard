@@ -3,25 +3,25 @@
 # MFCard
 
 <img src="https://img.shields.io/badge/platform-iOS-blue.svg?style=flat" alt="Platform iOS" />
-<img src="https://img.shields.io/badge/swift3-compatible-green.svg?style=flat" alt="Swift 3 compatible" />
 <img src="https://img.shields.io/badge/swift4-compatible-green.svg?style=flat" alt="Swift 4 compatible" />
+<img src="https://img.shields.io/badge/swift5-compatible-green.svg?style=flat" alt="Swift 5 compatible" />
 <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="License MIT" />
-<a href="https://cocoapods.org/pods/MFCard"><img src="https://img.shields.io/badge/pod-1.2.5-blue.svg" alt="CocoaPods compatible" /></a>
+<a href="https://cocoapods.org/pods/MFCard"><img src="https://img.shields.io/badge/pod-1.2.7-blue.svg" alt="CocoaPods compatible" /></a>
 
 MFCard is an awesome looking Credit Card input & validation control. Written in Swift 3.
 
-YOoo, Now MFCard is on Swift 4.
+YOoo, Now MFCard is on Swift 5.
 
-* Swift 4.0 (Xcode 9.0)*
+* Swift 5.0 (Xcode 11.0)*
 
 ```ruby
 pod 'MFCard'
 ```
 
-*Or you can choose version for Swift 3*
+*Or you can choose version for Swift 4*
 
 ```ruby
-pod 'MFCard', '1.2.4'
+pod 'MFCard', '1.2.6'
 ```
 
 
