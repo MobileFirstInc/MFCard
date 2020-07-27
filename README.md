@@ -8,6 +8,8 @@
 <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="License MIT" />
 <a href="https://cocoapods.org/pods/MFCard"><img src="https://img.shields.io/badge/pod-1.2.7-blue.svg" alt="CocoaPods compatible" /></a>
 
+https://www.buymeacoffee.com/mobilefirst
+
 MFCard is an awesome looking Credit Card input & validation control. Written in Swift 3.
 
 YOoo, Now MFCard is on Swift 5.
