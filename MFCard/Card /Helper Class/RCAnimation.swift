@@ -23,8 +23,8 @@ class RCAnimation: NSObject {
     class func fadeAnimation(_ sender: UIView) {
         let animation = CATransition()
         animation.delegate = sender as? CAAnimationDelegate
-        animation.type = "fade"
-        animation.subtype = "fromTop"
+        animation.type = CATransitionType(rawValue: "fade")
+        animation.subtype = CATransitionSubtype(rawValue: "fromTop")
         animation.duration = 1.1
         animation.setValue("fade", forKey: "animType")
         sender.layer.add(animation, forKey: nil)
@@ -34,8 +34,8 @@ class RCAnimation: NSObject {
     class func rotateAnimation(_ sender: UIView) {
         let animation = CATransition()
         animation.delegate = sender as? CAAnimationDelegate
-        animation.type = "rotate"
-        animation.subtype = "fromTop"
+        animation.type = CATransitionType(rawValue: "rotate")
+        animation.subtype = CATransitionSubtype(rawValue: "fromTop")
         animation.duration = 1.1
         animation.setValue("rotate", forKey: "animType")
         sender.layer.add(animation, forKey: nil)
@@ -45,8 +45,8 @@ class RCAnimation: NSObject {
     class func suckEffectAnimation(_ sender: UIView) {
         let animation = CATransition()
         animation.delegate = sender as? CAAnimationDelegate
-        animation.type = "suckEffect"
-        animation.subtype = "fromTop"
+        animation.type = CATransitionType(rawValue: "suckEffect")
+        animation.subtype = CATransitionSubtype(rawValue: "fromTop")
         animation.duration = 1.3
         animation.setValue("suckEffect", forKey: "animType")
         sender.layer.add(animation, forKey: nil)
@@ -56,8 +56,8 @@ class RCAnimation: NSObject {
     class func pushAnimation(_ sender: UIView) {
         let animation = CATransition()
         animation.delegate = sender as? CAAnimationDelegate
-        animation.type = "push"
-        animation.subtype = "fromTop"
+        animation.type = CATransitionType(rawValue: "push")
+        animation.subtype = CATransitionSubtype(rawValue: "fromTop")
         animation.duration = 1.1
         animation.setValue("push", forKey: "animType")
         sender.layer.add(animation, forKey: nil)
@@ -67,8 +67,8 @@ class RCAnimation: NSObject {
     class func rippleEffectAnimation(_ sender: UIView) {
         let animation = CATransition()
         animation.delegate = sender as? CAAnimationDelegate
-        animation.type = "rippleEffect"
-        animation.subtype = "fromTop"
+        animation.type = CATransitionType(rawValue: "rippleEffect")
+        animation.subtype = CATransitionSubtype(rawValue: "fromTop")
         animation.duration = 2.2
         animation.setValue("rippleEffect", forKey: "animType")
         sender.layer.add(animation, forKey: nil)
@@ -78,8 +78,8 @@ class RCAnimation: NSObject {
     class func cubeEffectAnimation(_ sender: UIView) {
         let animation = CATransition()
         animation.delegate = sender as? CAAnimationDelegate
-        animation.type = "cube"
-        animation.subtype = "fromTop"
+        animation.type = CATransitionType(rawValue: "cube")
+        animation.subtype = CATransitionSubtype(rawValue: "fromTop")
         animation.duration = 1.1
         animation.setValue("cubeEffect", forKey: "animType")
         sender.layer.add(animation, forKey: nil)
@@ -89,8 +89,8 @@ class RCAnimation: NSObject {
     class func oglFlipAnimation(_ sender: UIView) {
         let animation = CATransition()
         animation.delegate = sender as? CAAnimationDelegate
-        animation.type = "oglFlip"
-        animation.subtype = "fromTop"
+        animation.type = CATransitionType(rawValue: "oglFlip")
+        animation.subtype = CATransitionSubtype(rawValue: "fromTop")
         animation.duration = 1.1
         animation.setValue("oglFlip", forKey: "animType")
         sender.layer.add(animation, forKey: nil)
@@ -110,7 +110,7 @@ class RCAnimation: NSObject {
         group.animations = [rotationAni, scaleAni]
         group.setValue("toMini", forKey: "animType")
         group.isRemovedOnCompletion = false
-        group.fillMode = kCAFillModeForwards
+        group.fillMode = CAMediaTimingFillMode.forwards
         sender.layer.add(group, forKey: nil)
         sender.isHidden = true
     }

@@ -57,7 +57,7 @@ public class MFCardCollection: UIView {
     // MARK:-
     func setUp(){
         self.backgroundColor = UIColor.clear
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
         blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.alpha = 0.5 // blur effect alpha
         blurEffectView.frame = rootViewController.view.bounds
@@ -72,7 +72,7 @@ public class MFCardCollection: UIView {
             break
             
         }
-        let direction: UICollectionViewScrollDirection = .horizontal
+        let direction: UICollectionView.ScrollDirection = .horizontal
         collection?.isPagingEnabled = true
         
         let layout =  AnimatedCollectionViewLayout()
@@ -82,10 +82,10 @@ public class MFCardCollection: UIView {
         collection = UICollectionView(frame: CGRect(x: 10, y: topDistance, width: Int(self.frame.size.width), height: 320), collectionViewLayout: layout)
         
         // center layer horizontally in self.view
-        self.addConstraint(NSLayoutConstraint(item: collection!, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.centerX, multiplier: 1.0, constant: 0.0));
+        self.addConstraint(NSLayoutConstraint(item: collection!, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1.0, constant: 0.0));
         
         // center layer vertically in self.view
-        self.addConstraint(NSLayoutConstraint(item: collection!, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.centerY, multiplier: 1.0, constant: 0.0));
+        self.addConstraint(NSLayoutConstraint(item: collection!, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1.0, constant: 0.0));
         
         collection?.register(UINib(nibName:"MFCardCollectionCell", bundle: getBundle()), forCellWithReuseIdentifier: reuseIdentifier)
         collection?.delegate = self
@@ -98,20 +98,20 @@ public class MFCardCollection: UIView {
         closeButton.translatesAutoresizingMaskIntoConstraints = false
 
         // align layer from the right
-        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[view]-\(20)-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": closeButton]));
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[view]-\(20)-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: ["view": closeButton]));
         
         // align layer from the top
-        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(closeButton.frame.origin.y)-[view]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": closeButton]));
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(closeButton.frame.origin.y)-[view]", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: ["view": closeButton]));
         
         // width constraint
-        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[view(==\(closeButton.frame.height))]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": closeButton]));
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[view(==\(closeButton.frame.height))]", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: ["view": closeButton]));
         
         // height constraint
-        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[view(==\(closeButton.frame.width))]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": closeButton]));
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[view(==\(closeButton.frame.width))]", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: ["view": closeButton]));
         closeButton.addTarget(self, action:#selector(closeCollection(sender:)), for: .touchUpInside)
         closeButton.setTitle("X", for: .normal)
         closeButton.backgroundColor = UIColor.red
-        closeButton.bringSubview(toFront: collection!)
+        closeButton.bringSubviewToFront(collection!)
         self.layoutIfNeeded()
         //collection?.isPagingEnabled = true
         collection?.showsVerticalScrollIndicator = false
@@ -166,8 +166,8 @@ public class MFCardCollection: UIView {
         })
     }
 
-    func handleLongPress(sender: UILongPressGestureRecognizer){
-        if sender.state == UIGestureRecognizerState.began {
+    @objc func handleLongPress(sender: UILongPressGestureRecognizer){
+        if sender.state == UIGestureRecognizer.State.began {
             let touchPoint = sender.location(in: collection)
             if (collection?.indexPathForItem(at: touchPoint)) != nil {
                 isEditing = true
@@ -233,9 +233,9 @@ extension MFCardCollection : UICollectionViewDelegate,UICollectionViewDataSource
     
    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if isiPhone5WithZoomAnimation{
-            return UIEdgeInsetsMake(0, -10, 0, 20)
+            return UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 20)
         }else{
-            return UIEdgeInsetsMake(0, 20, 0, 20)
+            return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         }
     }
     
