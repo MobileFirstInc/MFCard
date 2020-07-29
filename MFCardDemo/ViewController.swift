@@ -13,6 +13,9 @@ class ViewController: UIViewController,MFCardDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //let  collection = mfcardcol
+       
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -26,7 +29,6 @@ class ViewController: UIViewController,MFCardDelegate {
         myCard.delegate = self
         myCard.autoDismiss = true
         myCard.toast = true
-        myCard.blurStyle  = UIBlurEffect(style: UIBlurEffect.Style.extraLight)
         let demoCard :Card? = Card(holderName: "Rahul Chandnani", number: "6552552665526625", month: Month.Dec, year: "2019", cvc: "234", paymentType: Card.PaymentType.bank, cardType: CardType.Discover, userId: 0)
         myCard.showCardWithCardDetails(card: demoCard!)
     }
@@ -37,7 +39,6 @@ class ViewController: UIViewController,MFCardDelegate {
         myCard.delegate = self
         myCard.autoDismiss = true
         myCard.toast = true
-        myCard.blurStyle  = UIBlurEffect(style: UIBlurEffect.Style.light)
         myCard.showCard()
     }
     
@@ -58,11 +59,14 @@ class ViewController: UIViewController,MFCardDelegate {
         // e.g - myCard?.cardImage  will help set Card Image
     }
     
-    func cardDidClose() {
-        print("Card Close")
+    @IBAction func btnShowCardsClicked(_ sender: Any) {
+        let collection : MFCardCollection = MFCardCollection(withViewController: self)
+        
+        let demoCard :Card? = Card(holderName: "Rahul Chandnani", number: "6552552665526625", month: Month.Dec, year: "2019", cvc: "234", paymentType: Card.PaymentType.bank, cardType: CardType.Discover, userId: 0)
+        
+        collection.presentCollection(for:[demoCard!,demoCard!,demoCard!,demoCard!,demoCard!,demoCard!,demoCard!,demoCard!,demoCard!,demoCard!,demoCard!] )
     }
     
-   
-
+    
 }
 

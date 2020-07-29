@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Enums
 public enum CardType : String {
     case Visa           = "Visa"
     case MasterCard     = "MasterCard"
@@ -40,6 +41,7 @@ public enum Month :String{
 
 }
 
+// MARK: - Card
 public struct Card {
     
     public enum PaymentType: String {

@@ -8,21 +8,21 @@
 
 import UIKit
 
+// MARK: - MFCard Protocol
+// MARK:-
 public protocol MFCardDelegate {
     func cardDoneButtonClicked(_ card:Card?, error:String?)
     func cardTypeDidIdentify(_ cardType :String)
-    func cardDidClose()
 }
 
 extension MFCardDelegate{
     func cardTypeDidIdentify(_ cardType :String){
-        //optional
-    }
-    func cardDidClose(){
-        //optional
     }
 }
 
+// MARK
+// MARK: - MFCardView
+// MARK:-
 @IBDesignable public class MFCardView: UIView {
     
     public var delegate :MFCardDelegate?
@@ -31,44 +31,38 @@ extension MFCardDelegate{
     fileprivate var mfBundel :Bundle? = Bundle()
     fileprivate var containerView = UIView()
     fileprivate var topConstraints:[NSLayoutConstraint]?
+    
     @IBOutlet fileprivate var view: UIView!
-    
     @IBOutlet weak fileprivate var cardBackView: UIView!
-    
     @IBOutlet weak fileprivate var cardFrontView: UIView!
     @IBOutlet weak fileprivate var backChromeView: UIView!
-    
     @IBOutlet weak fileprivate var magneticTapeView: UIView!
-    
-    @IBOutlet weak fileprivate var txtCvc: UITextField!
-    
-    @IBOutlet weak fileprivate var frontCardImage: UIImageView!
-    
     @IBOutlet weak fileprivate var frontChromeView: UIView!
     
+    @IBOutlet weak fileprivate var txtCvc: UITextField!
     @IBOutlet weak fileprivate var txtCardName: UITextField!
-    
     @IBOutlet weak fileprivate var txtCardNoP1: UITextField!
     @IBOutlet weak fileprivate var txtCardNoP2: UITextField!
     @IBOutlet weak fileprivate var txtCardNoP3: UITextField!
     @IBOutlet weak fileprivate var txtCardNoP4: UITextField!
     
+    @IBOutlet weak fileprivate var frontCardImage: UIImageView!
     @IBOutlet weak fileprivate var cardTypeImage: UIImageView!
+    
     @IBOutlet weak fileprivate var viewExpiryMonth: LBZSpinner!
     @IBOutlet weak fileprivate var viewExpiryYear: LBZSpinner!
     
-    @IBOutlet weak fileprivate var controlView: UIView!
     
     @IBOutlet weak fileprivate var btnCvc: UIButton!
-    
     @IBOutlet weak fileprivate var btnDone: UIButton!
     
+    @IBOutlet weak fileprivate var controlView: UIView!
     @IBOutlet weak fileprivate var viewFrontContainer: UIView!
     @IBOutlet weak fileprivate var viewBackContainer: UIView!
     
     @IBOutlet fileprivate var cardLabels: [UILabel]!
-    
     fileprivate var cardTextFields:[UITextField]!
+
     weak fileprivate var rootViewController: UIViewController!
     fileprivate var blurEffectView:UIVisualEffectView!
 
@@ -78,11 +72,9 @@ extension MFCardDelegate{
     public var toast = true
     public var topDistance = 100
     
-    public var blurStyle:UIBlurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
-    
-    public var cardTypeAnimation :UIView.AnimationOptions = [.transitionFlipFromBottom, .curveLinear]
-    //MARK:
-    //MARK: initialization
+    // MARK:-
+    // MARK: initialization
+    // MARK:-
     public init(withViewController:UIViewController) {
         super.init(frame: CGRect(x: 0, y: 0, width: 300, height: 240))
         rootViewController = withViewController
@@ -102,8 +94,9 @@ extension MFCardDelegate{
         setupUI()
     }
     
-    //MARK:
-    //MARK: Setup
+    // MARK:-
+    // MARK: Setup
+    // MARK:-
     fileprivate func setup() {
         // 1. load a nib
         view = loadViewFromNib()
@@ -113,10 +106,10 @@ extension MFCardDelegate{
                 // 3. allow for autolayout
         self.view.translatesAutoresizingMaskIntoConstraints = false
         // 4. add constraints to span entire view
-        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[view]|", options: [], metrics: nil, views: ["view": self.view!]))
-        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[view]|", options: [], metrics: nil, views: ["view": self.view!]))
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[view]|", options: [], metrics: nil, views: ["view": self.view]))
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[view]|", options: [], metrics: nil, views: ["view": self.view]))
         //Orientation Observer
-        NotificationCenter.default.addObserver(self, selector: #selector(self.orientationDidChange), name: UIDevice.orientationDidChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.orientationDidChange), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
 
         self.layoutIfNeeded()
         self.updateConstraintsIfNeeded()
@@ -130,7 +123,7 @@ extension MFCardDelegate{
        btnDone.setTitle("Close", for: .normal)
         let components = (Calendar.current as NSCalendar).components([.day, .month, .year], from: Date())
         let year = components.year
-        let expiryMonth = (components.month!...12).compactMap { return "\($0)"}
+        let expiryMonth = Month.allValues
         var expiryYear :[String] = [String]()
         var i = year! - 1
         while i <= year! + 20 {
@@ -153,11 +146,11 @@ extension MFCardDelegate{
         txtCardNoP4.delegate = self
         txtCvc.delegate = self
         
-        txtCardNoP1.addTarget(self, action: #selector(MFCardView.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-        txtCardNoP2.addTarget(self, action: #selector(MFCardView.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-        txtCardNoP3.addTarget(self, action: #selector(MFCardView.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-        txtCardNoP4.addTarget(self, action: #selector(MFCardView.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-        txtCvc.addTarget(self, action: #selector(MFCardView.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        txtCardNoP1.addTarget(self, action: #selector(MFCardView.textFieldDidChange(_:)), for: UIControlEvents.editingChanged)
+        txtCardNoP2.addTarget(self, action: #selector(MFCardView.textFieldDidChange(_:)), for: UIControlEvents.editingChanged)
+        txtCardNoP3.addTarget(self, action: #selector(MFCardView.textFieldDidChange(_:)), for: UIControlEvents.editingChanged)
+        txtCardNoP4.addTarget(self, action: #selector(MFCardView.textFieldDidChange(_:)), for: UIControlEvents.editingChanged)
+        txtCvc.addTarget(self, action: #selector(MFCardView.textFieldDidChange(_:)), for: UIControlEvents.editingChanged)
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(self.flip))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(self.flip))
         
@@ -185,25 +178,26 @@ extension MFCardDelegate{
     }
     
     public func showCard(){
-        blurEffectView = UIVisualEffectView(effect: blurStyle)
-        blurEffectView.alpha = 1.0 // blur effect alpha
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.alpha = 0.5 // blur effect alpha
         blurEffectView.frame = rootViewController.view.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         rootViewController.view.addSubview(blurEffectView)
         rootViewController.view.addSubview(view)
         
         // center view horizontally in rootViewController.view
-        rootViewController.view.addConstraint(NSLayoutConstraint(item: view!, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: rootViewController.view, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1.0, constant: 0.0));
+        rootViewController.view.addConstraint(NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: rootViewController.view, attribute: NSLayoutAttribute.centerX, multiplier: 1.0, constant: 0.0));
         
         // align view from the top
-         topConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(topDistance)-[view]", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: ["view": view!])
+         topConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(topDistance)-[view]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view])
         rootViewController.view.addConstraints(topConstraints!);
         
         // width constraint
-        rootViewController.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[view(==300)]", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: ["view": view!]));
+        rootViewController.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[view(==300)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]));
         
         // height constraint
-        rootViewController.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[view(==240)]", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: ["view": view!]));
+        rootViewController.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[view(==240)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]));
         animateCard()
         // Animate it in
         
@@ -223,19 +217,19 @@ extension MFCardDelegate{
         
         //inner Function
         func setTextField(textFileld:UITextField,value:String){
-            if (textFileld.text?.count)! < 4{
+            if (textFileld.text?.characters.count)! < 4{
                 textFileld.text = textFileld.text! + value
             }
         }
         
         // 1 set card number
-        if (card.number?.count)!<6 && toast{
+        if (card.number?.characters.count)!<6 && toast{
             UIApplication.topViewController()?.view.makeToast("Wrong card number")
         }else{
             var currenttextFileld :UITextField
             var index = 0;
             let divider = 4;
-            for chara:Character in (card.number)! {
+            for chara:Character in (card.number?.characters)! {
                 if index<divider {
                     currenttextFileld = txtCardNoP1
                 }else if index<divider*2{
@@ -279,8 +273,9 @@ extension MFCardDelegate{
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    //MARK:
-    //MARK: Helping Methods
+    // MARK:-
+    // MARK: Helping Methods
+    // MARK:-
     
     fileprivate func loadViewFromNib() -> UIView {
         
@@ -292,16 +287,8 @@ extension MFCardDelegate{
     }
     
     fileprivate func getBundle() -> Bundle {
-        
-        let podBundle = Bundle(for: MFCardView.self)
-        let bundleURL = podBundle.url(forResource: "MFCard", withExtension: "bundle")
-        if bundleURL == nil{
-            mfBundel = podBundle
-        }else{
-            mfBundel = Bundle(url: bundleURL!)!
-        }
+        mfBundel = MFBundel.getBundle()
         return mfBundel!
-
     }
     
     fileprivate func screenSize() -> CGSize {
@@ -391,44 +378,43 @@ extension MFCardDelegate{
     }
     
     @objc fileprivate func orientationDidChange(){
-        if UIDevice.current.orientation.isLandscape {
+        if UIDeviceOrientationIsLandscape(UIDevice.current.orientation) {
             if (topConstraints != nil){
                 topConstraints?[0].constant = 10
             }
             
         }
         
-        if UIDevice.current.orientation.isPortrait {
+        if UIDeviceOrientationIsPortrait(UIDevice.current.orientation) {
             if (topConstraints != nil){
                 topConstraints?[0].constant = CGFloat(topDistance)
             }
         }
     }
 
+    // MARK:-
+    // MARK: IBAction
+    // MARK:-
     
-    //MARK:
-    //MARK: IBAction
     @IBAction func btnCVCAction(_ sender: AnyObject) {
+        
         flip(nil)
     }
     
     @IBAction func btnDoneAction(_ sender: AnyObject) {
         if (btnDone.title(for: .normal) == "Close"){
             dismissCard()
-            if self.delegate != nil{
-                self.delegate?.cardDidClose()
-            }
         }else{
             error = nil
             var card :Card?
             let cardNumber :String = getCardNumber()
-            if cardNumber.count <= 13 {
+            if cardNumber.characters.count <= 13 {
                 error = "Please enter valid card number"
             }else if viewExpiryMonth.labelValue.text! == "MM" {
                 error = "Please Select Expiry Month"
             }else if viewExpiryYear.labelValue.text! == "YYYY" {
                 error = "Please Select Expiry Year"
-            }else if (txtCvc.text?.count)! < 3 {
+            }else if (txtCvc.text?.characters.count)! < 3 {
                 error = "Please enter valid Cvv"
             }
             
@@ -453,8 +439,10 @@ extension MFCardDelegate{
         
     }
     
-    //MARK:
-    //MARK: Card Management
+    // MARK:-
+    // MARK: Card Management
+    // MARK:-
+    
     
     fileprivate func hideDoneButton(){
         UIView.animate(withDuration: 1, animations: {
@@ -484,8 +472,8 @@ extension MFCardDelegate{
         }
         
         if (cardFrontView.isHidden == false) {
-            let transitionOptions: UIView.AnimationOptions = [.transitionFlipFromRight, .showHideTransitionViews]
-            btnCvc.setTitle("CARD", for: UIControl.State())
+            let transitionOptions: UIViewAnimationOptions = [.transitionFlipFromRight, .showHideTransitionViews]
+            btnCvc.setTitle("CARD", for: UIControlState())
             UIView.transition(with: cardFrontView, duration: 1.0, options: transitionOptions, animations: {
                 self.cardFrontView.isHidden = true
             }, completion: nil)
@@ -496,8 +484,8 @@ extension MFCardDelegate{
             }, completion: nil)
         }
         else {
-            let transitionOptions: UIView.AnimationOptions = [.transitionFlipFromLeft, .showHideTransitionViews]
-            btnCvc.setTitle("CVC", for: UIControl.State())
+            let transitionOptions: UIViewAnimationOptions = [.transitionFlipFromLeft, .showHideTransitionViews]
+            btnCvc.setTitle("CVC", for: UIControlState())
             UIView.transition(with: cardBackView, duration: 1.0, options: transitionOptions, animations: {
                 self.cardBackView.isHidden = true
             }, completion: nil)
@@ -514,11 +502,9 @@ extension MFCardDelegate{
         
                 func setImageWithAnnimation(_ image:UIImage?,cardType:CardType){
                     addedCardType = cardType
-                    if image != cardTypeImage.image {
-                        UIView.transition(with: self.cardTypeImage, duration: 0.3, options: cardTypeAnimation, animations: {
-                            self.cardTypeImage.image = image
-                        }, completion: nil)
-                    }
+                    UIView.animate(withDuration: 1, animations: {
+                        self.cardTypeImage.image = image
+                    })
                 }
         
                 switch card {
@@ -572,8 +558,10 @@ extension MFCardDelegate{
                 }
     }
     
-    //MARK:
-    //MARK: @IBInspectable
+    // MARK:-
+    // MARK: @IBInspectable
+    // MARK:-
+    
     @IBInspectable public var cardImage :UIImage?  {
         didSet{
                 frontCardImage.image = cardImage
@@ -722,18 +710,21 @@ extension MFCardDelegate{
     
 }
 
+// MARK:-
+// MARK: UITextFieldDelegate Methods
+// MARK:-
 
 extension MFCardView: UITextFieldDelegate{
     
     
-    @objc func textFieldDidChange(_ textField: UITextField){
+    func textFieldDidChange(_ textField: UITextField){
         if textField != txtCvc{
             changeTextFieldLessThan0(textField)
             changeTextFieldMoreThan4(textField)
             changeCardType()
         }
         if textField == txtCvc {
-            if (textField.text?.count)! >= 3 {
+            if (textField.text?.characters.count)! >= 3 {
                 self.unHideDoneButton()
                 textField.resignFirstResponder()
             }else{
@@ -748,7 +739,7 @@ extension MFCardView: UITextFieldDelegate{
     public func textFieldDidEndEditing(_ textField: UITextField) {
         
         if textField == txtCvc {
-            if (textField.text?.count)! >= 3 {
+            if (textField.text?.characters.count)! >= 3 {
                 self.unHideDoneButton()
             }else{
                 self.hideDoneButton()
@@ -760,7 +751,7 @@ extension MFCardView: UITextFieldDelegate{
         
         if textField != txtCvc{
             let charLimit = 4
-            let currentLength = (textField.text?.count)! + string.count - range.length
+            let currentLength = (textField.text?.characters.count)! + string.characters.count - range.length
             let newLength = charLimit - currentLength
             if newLength < 0 {
                 changeTextFieldMoreThan4(textField)
@@ -771,7 +762,7 @@ extension MFCardView: UITextFieldDelegate{
             }
         }else{
             let charLimit = 3
-            let currentLength = (textField.text?.count)! + string.count - range.length
+            let currentLength = (textField.text?.characters.count)! + string.characters.count - range.length
             let newLength = charLimit - currentLength
             if newLength < 0 {
                 textField.resignFirstResponder()
@@ -787,7 +778,7 @@ extension MFCardView: UITextFieldDelegate{
     //MARK: Helper Methods
     func changeCardType(){
         let number = getCardNumber()
-        if number.count <= 4 || number.count >= 7{
+        if number.characters.count <= 4 || number.characters.count >= 7{
             
             let validator = CreditCardValidator()
             if let type = validator.typeFromString(number) {
@@ -795,7 +786,7 @@ extension MFCardView: UITextFieldDelegate{
                 if addedCardType?.rawValue != type.name{
                     delegate?.cardTypeDidIdentify(type.name)
                 }
-                if type.name == "" || type.name.count<0{
+                if type.name == "" || type.name.characters.count<0{
                     setImage("Unknown")
                 }else{
                     setImage(type.name)
@@ -810,7 +801,7 @@ extension MFCardView: UITextFieldDelegate{
     }
     func changeTextFieldMoreThan4(_ textField: UITextField){
         let text = textField.text
-        if text?.count == 4 {
+        if text?.characters.count == 4 {
             switch textField{
             case txtCardNoP1:
                 txtCardNoP2.becomeFirstResponder()
@@ -827,7 +818,7 @@ extension MFCardView: UITextFieldDelegate{
     }
     func changeTextFieldLessThan0(_ textField: UITextField){
         let text = textField.text
-        if (text?.count)! <= 0 {
+        if (text?.characters.count)! <= 0 {
             switch textField{
             case txtCardNoP1:
                 txtCardNoP1.becomeFirstResponder()
@@ -844,14 +835,24 @@ extension MFCardView: UITextFieldDelegate{
         
     }
 }
+
+// MARK:-
+// MARK: LBZSpinnerDelegate Methods
+// MARK:-
+
 extension MFCardView :LBZSpinnerDelegate{
     // LBZSpinner Delegate Method
     func spinnerChoose(_ spinner:LBZSpinner, index:Int,value:String) {
-        if spinner == viewExpiryMonth { _ = "Month" }
-        if spinner == viewExpiryYear { _ = "Year" }
+        var spinnerName = ""
+        if spinner == viewExpiryMonth { spinnerName = "Month" }
+        if spinner == viewExpiryYear { spinnerName = "Year" }
+        
+        print("Spinner : \(spinnerName) : { Index : \(index) - \(value) }")
     }
     
+    
 }
+
 extension UIApplication {
     class func topViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
         if let navigationController = controller as? UINavigationController {
